@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { color-scheme: dark; }
+  body {
+    @apply bg-base text-ink antialiased font-sans;
+  }
+  ::selection { @apply bg-accent/25 text-white; }
+  :focus-visible { outline: 2px solid #FFFFFF; outline-offset: 2px; border-radius: 4px; }
+
+  /* Slim, dark scrollbars everywhere */
+  ::-webkit-scrollbar { width: 8px; height: 8px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: #2E2E2E; border-radius: 99px; }
+  ::-webkit-scrollbar-thumb:hover { background: #454545; }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+  }
+}
+
+@layer components {
+  .glass {
+    @apply bg-base-panel/70 backdrop-blur-xl border border-base-border;
+  }
+  .kv-panel {
+    @apply bg-base-panel border border-base-border rounded-2xl shadow-panel;
+  }
+  .kv-eyebrow {
+    @apply text-[10px] font-mono uppercase tracking-[0.18em] text-accent;
+  }
+  /* Standard content card — one elevation + radius everywhere, with a quiet
+     border-brighten on hover so interactive surfaces feel responsive. */
+  .kv-card {
+    @apply bg-base-panel border border-base-border rounded-xl transition-colors duration-200;
+  }
+  .kv-card-hover {
+    @apply hover:border-white/25;
+  }
+  /* Section title used inside cards */
+  .kv-title {
+    @apply text-xs font-bold text-white uppercase tracking-widest;
+  }
+  .skeleton {
+    @apply relative overflow-hidden bg-base-raised rounded-lg;
+  }
+  .skeleton::after {
+    content: '';
+    @apply absolute inset-0 animate-shimmer;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.06), transparent);
+    background-size: 200% 100%;
+  }
+  .tabular { font-variant-numeric: tabular-nums; }
+}

@@ -1,0 +1,21 @@
+CourtID,CourtName,DistrictID,StateID,Active
+1,Bengaluru Urban District & Sessions Court,1,1,true
+2,Bengaluru Urban JMFC Court,1,1,true
+3,Mysuru District & Sessions Court,2,1,true
+4,Mysuru JMFC Court,2,1,true
+5,Tumakuru District & Sessions Court,3,1,true
+6,Tumakuru JMFC Court,3,1,true
+7,Belagavi District & Sessions Court,4,1,true
+8,Belagavi JMFC Court,4,1,true
+9,Kalaburagi District & Sessions Court,5,1,true
+10,Kalaburagi JMFC Court,5,1,true
+11,Dakshina Kannada District & Sessions Court,6,1,true
+12,Dakshina Kannada JMFC Court,6,1,true
+13,Dharwad District & Sessions Court,7,1,true
+14,Dharwad JMFC Court,7,1,true
+15,Ballari District & Sessions Court,8,1,true
+16,Ballari JMFC Court,8,1,true
+17,Shivamogga District & Sessions Court,9,1,true
+18,Shivamogga JMFC Court,9,1,true
+19,Hassan District & Sessions Court,10,1,true
+20,Hassan JMFC Court,10,1,true

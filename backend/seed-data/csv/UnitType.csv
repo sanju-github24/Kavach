@@ -1,0 +1,3 @@
+UnitTypeID,UnitTypeName,CityDistState,Hierarchy,Active
+1,Police Station,City,3,true
+2,District HQ,District,2,true

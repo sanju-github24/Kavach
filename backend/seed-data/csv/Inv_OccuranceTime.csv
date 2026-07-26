@@ -1,0 +1,501 @@
+CaseMasterID,IncidentFromDate,IncidentToDate,InfoReceivedPSDate,latitude,longitude,BriefFacts
+1,2021-09-27 01:37:26,2021-09-27 02:37:26,2021-09-27 02:37:26,12.756323,74.942347,"Fraud reported in Dakshina Kannada. MO: ATM corner ambush, motorbike getaway."
+2,2025-12-25 00:41:08,2025-12-25 09:41:08,2025-12-25 09:41:08,15.411552,75.053354,Assault reported in Dharwad. MO: Drug supply through courier networks.
+3,2026-03-31 10:03:08,2026-03-31 15:03:08,2026-03-31 15:03:08,13.440878,77.089504,Burglary reported in Tumakuru. MO: Posing as government official.
+4,2024-03-20 16:38:28,2024-03-20 21:38:28,2024-03-20 21:38:28,17.489749,76.705147,Financial Fraud reported in Kalaburagi. MO: Drug supply through courier networks.
+5,2018-08-09 00:36:30,2018-08-09 07:36:30,2018-08-09 07:36:30,15.448463,75.191947,Burglary reported in Dharwad. MO: Online investment scam via WhatsApp.
+6,2023-01-19 23:58:18,2023-01-20 06:58:18,2023-01-20 06:58:18,15.319293,76.982807,Financial Fraud reported in Ballari. MO: Distraction theft in crowded market.
+7,2019-04-17 18:36:50,2019-04-18 04:36:50,2019-04-18 04:36:50,13.043212,77.749626,POCSO reported in Bengaluru Urban. MO: Night-time entry through rear window.
+8,2024-09-15 04:52:32,2024-09-15 06:52:32,2024-09-15 06:52:32,17.47029,76.985232,Vehicle Theft reported in Kalaburagi. MO: Chain snatching near signal stops.
+9,2018-09-30 16:30:00,2018-09-30 19:30:00,2018-09-30 19:30:00,17.460131,76.763243,Burglary reported in Kalaburagi. MO: Pickpocketing in BMTC buses.
+10,2025-06-29 16:29:06,2025-06-29 16:29:06,2025-06-29 16:29:06,13.031774,77.729358,Theft reported in Bengaluru Urban. MO: Drug supply through courier networks.
+11,2022-01-06 07:45:35,2022-01-06 15:45:35,2022-01-06 15:45:35,12.900157,74.973857,"Robbery reported in Dakshina Kannada. MO: Residential burglary, targets electronics."
+12,2024-09-05 16:29:32,2024-09-05 17:29:32,2024-09-05 17:29:32,12.999139,77.613372,Murder reported in Bengaluru Urban. MO: Highway robbery targeting truck drivers.
+13,2024-11-21 23:02:45,2024-11-22 06:02:45,2024-11-22 06:02:45,13.036001,76.23157,Chain Snatching reported in Hassan. MO: Drug supply through courier networks.
+14,2021-04-03 14:35:28,2021-04-03 15:35:28,2021-04-03 15:35:28,13.419833,77.268239,POCSO reported in Tumakuru. MO: Chain snatching near signal stops.
+15,2018-10-31 19:53:59,2018-11-01 05:53:59,2018-11-01 05:53:59,15.255863,76.898737,Smuggling reported in Ballari. MO: Online investment scam via WhatsApp.
+16,2021-07-04 20:37:05,2021-07-05 07:37:05,2021-07-05 07:37:05,12.978227,77.490831,NDPS reported in Bengaluru Urban. MO: Vehicle theft from parking lots at night.
+17,2024-06-03 17:05:31,2024-06-04 01:05:31,2024-06-04 01:05:31,12.971211,76.243839,Burglary reported in Hassan. MO: Highway robbery targeting truck drivers.
+18,2019-07-18 03:38:49,2019-07-18 05:38:49,2019-07-18 05:38:49,12.386881,76.748257,Burglary reported in Mysuru. MO: Drug supply through courier networks.
+19,2026-07-10 07:11:39,2026-07-10 09:11:39,2026-07-10 09:11:39,13.423948,77.258676,Fraud reported in Tumakuru. MO: Night-time entry through rear window.
+20,2021-10-09 16:40:41,2021-10-10 00:40:41,2021-10-10 00:40:41,15.500676,75.082138,"Kidnapping reported in Dharwad. MO: ATM corner ambush, motorbike getaway."
+21,2025-10-19 06:39:47,2025-10-19 09:39:47,2025-10-19 09:39:47,15.521797,75.157376,Chain Snatching reported in Dharwad. MO: Vehicle theft from parking lots at night.
+22,2025-03-11 00:07:26,2025-03-11 05:07:26,2025-03-11 05:07:26,13.953392,75.687023,Domestic Violence reported in Shivamogga. MO: Online investment scam via WhatsApp.
+23,2020-10-09 20:09:25,2020-10-10 08:09:25,2020-10-10 08:09:25,17.442087,76.885306,Vehicle Theft reported in Kalaburagi. MO: Vehicle theft from parking lots at night.
+24,2024-10-16 14:29:31,2024-10-16 15:29:31,2024-10-16 15:29:31,15.17321,76.904292,Assault reported in Ballari. MO: Vehicle theft from parking lots at night.
+25,2024-02-28 07:52:30,2024-02-28 08:52:30,2024-02-28 08:52:30,15.533953,75.171744,Financial Fraud reported in Dharwad. MO: Hawala transfer through shell accounts.
+26,2021-09-23 15:28:07,2021-09-23 17:28:07,2021-09-23 17:28:07,15.300817,76.951463,POCSO reported in Ballari. MO: Drug supply through courier networks.
+27,2019-04-24 05:10:12,2019-04-24 10:10:12,2019-04-24 10:10:12,12.870998,77.744042,POCSO reported in Bengaluru Urban. MO: Pickpocketing in BMTC buses.
+28,2026-11-19 09:32:03,2026-11-19 12:32:03,2026-11-19 12:32:03,15.457389,75.210778,Assault reported in Dharwad. MO: Posing as government official.
+29,2020-03-14 21:57:02,2020-03-15 03:57:02,2020-03-15 03:57:02,13.142423,76.274582,Robbery reported in Hassan. MO: Posing as government official.
+30,2021-08-29 02:47:44,2021-08-29 07:47:44,2021-08-29 07:47:44,12.382865,76.747003,NDPS reported in Mysuru. MO: SIM swap + OTP intercept.
+31,2019-12-27 05:35:41,2019-12-27 12:35:41,2019-12-27 12:35:41,15.315404,75.236312,Theft reported in Dharwad. MO: Night-time entry through rear window.
+32,2023-04-19 21:42:44,2023-04-20 02:42:44,2023-04-20 02:42:44,12.814114,74.775945,Robbery reported in Dakshina Kannada. MO: Impersonation fraud at banks.
+33,2019-12-04 07:57:12,2019-12-04 09:57:12,2019-12-04 09:57:12,12.964459,74.937518,Smuggling reported in Dakshina Kannada. MO: Highway robbery targeting truck drivers.
+34,2022-11-03 11:15:37,2022-11-03 21:15:37,2022-11-03 21:15:37,12.379271,76.528709,Burglary reported in Mysuru. MO: Night-time entry through rear window.
+35,2021-08-30 23:28:54,2021-08-30 23:28:54,2021-08-30 23:28:54,15.450726,75.06097,Assault reported in Dharwad. MO: Drug supply through courier networks.
+36,2023-12-29 05:17:40,2023-12-29 13:17:40,2023-12-29 13:17:40,13.018495,76.157656,Assault reported in Hassan. MO: Highway robbery targeting truck drivers.
+37,2022-04-08 07:45:49,2022-04-08 12:45:49,2022-04-08 12:45:49,13.070063,76.213801,Domestic Violence reported in Hassan. MO: SIM swap + OTP intercept.
+38,2021-12-30 11:02:06,2021-12-30 14:02:06,2021-12-30 14:02:06,13.026905,76.095107,Cyber Crime reported in Hassan. MO: Chain snatching near signal stops.
+39,2023-04-14 03:10:58,2023-04-14 04:10:58,2023-04-14 04:10:58,15.868701,74.436177,"POCSO reported in Belagavi. MO: ATM corner ambush, motorbike getaway."
+40,2022-11-23 02:29:46,2022-11-23 06:29:46,2022-11-23 06:29:46,15.293821,76.916283,Murder reported in Ballari. MO: Vehicle theft from parking lots at night.
+41,2019-07-21 19:30:12,2019-07-22 03:30:12,2019-07-22 03:30:12,12.985914,74.769582,Robbery reported in Dakshina Kannada. MO: Online investment scam via WhatsApp.
+42,2020-07-14 00:02:11,2020-07-14 05:02:11,2020-07-14 05:02:11,15.347013,75.169277,"Murder reported in Dharwad. MO: Residential burglary, targets electronics."
+43,2020-01-09 06:55:06,2020-01-09 08:55:06,2020-01-09 08:55:06,12.997199,76.254948,"Fraud reported in Hassan. MO: ATM corner ambush, motorbike getaway."
+44,2023-04-16 22:03:38,2023-04-17 07:03:38,2023-04-17 07:03:38,15.773912,74.443402,Cyber Crime reported in Belagavi. MO: Drug supply through courier networks.
+45,2025-11-16 04:55:25,2025-11-16 12:55:25,2025-11-16 12:55:25,12.430382,76.552042,Murder reported in Mysuru. MO: Hawala transfer through shell accounts.
+46,2020-07-09 04:11:57,2020-07-09 11:11:57,2020-07-09 11:11:57,17.260086,76.914215,Murder reported in Kalaburagi. MO: Drug supply through courier networks.
+47,2021-03-27 23:49:02,2021-03-28 04:49:02,2021-03-28 04:49:02,15.349859,75.167392,Murder reported in Dharwad. MO: Night-time entry through rear window.
+48,2018-11-25 23:03:37,2018-11-26 01:03:37,2018-11-26 01:03:37,13.026444,76.003389,Cyber Crime reported in Hassan. MO: Distraction theft in crowded market.
+49,2022-01-16 10:49:17,2022-01-16 18:49:17,2022-01-16 18:49:17,13.095462,76.257322,Theft reported in Hassan. MO: Online investment scam via WhatsApp.
+50,2022-04-26 23:34:45,2022-04-27 06:34:45,2022-04-27 06:34:45,15.234907,76.876526,Theft reported in Ballari. MO: Chain snatching near signal stops.
+51,2023-07-06 11:52:22,2023-07-06 11:52:22,2023-07-06 11:52:22,15.861612,74.44898,Cyber Crime reported in Belagavi. MO: Impersonation fraud at banks.
+52,2026-04-26 06:29:24,2026-04-26 09:29:24,2026-04-26 09:29:24,12.3904,76.63429,Cyber Crime reported in Mysuru. MO: Online investment scam via WhatsApp.
+53,2019-12-26 12:40:01,2019-12-26 21:40:01,2019-12-26 21:40:01,13.891066,75.544086,Vehicle Theft reported in Shivamogga. MO: Online investment scam via WhatsApp.
+54,2026-09-05 14:58:35,2026-09-05 19:58:35,2026-09-05 19:58:35,13.88089,75.65006,Murder reported in Shivamogga. MO: Posing as government official.
+55,2025-03-28 10:44:56,2025-03-28 22:44:56,2025-03-28 22:44:56,15.303672,75.035516,Murder reported in Dharwad. MO: Impersonation fraud at banks.
+56,2020-11-23 03:02:29,2020-11-23 05:02:29,2020-11-23 05:02:29,13.373657,77.089739,Chain Snatching reported in Tumakuru. MO: Drug supply through courier networks.
+57,2021-04-09 14:17:46,2021-04-09 21:17:46,2021-04-09 21:17:46,12.816152,74.983225,POCSO reported in Dakshina Kannada. MO: Impersonation fraud at banks.
+58,2020-08-26 07:45:56,2020-08-26 08:45:56,2020-08-26 08:45:56,13.935762,75.440994,Kidnapping reported in Shivamogga. MO: Highway robbery targeting truck drivers.
+59,2025-01-02 03:37:38,2025-01-02 03:37:38,2025-01-02 03:37:38,12.27264,76.590779,Assault reported in Mysuru. MO: Hawala transfer through shell accounts.
+60,2023-11-24 10:02:15,2023-11-24 16:02:15,2023-11-24 16:02:15,12.949785,74.972388,Vehicle Theft reported in Dakshina Kannada. MO: Drug supply through courier networks.
+61,2019-09-29 17:53:25,2019-09-29 23:53:25,2019-09-29 23:53:25,15.862896,74.541498,"Financial Fraud reported in Belagavi. MO: ATM corner ambush, motorbike getaway."
+62,2019-10-26 04:35:13,2019-10-26 09:35:13,2019-10-26 09:35:13,17.364121,76.896719,NDPS reported in Kalaburagi. MO: Impersonation fraud at banks.
+63,2022-12-20 03:37:36,2022-12-20 08:37:36,2022-12-20 08:37:36,13.30167,77.054266,"Robbery reported in Tumakuru. MO: ATM corner ambush, motorbike getaway."
+64,2020-10-05 12:29:20,2020-10-05 23:29:20,2020-10-05 23:29:20,13.035612,77.465758,Smuggling reported in Bengaluru Urban. MO: SIM swap + OTP intercept.
+65,2024-02-20 14:13:49,2024-02-20 21:13:49,2024-02-20 21:13:49,13.051666,77.597182,Smuggling reported in Bengaluru Urban. MO: Posing as government official.
+66,2019-07-14 11:36:13,2019-07-14 19:36:13,2019-07-14 19:36:13,15.462725,75.056657,POCSO reported in Dharwad. MO: Pickpocketing in BMTC buses.
+67,2023-03-22 17:20:44,2023-03-22 17:20:44,2023-03-22 17:20:44,15.300279,75.265295,Kidnapping reported in Dharwad. MO: Pickpocketing in BMTC buses.
+68,2026-01-20 20:22:57,2026-01-21 06:22:57,2026-01-21 06:22:57,15.200974,76.824907,Assault reported in Ballari. MO: Vehicle theft from parking lots at night.
+69,2022-01-03 10:41:11,2022-01-03 13:41:11,2022-01-03 13:41:11,15.829266,74.463312,Robbery reported in Belagavi. MO: Pickpocketing in BMTC buses.
+70,2018-07-30 22:54:41,2018-07-31 10:54:41,2018-07-31 10:54:41,13.041202,76.298183,Theft reported in Hassan. MO: Distraction theft in crowded market.
+71,2025-01-16 11:58:25,2025-01-16 16:58:25,2025-01-16 16:58:25,15.112542,77.022846,Domestic Violence reported in Ballari. MO: Vehicle theft from parking lots at night.
+72,2025-08-27 20:09:50,2025-08-27 20:09:50,2025-08-27 20:09:50,12.984277,76.039029,Chain Snatching reported in Hassan. MO: Distraction theft in crowded market.
+73,2018-03-25 01:05:33,2018-03-25 04:05:33,2018-03-25 04:05:33,17.416958,76.753053,POCSO reported in Kalaburagi. MO: Highway robbery targeting truck drivers.
+74,2021-02-01 13:55:18,2021-02-02 00:55:18,2021-02-02 00:55:18,13.349434,77.087833,"Theft reported in Tumakuru. MO: ATM corner ambush, motorbike getaway."
+75,2023-06-05 13:29:52,2023-06-05 16:29:52,2023-06-05 16:29:52,13.978839,75.667613,Financial Fraud reported in Shivamogga. MO: Online investment scam via WhatsApp.
+76,2020-11-03 07:35:45,2020-11-03 18:35:45,2020-11-03 18:35:45,12.241186,76.643746,Murder reported in Mysuru. MO: Chain snatching near signal stops.
+77,2026-08-27 04:45:01,2026-08-27 16:45:01,2026-08-27 16:45:01,13.0856,76.050875,Robbery reported in Hassan. MO: Pickpocketing in BMTC buses.
+78,2019-02-25 21:12:02,2019-02-26 09:12:02,2019-02-26 09:12:02,13.073238,77.552082,POCSO reported in Bengaluru Urban. MO: Impersonation fraud at banks.
+79,2018-02-12 14:27:26,2018-02-13 00:27:26,2018-02-13 00:27:26,12.958613,74.996654,Burglary reported in Dakshina Kannada. MO: Drug supply through courier networks.
+80,2021-12-16 04:07:03,2021-12-16 14:07:03,2021-12-16 14:07:03,13.058263,77.582133,Murder reported in Bengaluru Urban. MO: Online investment scam via WhatsApp.
+81,2025-07-14 06:28:03,2025-07-14 09:28:03,2025-07-14 09:28:03,13.010278,76.219863,"Financial Fraud reported in Hassan. MO: ATM corner ambush, motorbike getaway."
+82,2025-10-03 12:41:18,2025-10-03 12:41:18,2025-10-03 12:41:18,17.403506,76.975001,Theft reported in Kalaburagi. MO: Drug supply through courier networks.
+83,2026-08-09 05:44:35,2026-08-09 07:44:35,2026-08-09 07:44:35,15.383744,75.191063,NDPS reported in Dharwad. MO: Hawala transfer through shell accounts.
+84,2024-10-23 20:29:50,2024-10-23 23:29:50,2024-10-23 23:29:50,15.180079,76.919969,Smuggling reported in Ballari. MO: Vehicle theft from parking lots at night.
+85,2019-03-14 03:38:26,2019-03-14 14:38:26,2019-03-14 14:38:26,12.99077,75.017669,Chain Snatching reported in Dakshina Kannada. MO: SIM swap + OTP intercept.
+86,2021-11-10 22:10:37,2021-11-11 00:10:37,2021-11-11 00:10:37,15.202311,76.844618,"Fraud reported in Ballari. MO: Residential burglary, targets electronics."
+87,2024-04-01 12:48:27,2024-04-01 20:48:27,2024-04-01 20:48:27,17.212904,76.806894,Murder reported in Kalaburagi. MO: Online investment scam via WhatsApp.
+88,2026-12-10 22:00:10,2026-12-10 22:00:10,2026-12-10 22:00:10,17.437239,76.991072,Robbery reported in Kalaburagi. MO: Online investment scam via WhatsApp.
+89,2019-08-21 07:21:33,2019-08-21 09:21:33,2019-08-21 09:21:33,15.19916,76.843503,Domestic Violence reported in Ballari. MO: Vehicle theft from parking lots at night.
+90,2019-08-29 18:47:45,2019-08-30 02:47:45,2019-08-30 02:47:45,13.100485,76.206943,Cyber Crime reported in Hassan. MO: Vehicle theft from parking lots at night.
+91,2023-10-09 02:37:29,2023-10-09 06:37:29,2023-10-09 06:37:29,15.201304,76.810248,"Vehicle Theft reported in Ballari. MO: Residential burglary, targets electronics."
+92,2021-12-26 21:03:05,2021-12-27 04:03:05,2021-12-27 04:03:05,15.171726,76.902579,Robbery reported in Ballari. MO: Night-time entry through rear window.
+93,2021-05-03 05:47:40,2021-05-03 08:47:40,2021-05-03 08:47:40,12.335509,76.701767,Financial Fraud reported in Mysuru. MO: Chain snatching near signal stops.
+94,2023-07-08 12:40:02,2023-07-08 13:40:02,2023-07-08 13:40:02,15.161231,76.910578,Robbery reported in Ballari. MO: Chain snatching near signal stops.
+95,2021-06-23 15:49:44,2021-06-23 21:49:44,2021-06-23 21:49:44,13.011067,77.652686,POCSO reported in Bengaluru Urban. MO: Highway robbery targeting truck drivers.
+96,2026-06-17 12:06:11,2026-06-17 23:06:11,2026-06-17 23:06:11,12.296635,76.713849,NDPS reported in Mysuru. MO: Hawala transfer through shell accounts.
+97,2025-01-24 00:28:46,2025-01-24 06:28:46,2025-01-24 06:28:46,15.52401,75.07431,Theft reported in Dharwad. MO: Night-time entry through rear window.
+98,2024-12-09 04:58:18,2024-12-09 07:58:18,2024-12-09 07:58:18,17.367261,76.834189,Assault reported in Kalaburagi. MO: Drug supply through courier networks.
+99,2026-06-27 21:48:09,2026-06-28 09:48:09,2026-06-28 09:48:09,17.377675,76.947746,POCSO reported in Kalaburagi. MO: Night-time entry through rear window.
+100,2018-10-11 22:44:30,2018-10-12 00:44:30,2018-10-12 00:44:30,12.406199,76.569086,Chain Snatching reported in Mysuru. MO: Distraction theft in crowded market.
+101,2018-08-22 16:51:05,2018-08-22 18:51:05,2018-08-22 18:51:05,15.13305,76.768747,Robbery reported in Ballari. MO: Hawala transfer through shell accounts.
+102,2026-06-29 10:26:37,2026-06-29 17:26:37,2026-06-29 17:26:37,17.304247,76.987969,Financial Fraud reported in Kalaburagi. MO: Highway robbery targeting truck drivers.
+103,2025-04-19 20:03:55,2025-04-20 04:03:55,2025-04-20 04:03:55,17.471362,76.886042,Robbery reported in Kalaburagi. MO: Pickpocketing in BMTC buses.
+104,2020-11-30 09:19:05,2020-11-30 14:19:05,2020-11-30 14:19:05,15.945835,74.628008,Kidnapping reported in Belagavi. MO: Vehicle theft from parking lots at night.
+105,2018-12-21 00:14:19,2018-12-21 10:14:19,2018-12-21 10:14:19,15.342436,76.95096,"Theft reported in Ballari. MO: ATM corner ambush, motorbike getaway."
+106,2023-05-07 10:08:24,2023-05-07 19:08:24,2023-05-07 19:08:24,17.230917,76.907968,Vehicle Theft reported in Kalaburagi. MO: Distraction theft in crowded market.
+107,2026-09-26 20:06:58,2026-09-27 05:06:58,2026-09-27 05:06:58,15.22473,76.876171,Cyber Crime reported in Ballari. MO: Drug supply through courier networks.
+108,2019-12-10 03:42:10,2019-12-10 04:42:10,2019-12-10 04:42:10,15.768033,74.510149,Assault reported in Belagavi. MO: SIM swap + OTP intercept.
+109,2019-03-21 05:13:31,2019-03-21 09:13:31,2019-03-21 09:13:31,12.251905,76.500721,Financial Fraud reported in Mysuru. MO: Impersonation fraud at banks.
+110,2026-08-27 13:49:27,2026-08-28 01:49:27,2026-08-28 01:49:27,17.455675,76.914143,Burglary reported in Kalaburagi. MO: SIM swap + OTP intercept.
+111,2026-10-16 12:33:19,2026-10-16 12:33:19,2026-10-16 12:33:19,15.186548,77.016667,Chain Snatching reported in Ballari. MO: Night-time entry through rear window.
+112,2024-04-09 23:08:23,2024-04-09 23:08:23,2024-04-09 23:08:23,12.823745,74.929004,Theft reported in Dakshina Kannada. MO: Drug supply through courier networks.
+113,2020-09-20 04:20:20,2020-09-20 16:20:20,2020-09-20 16:20:20,13.960959,75.609989,Kidnapping reported in Shivamogga. MO: Impersonation fraud at banks.
+114,2022-12-30 01:38:03,2022-12-30 12:38:03,2022-12-30 12:38:03,12.956667,74.890315,Theft reported in Dakshina Kannada. MO: Drug supply through courier networks.
+115,2019-08-19 11:29:48,2019-08-19 19:29:48,2019-08-19 19:29:48,12.34868,76.505665,Vehicle Theft reported in Mysuru. MO: Impersonation fraud at banks.
+116,2019-01-24 15:16:17,2019-01-24 16:16:17,2019-01-24 16:16:17,12.855113,74.824678,Kidnapping reported in Dakshina Kannada. MO: Pickpocketing in BMTC buses.
+117,2021-06-13 17:18:38,2021-06-13 19:18:38,2021-06-13 19:18:38,13.019842,76.07864,"Fraud reported in Hassan. MO: Residential burglary, targets electronics."
+118,2021-02-17 04:39:26,2021-02-17 05:39:26,2021-02-17 05:39:26,12.763416,74.927419,POCSO reported in Dakshina Kannada. MO: Online investment scam via WhatsApp.
+119,2019-04-12 01:19:05,2019-04-12 06:19:05,2019-04-12 06:19:05,12.236134,76.657096,"Domestic Violence reported in Mysuru. MO: Residential burglary, targets electronics."
+120,2025-07-27 23:33:49,2025-07-28 01:33:49,2025-07-28 01:33:49,15.165796,76.760668,NDPS reported in Ballari. MO: Pickpocketing in BMTC buses.
+121,2022-05-14 09:50:33,2022-05-14 21:50:33,2022-05-14 21:50:33,13.384075,77.257328,NDPS reported in Tumakuru. MO: Drug supply through courier networks.
+122,2021-12-04 01:58:39,2021-12-04 02:58:39,2021-12-04 02:58:39,12.919982,74.863261,Domestic Violence reported in Dakshina Kannada. MO: Posing as government official.
+123,2023-06-23 02:44:02,2023-06-23 12:44:02,2023-06-23 12:44:02,15.12404,76.774527,NDPS reported in Ballari. MO: Distraction theft in crowded market.
+124,2018-11-08 14:00:47,2018-11-08 22:00:47,2018-11-08 22:00:47,12.774736,74.88281,NDPS reported in Dakshina Kannada. MO: Hawala transfer through shell accounts.
+125,2025-06-06 17:44:56,2025-06-06 23:44:56,2025-06-06 23:44:56,15.345632,76.986064,Fraud reported in Ballari. MO: Chain snatching near signal stops.
+126,2025-05-06 02:27:28,2025-05-06 10:27:28,2025-05-06 10:27:28,13.278977,77.24053,Theft reported in Tumakuru. MO: Online investment scam via WhatsApp.
+127,2023-07-05 14:43:25,2023-07-05 20:43:25,2023-07-05 20:43:25,17.318582,76.915345,Theft reported in Kalaburagi. MO: Online investment scam via WhatsApp.
+128,2021-12-17 15:37:17,2021-12-18 02:37:17,2021-12-18 02:37:17,13.869705,75.539777,Burglary reported in Shivamogga. MO: Hawala transfer through shell accounts.
+129,2018-02-10 03:05:54,2018-02-10 07:05:54,2018-02-10 07:05:54,15.125334,77.008167,"Robbery reported in Ballari. MO: ATM corner ambush, motorbike getaway."
+130,2019-05-23 07:48:27,2019-05-23 16:48:27,2019-05-23 16:48:27,17.238379,76.841975,Fraud reported in Kalaburagi. MO: Pickpocketing in BMTC buses.
+131,2019-07-31 19:17:38,2019-08-01 05:17:38,2019-08-01 05:17:38,13.913696,75.573018,Cyber Crime reported in Shivamogga. MO: Night-time entry through rear window.
+132,2021-09-26 03:02:23,2021-09-26 13:02:23,2021-09-26 13:02:23,14.041451,75.414942,Murder reported in Shivamogga. MO: Highway robbery targeting truck drivers.
+133,2022-10-03 10:38:24,2022-10-03 22:38:24,2022-10-03 22:38:24,13.484658,77.150106,Financial Fraud reported in Tumakuru. MO: Pickpocketing in BMTC buses.
+134,2021-11-30 14:59:45,2021-11-30 15:59:45,2021-11-30 15:59:45,17.45724,76.823707,Murder reported in Kalaburagi. MO: Posing as government official.
+135,2024-09-05 03:27:25,2024-09-05 07:27:25,2024-09-05 07:27:25,15.138812,77.003684,NDPS reported in Ballari. MO: Posing as government official.
+136,2019-04-08 13:49:22,2019-04-09 00:49:22,2019-04-09 00:49:22,13.132173,76.050091,"Robbery reported in Hassan. MO: ATM corner ambush, motorbike getaway."
+137,2018-05-23 18:48:36,2018-05-24 03:48:36,2018-05-24 03:48:36,17.312642,76.852921,Assault reported in Kalaburagi. MO: Hawala transfer through shell accounts.
+138,2023-05-17 19:22:28,2023-05-18 06:22:28,2023-05-18 06:22:28,12.778416,74.788828,"Theft reported in Dakshina Kannada. MO: Residential burglary, targets electronics."
+139,2021-03-15 21:03:41,2021-03-16 07:03:41,2021-03-16 07:03:41,15.938189,74.461401,"Chain Snatching reported in Belagavi. MO: Residential burglary, targets electronics."
+140,2025-12-29 13:52:39,2025-12-29 23:52:39,2025-12-29 23:52:39,12.405509,76.713582,Robbery reported in Mysuru. MO: Pickpocketing in BMTC buses.
+141,2026-12-22 14:18:12,2026-12-23 02:18:12,2026-12-23 02:18:12,15.31072,75.101391,Burglary reported in Dharwad. MO: Pickpocketing in BMTC buses.
+142,2023-08-19 18:36:38,2023-08-19 23:36:38,2023-08-19 23:36:38,13.481776,77.229086,Assault reported in Tumakuru. MO: Hawala transfer through shell accounts.
+143,2026-03-21 15:37:17,2026-03-21 23:37:17,2026-03-21 23:37:17,15.240531,76.99463,"Cyber Crime reported in Ballari. MO: ATM corner ambush, motorbike getaway."
+144,2018-12-28 03:48:29,2018-12-28 03:48:29,2018-12-28 03:48:29,15.220767,76.895776,Fraud reported in Ballari. MO: Impersonation fraud at banks.
+145,2018-03-27 00:07:55,2018-03-27 08:07:55,2018-03-27 08:07:55,15.236595,76.934118,Murder reported in Ballari. MO: Distraction theft in crowded market.
+146,2021-11-05 06:34:40,2021-11-05 11:34:40,2021-11-05 11:34:40,12.795667,74.847205,Domestic Violence reported in Dakshina Kannada. MO: Online investment scam via WhatsApp.
+147,2023-05-04 19:06:34,2023-05-04 20:06:34,2023-05-04 20:06:34,15.451466,75.25022,Chain Snatching reported in Dharwad. MO: Highway robbery targeting truck drivers.
+148,2019-11-09 14:04:38,2019-11-09 22:04:38,2019-11-09 22:04:38,13.072617,77.481213,Robbery reported in Bengaluru Urban. MO: Pickpocketing in BMTC buses.
+149,2025-10-24 11:43:47,2025-10-24 17:43:47,2025-10-24 17:43:47,14.049869,75.453485,Burglary reported in Shivamogga. MO: Night-time entry through rear window.
+150,2022-12-26 11:19:37,2022-12-26 17:19:37,2022-12-26 17:19:37,13.478151,77.221851,Assault reported in Tumakuru. MO: Chain snatching near signal stops.
+151,2018-08-06 19:49:00,2018-08-06 23:49:00,2018-08-06 23:49:00,13.297584,77.057463,Financial Fraud reported in Tumakuru. MO: Posing as government official.
+152,2023-03-20 08:31:32,2023-03-20 11:31:32,2023-03-20 11:31:32,15.292545,76.903588,Domestic Violence reported in Ballari. MO: Posing as government official.
+153,2022-09-08 00:56:57,2022-09-08 05:56:57,2022-09-08 05:56:57,15.433585,75.065829,Fraud reported in Dharwad. MO: Chain snatching near signal stops.
+154,2024-01-19 00:25:39,2024-01-19 06:25:39,2024-01-19 06:25:39,13.944727,75.526334,Cyber Crime reported in Shivamogga. MO: Drug supply through courier networks.
+155,2020-12-28 11:49:19,2020-12-28 12:49:19,2020-12-28 12:49:19,14.067423,75.55782,Theft reported in Shivamogga. MO: Online investment scam via WhatsApp.
+156,2022-05-06 19:58:59,2022-05-07 01:58:59,2022-05-07 01:58:59,15.935189,74.47543,Vehicle Theft reported in Belagavi. MO: Distraction theft in crowded market.
+157,2025-03-05 09:40:13,2025-03-05 21:40:13,2025-03-05 21:40:13,12.327445,76.648619,"Assault reported in Mysuru. MO: Residential burglary, targets electronics."
+158,2026-08-30 20:42:01,2026-08-31 02:42:01,2026-08-31 02:42:01,15.399548,75.292964,Kidnapping reported in Dharwad. MO: Chain snatching near signal stops.
+159,2025-07-07 20:58:21,2025-07-07 23:58:21,2025-07-07 23:58:21,15.506958,75.044514,Murder reported in Dharwad. MO: SIM swap + OTP intercept.
+160,2024-03-05 15:37:59,2024-03-05 22:37:59,2024-03-05 22:37:59,12.848214,75.012891,Smuggling reported in Dakshina Kannada. MO: Online investment scam via WhatsApp.
+161,2022-08-12 11:34:23,2022-08-12 20:34:23,2022-08-12 20:34:23,13.027588,77.520215,Kidnapping reported in Bengaluru Urban. MO: Night-time entry through rear window.
+162,2020-03-11 09:01:39,2020-03-11 21:01:39,2020-03-11 21:01:39,13.1649,76.067717,Financial Fraud reported in Hassan. MO: Distraction theft in crowded market.
+163,2024-07-11 02:55:48,2024-07-11 12:55:48,2024-07-11 12:55:48,13.026733,76.011392,Fraud reported in Hassan. MO: Drug supply through courier networks.
+164,2024-10-03 02:04:02,2024-10-03 04:04:02,2024-10-03 04:04:02,12.998607,75.014197,Chain Snatching reported in Dakshina Kannada. MO: Impersonation fraud at banks.
+165,2022-04-28 17:07:34,2022-04-28 17:07:34,2022-04-28 17:07:34,15.758598,74.570923,Assault reported in Belagavi. MO: Online investment scam via WhatsApp.
+166,2021-09-10 10:25:46,2021-09-10 17:25:46,2021-09-10 17:25:46,15.488553,75.088581,Domestic Violence reported in Dharwad. MO: Highway robbery targeting truck drivers.
+167,2019-05-29 14:42:42,2019-05-30 00:42:42,2019-05-30 00:42:42,15.923911,74.43792,POCSO reported in Belagavi. MO: Hawala transfer through shell accounts.
+168,2020-10-02 18:08:06,2020-10-03 03:08:06,2020-10-03 03:08:06,15.448986,75.215505,"Vehicle Theft reported in Dharwad. MO: Residential burglary, targets electronics."
+169,2021-07-26 15:50:01,2021-07-26 17:50:01,2021-07-26 17:50:01,15.411481,75.109935,Murder reported in Dharwad. MO: Drug supply through courier networks.
+170,2026-06-01 07:30:28,2026-06-01 10:30:28,2026-06-01 10:30:28,15.236598,77.041282,Fraud reported in Ballari. MO: Chain snatching near signal stops.
+171,2023-06-11 17:33:45,2023-06-12 04:33:45,2023-06-12 04:33:45,15.444999,75.003025,Financial Fraud reported in Dharwad. MO: Highway robbery targeting truck drivers.
+172,2018-06-28 00:49:31,2018-06-28 02:49:31,2018-06-28 02:49:31,17.487188,76.965149,"Domestic Violence reported in Kalaburagi. MO: Residential burglary, targets electronics."
+173,2021-01-22 10:52:23,2021-01-22 19:52:23,2021-01-22 19:52:23,13.458889,77.258425,Smuggling reported in Tumakuru. MO: Drug supply through courier networks.
+174,2024-06-04 23:54:35,2024-06-05 11:54:35,2024-06-05 11:54:35,15.189328,76.771793,Financial Fraud reported in Ballari. MO: Drug supply through courier networks.
+175,2019-06-01 04:03:23,2019-06-01 11:03:23,2019-06-01 11:03:23,13.279098,77.007818,Smuggling reported in Tumakuru. MO: Chain snatching near signal stops.
+176,2023-08-30 16:24:04,2023-08-30 21:24:04,2023-08-30 21:24:04,15.12026,76.840292,Chain Snatching reported in Ballari. MO: Impersonation fraud at banks.
+177,2024-11-01 00:57:28,2024-11-01 04:57:28,2024-11-01 04:57:28,13.311632,77.212639,Kidnapping reported in Tumakuru. MO: Posing as government official.
+178,2023-01-17 09:13:43,2023-01-17 17:13:43,2023-01-17 17:13:43,17.374188,76.991843,NDPS reported in Kalaburagi. MO: Chain snatching near signal stops.
+179,2021-11-12 04:09:14,2021-11-12 16:09:14,2021-11-12 16:09:14,15.805715,74.389873,Robbery reported in Belagavi. MO: Online investment scam via WhatsApp.
+180,2021-06-08 21:06:15,2021-06-09 03:06:15,2021-06-09 03:06:15,13.400261,77.102266,"Chain Snatching reported in Tumakuru. MO: Residential burglary, targets electronics."
+181,2021-12-06 04:03:47,2021-12-06 07:03:47,2021-12-06 07:03:47,12.260627,76.656616,Fraud reported in Mysuru. MO: Vehicle theft from parking lots at night.
+182,2022-05-31 01:24:03,2022-05-31 11:24:03,2022-05-31 11:24:03,13.897503,75.690939,Murder reported in Shivamogga. MO: Vehicle theft from parking lots at night.
+183,2020-11-26 14:00:33,2020-11-26 20:00:33,2020-11-26 20:00:33,12.781888,74.75095,Burglary reported in Dakshina Kannada. MO: Online investment scam via WhatsApp.
+184,2018-03-06 18:41:38,2018-03-07 00:41:38,2018-03-07 00:41:38,13.052003,76.141341,Vehicle Theft reported in Hassan. MO: Vehicle theft from parking lots at night.
+185,2024-03-10 14:11:48,2024-03-10 20:11:48,2024-03-10 20:11:48,13.045783,76.125281,"Theft reported in Hassan. MO: ATM corner ambush, motorbike getaway."
+186,2025-05-09 06:28:19,2025-05-09 14:28:19,2025-05-09 14:28:19,12.909049,77.458333,Chain Snatching reported in Bengaluru Urban. MO: Night-time entry through rear window.
+187,2020-05-04 01:23:04,2020-05-04 01:23:04,2020-05-04 01:23:04,15.969615,74.46583,Robbery reported in Belagavi. MO: Impersonation fraud at banks.
+188,2021-11-15 01:54:59,2021-11-15 09:54:59,2021-11-15 09:54:59,13.904519,75.699055,NDPS reported in Shivamogga. MO: Impersonation fraud at banks.
+189,2020-09-28 01:41:02,2020-09-28 10:41:02,2020-09-28 10:41:02,15.332163,75.189759,"Theft reported in Dharwad. MO: Residential burglary, targets electronics."
+190,2018-11-21 05:10:58,2018-11-21 16:10:58,2018-11-21 16:10:58,15.339819,76.842073,Fraud reported in Ballari. MO: Pickpocketing in BMTC buses.
+191,2023-02-05 02:58:54,2023-02-05 13:58:54,2023-02-05 13:58:54,15.8821,74.548067,Smuggling reported in Belagavi. MO: SIM swap + OTP intercept.
+192,2025-09-09 02:16:31,2025-09-09 10:16:31,2025-09-09 10:16:31,17.332097,76.832766,POCSO reported in Kalaburagi. MO: Chain snatching near signal stops.
+193,2019-05-03 12:48:23,2019-05-03 21:48:23,2019-05-03 21:48:23,17.224597,76.926727,Kidnapping reported in Kalaburagi. MO: Impersonation fraud at banks.
+194,2022-04-17 11:39:00,2022-04-17 22:39:00,2022-04-17 22:39:00,15.222106,76.842964,Domestic Violence reported in Ballari. MO: Night-time entry through rear window.
+195,2021-11-02 06:01:49,2021-11-02 14:01:49,2021-11-02 14:01:49,12.832492,74.937564,Vehicle Theft reported in Dakshina Kannada. MO: Highway robbery targeting truck drivers.
+196,2019-01-24 07:44:38,2019-01-24 16:44:38,2019-01-24 16:44:38,17.208038,76.845747,Financial Fraud reported in Kalaburagi. MO: Impersonation fraud at banks.
+197,2024-12-17 20:52:51,2024-12-18 08:52:51,2024-12-18 08:52:51,13.036858,76.05486,Theft reported in Hassan. MO: Pickpocketing in BMTC buses.
+198,2022-11-14 02:21:02,2022-11-14 05:21:02,2022-11-14 05:21:02,13.123748,76.25504,"POCSO reported in Hassan. MO: Residential burglary, targets electronics."
+199,2020-12-11 17:39:48,2020-12-11 23:39:48,2020-12-11 23:39:48,13.402564,77.17521,POCSO reported in Tumakuru. MO: Highway robbery targeting truck drivers.
+200,2022-03-19 06:59:59,2022-03-19 09:59:59,2022-03-19 09:59:59,12.923709,74.810237,Murder reported in Dakshina Kannada. MO: Distraction theft in crowded market.
+201,2026-05-30 19:57:01,2026-05-31 07:57:01,2026-05-31 07:57:01,15.474651,75.085398,"Smuggling reported in Dharwad. MO: ATM corner ambush, motorbike getaway."
+202,2023-06-06 08:00:43,2023-06-06 11:00:43,2023-06-06 11:00:43,12.804239,74.869963,Murder reported in Dakshina Kannada. MO: Drug supply through courier networks.
+203,2024-09-28 16:22:12,2024-09-29 03:22:12,2024-09-29 03:22:12,12.874755,77.622867,POCSO reported in Bengaluru Urban. MO: Distraction theft in crowded market.
+204,2024-08-27 18:16:50,2024-08-27 20:16:50,2024-08-27 20:16:50,15.841435,74.534169,Theft reported in Belagavi. MO: Drug supply through courier networks.
+205,2024-12-27 07:24:48,2024-12-27 09:24:48,2024-12-27 09:24:48,12.77948,74.752019,Kidnapping reported in Dakshina Kannada. MO: Highway robbery targeting truck drivers.
+206,2018-01-03 10:09:07,2018-01-03 10:09:07,2018-01-03 10:09:07,17.268683,76.83732,POCSO reported in Kalaburagi. MO: Impersonation fraud at banks.
+207,2021-12-29 07:30:27,2021-12-29 16:30:27,2021-12-29 16:30:27,12.424635,76.589505,NDPS reported in Mysuru. MO: Drug supply through courier networks.
+208,2021-05-03 01:03:59,2021-05-03 01:03:59,2021-05-03 01:03:59,13.332056,77.227121,Cyber Crime reported in Tumakuru. MO: Drug supply through courier networks.
+209,2025-07-23 23:41:40,2025-07-24 03:41:40,2025-07-24 03:41:40,17.27233,76.709913,"POCSO reported in Kalaburagi. MO: Residential burglary, targets electronics."
+210,2023-02-01 17:24:02,2023-02-02 01:24:02,2023-02-02 01:24:02,13.045839,76.128881,Vehicle Theft reported in Hassan. MO: Distraction theft in crowded market.
+211,2023-05-29 17:44:42,2023-05-29 20:44:42,2023-05-29 20:44:42,15.355173,75.213126,Vehicle Theft reported in Dharwad. MO: Online investment scam via WhatsApp.
+212,2025-01-18 21:08:10,2025-01-19 08:08:10,2025-01-19 08:08:10,12.756414,74.826634,"Domestic Violence reported in Dakshina Kannada. MO: Residential burglary, targets electronics."
+213,2020-10-12 05:05:58,2020-10-12 16:05:58,2020-10-12 16:05:58,15.140833,76.893728,NDPS reported in Ballari. MO: SIM swap + OTP intercept.
+214,2024-02-21 18:46:03,2024-02-21 22:46:03,2024-02-21 22:46:03,12.978592,74.951052,Kidnapping reported in Dakshina Kannada. MO: Impersonation fraud at banks.
+215,2026-08-21 04:48:31,2026-08-21 15:48:31,2026-08-21 15:48:31,12.23702,76.536455,Burglary reported in Mysuru. MO: Posing as government official.
+216,2024-04-15 19:58:13,2024-04-15 22:58:13,2024-04-15 22:58:13,15.779773,74.401023,Theft reported in Belagavi. MO: Online investment scam via WhatsApp.
+217,2022-10-08 03:28:19,2022-10-08 14:28:19,2022-10-08 14:28:19,12.943211,74.965149,Theft reported in Dakshina Kannada. MO: Vehicle theft from parking lots at night.
+218,2026-01-21 15:33:38,2026-01-22 00:33:38,2026-01-22 00:33:38,17.254197,76.921911,Cyber Crime reported in Kalaburagi. MO: Pickpocketing in BMTC buses.
+219,2026-03-04 17:49:21,2026-03-05 05:49:21,2026-03-05 05:49:21,12.395839,76.682356,"Fraud reported in Mysuru. MO: Residential burglary, targets electronics."
+220,2023-05-28 21:04:07,2023-05-29 06:04:07,2023-05-29 06:04:07,13.970722,75.579048,NDPS reported in Shivamogga. MO: Chain snatching near signal stops.
+221,2021-04-05 21:44:11,2021-04-06 02:44:11,2021-04-06 02:44:11,12.96534,77.686752,Vehicle Theft reported in Bengaluru Urban. MO: SIM swap + OTP intercept.
+222,2026-04-08 23:07:38,2026-04-09 06:07:38,2026-04-09 06:07:38,12.973635,75.038958,Smuggling reported in Dakshina Kannada. MO: Online investment scam via WhatsApp.
+223,2020-11-10 04:40:12,2020-11-10 14:40:12,2020-11-10 14:40:12,14.05718,75.491388,Vehicle Theft reported in Shivamogga. MO: Pickpocketing in BMTC buses.
+224,2021-03-14 05:39:28,2021-03-14 06:39:28,2021-03-14 06:39:28,12.88909,77.484841,Smuggling reported in Bengaluru Urban. MO: Pickpocketing in BMTC buses.
+225,2025-08-03 23:01:16,2025-08-04 05:01:16,2025-08-04 05:01:16,13.446381,77.098619,Cyber Crime reported in Tumakuru. MO: Vehicle theft from parking lots at night.
+226,2022-11-30 19:01:14,2022-12-01 03:01:14,2022-12-01 03:01:14,13.00298,76.287814,"Smuggling reported in Hassan. MO: ATM corner ambush, motorbike getaway."
+227,2023-12-12 23:14:12,2023-12-13 09:14:12,2023-12-13 09:14:12,13.951384,75.697295,Robbery reported in Shivamogga. MO: Pickpocketing in BMTC buses.
+228,2019-03-11 13:29:09,2019-03-11 17:29:09,2019-03-11 17:29:09,12.94196,77.741956,Burglary reported in Bengaluru Urban. MO: Chain snatching near signal stops.
+229,2019-06-17 10:25:39,2019-06-17 18:25:39,2019-06-17 18:25:39,15.915722,74.491288,Assault reported in Belagavi. MO: Night-time entry through rear window.
+230,2023-06-27 22:22:59,2023-06-28 10:22:59,2023-06-28 10:22:59,12.812407,74.99283,Kidnapping reported in Dakshina Kannada. MO: Pickpocketing in BMTC buses.
+231,2020-10-18 12:21:21,2020-10-18 19:21:21,2020-10-18 19:21:21,13.104769,76.270146,Cyber Crime reported in Hassan. MO: Hawala transfer through shell accounts.
+232,2021-03-17 11:28:11,2021-03-17 20:28:11,2021-03-17 20:28:11,14.035544,75.401144,NDPS reported in Shivamogga. MO: Highway robbery targeting truck drivers.
+233,2023-12-27 12:31:14,2023-12-27 20:31:14,2023-12-27 20:31:14,12.88525,77.550451,Domestic Violence reported in Bengaluru Urban. MO: Highway robbery targeting truck drivers.
+234,2024-09-10 19:57:53,2024-09-10 19:57:53,2024-09-10 19:57:53,14.055075,75.692303,Murder reported in Shivamogga. MO: Drug supply through courier networks.
+235,2023-10-23 23:14:28,2023-10-24 06:14:28,2023-10-24 06:14:28,15.155935,76.954454,"Robbery reported in Ballari. MO: ATM corner ambush, motorbike getaway."
+236,2022-09-05 11:13:26,2022-09-05 18:13:26,2022-09-05 18:13:26,15.189121,77.028318,Smuggling reported in Ballari. MO: Highway robbery targeting truck drivers.
+237,2023-02-14 02:26:51,2023-02-14 02:26:51,2023-02-14 02:26:51,15.934353,74.567523,"Domestic Violence reported in Belagavi. MO: Residential burglary, targets electronics."
+238,2023-07-29 15:41:08,2023-07-29 22:41:08,2023-07-29 22:41:08,13.160499,76.129563,Smuggling reported in Hassan. MO: Pickpocketing in BMTC buses.
+239,2025-03-26 12:40:15,2025-03-27 00:40:15,2025-03-27 00:40:15,12.950928,74.875838,Kidnapping reported in Dakshina Kannada. MO: Impersonation fraud at banks.
+240,2026-05-05 10:01:00,2026-05-05 21:01:00,2026-05-05 21:01:00,12.846399,74.820182,"Kidnapping reported in Dakshina Kannada. MO: Residential burglary, targets electronics."
+241,2018-07-02 06:13:15,2018-07-02 14:13:15,2018-07-02 14:13:15,12.939745,77.605975,Kidnapping reported in Bengaluru Urban. MO: Pickpocketing in BMTC buses.
+242,2024-02-21 20:28:44,2024-02-22 03:28:44,2024-02-22 03:28:44,15.341279,75.08871,Domestic Violence reported in Dharwad. MO: Chain snatching near signal stops.
+243,2024-02-16 07:46:37,2024-02-16 13:46:37,2024-02-16 13:46:37,12.955369,76.183065,Burglary reported in Hassan. MO: Night-time entry through rear window.
+244,2020-12-06 08:54:56,2020-12-06 14:54:56,2020-12-06 14:54:56,12.887176,75.033813,POCSO reported in Dakshina Kannada. MO: Vehicle theft from parking lots at night.
+245,2020-11-29 13:16:43,2020-11-29 19:16:43,2020-11-29 19:16:43,15.313275,76.94494,POCSO reported in Ballari. MO: Highway robbery targeting truck drivers.
+246,2026-08-06 15:42:50,2026-08-06 16:42:50,2026-08-06 16:42:50,13.281907,77.27577,"Theft reported in Tumakuru. MO: Residential burglary, targets electronics."
+247,2018-07-10 12:41:06,2018-07-10 19:41:06,2018-07-10 19:41:06,12.776474,74.989213,Robbery reported in Dakshina Kannada. MO: Highway robbery targeting truck drivers.
+248,2021-04-19 06:40:45,2021-04-19 08:40:45,2021-04-19 08:40:45,13.889586,75.478055,"NDPS reported in Shivamogga. MO: Residential burglary, targets electronics."
+249,2018-05-04 23:57:48,2018-05-05 01:57:48,2018-05-05 01:57:48,15.305649,75.120349,Fraud reported in Dharwad. MO: Vehicle theft from parking lots at night.
+250,2024-05-30 01:43:07,2024-05-30 12:43:07,2024-05-30 12:43:07,13.098815,76.107001,"Cyber Crime reported in Hassan. MO: ATM corner ambush, motorbike getaway."
+251,2022-07-09 15:49:58,2022-07-09 15:49:58,2022-07-09 15:49:58,13.31206,77.17134,Theft reported in Tumakuru. MO: Hawala transfer through shell accounts.
+252,2021-01-20 08:44:57,2021-01-20 11:44:57,2021-01-20 11:44:57,12.863945,74.922311,"Assault reported in Dakshina Kannada. MO: Residential burglary, targets electronics."
+253,2024-07-08 05:51:18,2024-07-08 12:51:18,2024-07-08 12:51:18,13.334203,77.156189,"Murder reported in Tumakuru. MO: Residential burglary, targets electronics."
+254,2018-01-05 15:05:26,2018-01-06 00:05:26,2018-01-06 00:05:26,12.98505,74.811861,Chain Snatching reported in Dakshina Kannada. MO: Hawala transfer through shell accounts.
+255,2018-01-14 01:09:11,2018-01-14 03:09:11,2018-01-14 03:09:11,15.807191,74.456514,Cyber Crime reported in Belagavi. MO: Highway robbery targeting truck drivers.
+256,2023-03-17 06:36:55,2023-03-17 12:36:55,2023-03-17 12:36:55,17.493634,76.824049,Kidnapping reported in Kalaburagi. MO: Online investment scam via WhatsApp.
+257,2021-10-31 19:33:23,2021-10-31 23:33:23,2021-10-31 23:33:23,15.91103,74.581292,Assault reported in Belagavi. MO: Impersonation fraud at banks.
+258,2024-11-14 16:56:09,2024-11-15 00:56:09,2024-11-15 00:56:09,14.070297,75.459353,Domestic Violence reported in Shivamogga. MO: Hawala transfer through shell accounts.
+259,2023-03-13 06:50:17,2023-03-13 15:50:17,2023-03-13 15:50:17,17.482953,76.897207,Financial Fraud reported in Kalaburagi. MO: Online investment scam via WhatsApp.
+260,2026-01-04 05:15:05,2026-01-04 10:15:05,2026-01-04 10:15:05,13.965627,75.403679,Robbery reported in Shivamogga. MO: Distraction theft in crowded market.
+261,2025-10-29 19:36:18,2025-10-30 06:36:18,2025-10-30 06:36:18,13.363935,77.06635,Assault reported in Tumakuru. MO: Vehicle theft from parking lots at night.
+262,2023-06-21 16:23:40,2023-06-21 20:23:40,2023-06-21 20:23:40,12.777381,74.849615,Domestic Violence reported in Dakshina Kannada. MO: Chain snatching near signal stops.
+263,2019-10-08 00:23:56,2019-10-08 02:23:56,2019-10-08 02:23:56,12.992455,76.12169,Burglary reported in Hassan. MO: Hawala transfer through shell accounts.
+264,2023-09-11 08:38:01,2023-09-11 16:38:01,2023-09-11 16:38:01,12.384165,76.794365,Financial Fraud reported in Mysuru. MO: Online investment scam via WhatsApp.
+265,2026-06-10 16:50:43,2026-06-11 04:50:43,2026-06-11 04:50:43,15.325909,75.218024,Domestic Violence reported in Dharwad. MO: Distraction theft in crowded market.
+266,2023-11-02 04:50:41,2023-11-02 12:50:41,2023-11-02 12:50:41,13.478621,77.122431,"Assault reported in Tumakuru. MO: Residential burglary, targets electronics."
+267,2021-04-11 18:34:00,2021-04-11 19:34:00,2021-04-11 19:34:00,12.855759,77.473946,Chain Snatching reported in Bengaluru Urban. MO: Impersonation fraud at banks.
+268,2022-01-14 05:08:01,2022-01-14 06:08:01,2022-01-14 06:08:01,14.020952,75.411673,"Theft reported in Shivamogga. MO: ATM corner ambush, motorbike getaway."
+269,2026-10-24 07:55:58,2026-10-24 13:55:58,2026-10-24 13:55:58,13.091294,77.713753,Cyber Crime reported in Bengaluru Urban. MO: Chain snatching near signal stops.
+270,2025-03-31 12:39:05,2025-03-31 23:39:05,2025-03-31 23:39:05,12.904259,74.860842,Vehicle Theft reported in Dakshina Kannada. MO: Drug supply through courier networks.
+271,2019-05-04 22:26:37,2019-05-05 02:26:37,2019-05-05 02:26:37,12.979784,75.041443,POCSO reported in Dakshina Kannada. MO: SIM swap + OTP intercept.
+272,2023-09-18 01:22:33,2023-09-18 06:22:33,2023-09-18 06:22:33,15.842373,74.557933,Kidnapping reported in Belagavi. MO: Highway robbery targeting truck drivers.
+273,2023-03-06 19:17:46,2023-03-07 07:17:46,2023-03-07 07:17:46,12.30167,76.771176,Murder reported in Mysuru. MO: Drug supply through courier networks.
+274,2021-07-23 19:48:16,2021-07-23 19:48:16,2021-07-23 19:48:16,12.862146,77.585404,Assault reported in Bengaluru Urban. MO: Highway robbery targeting truck drivers.
+275,2020-06-11 14:05:30,2020-06-12 00:05:30,2020-06-12 00:05:30,12.32187,76.74045,Domestic Violence reported in Mysuru. MO: Hawala transfer through shell accounts.
+276,2019-12-10 22:09:13,2019-12-11 06:09:13,2019-12-11 06:09:13,15.921669,74.460992,Smuggling reported in Belagavi. MO: Night-time entry through rear window.
+277,2026-07-28 05:50:06,2026-07-28 10:50:06,2026-07-28 10:50:06,13.165284,76.098063,Vehicle Theft reported in Hassan. MO: Vehicle theft from parking lots at night.
+278,2024-06-17 06:05:55,2024-06-17 17:05:55,2024-06-17 17:05:55,13.460029,77.159579,Financial Fraud reported in Tumakuru. MO: SIM swap + OTP intercept.
+279,2021-08-13 21:08:52,2021-08-14 00:08:52,2021-08-14 00:08:52,15.418958,75.062552,Financial Fraud reported in Dharwad. MO: Online investment scam via WhatsApp.
+280,2021-06-12 21:17:52,2021-06-13 05:17:52,2021-06-13 05:17:52,12.319763,76.659326,Domestic Violence reported in Mysuru. MO: Distraction theft in crowded market.
+281,2026-01-19 14:55:43,2026-01-19 18:55:43,2026-01-19 18:55:43,17.485018,76.910226,Burglary reported in Kalaburagi. MO: Impersonation fraud at banks.
+282,2019-12-18 14:15:11,2019-12-18 17:15:11,2019-12-18 17:15:11,13.113869,76.243292,Chain Snatching reported in Hassan. MO: Vehicle theft from parking lots at night.
+283,2026-04-22 08:21:53,2026-04-22 10:21:53,2026-04-22 10:21:53,12.238691,76.796071,Murder reported in Mysuru. MO: Hawala transfer through shell accounts.
+284,2025-12-15 19:03:53,2025-12-16 04:03:53,2025-12-16 04:03:53,12.291491,76.650111,Assault reported in Mysuru. MO: Posing as government official.
+285,2020-02-28 15:13:58,2020-02-28 15:13:58,2020-02-28 15:13:58,12.993095,77.513339,Chain Snatching reported in Bengaluru Urban. MO: Hawala transfer through shell accounts.
+286,2025-10-02 22:27:09,2025-10-03 02:27:09,2025-10-03 02:27:09,15.417327,75.050449,Kidnapping reported in Dharwad. MO: Highway robbery targeting truck drivers.
+287,2024-08-28 04:06:22,2024-08-28 08:06:22,2024-08-28 08:06:22,13.284173,77.29419,Smuggling reported in Tumakuru. MO: Night-time entry through rear window.
+288,2021-07-21 17:21:52,2021-07-21 18:21:52,2021-07-21 18:21:52,15.305429,76.997588,"Theft reported in Ballari. MO: Residential burglary, targets electronics."
+289,2023-12-22 23:22:39,2023-12-23 05:22:39,2023-12-23 05:22:39,13.052366,76.076858,Smuggling reported in Hassan. MO: Online investment scam via WhatsApp.
+290,2021-08-31 04:15:19,2021-08-31 14:15:19,2021-08-31 14:15:19,12.372326,76.604895,"Burglary reported in Mysuru. MO: ATM corner ambush, motorbike getaway."
+291,2023-07-13 14:19:19,2023-07-13 15:19:19,2023-07-13 15:19:19,12.442997,76.722041,Chain Snatching reported in Mysuru. MO: Impersonation fraud at banks.
+292,2023-02-05 19:45:21,2023-02-06 00:45:21,2023-02-06 00:45:21,15.46518,75.091502,Vehicle Theft reported in Dharwad. MO: Drug supply through courier networks.
+293,2022-07-18 23:50:22,2022-07-19 08:50:22,2022-07-19 08:50:22,13.41832,77.18952,POCSO reported in Tumakuru. MO: Night-time entry through rear window.
+294,2024-03-20 03:31:24,2024-03-20 07:31:24,2024-03-20 07:31:24,17.28751,76.773724,Smuggling reported in Kalaburagi. MO: Impersonation fraud at banks.
+295,2026-08-30 04:03:51,2026-08-30 13:03:51,2026-08-30 13:03:51,12.977426,77.504318,Vehicle Theft reported in Bengaluru Urban. MO: Drug supply through courier networks.
+296,2018-04-04 10:41:32,2018-04-04 16:41:32,2018-04-04 16:41:32,12.432981,76.505357,Chain Snatching reported in Mysuru. MO: Drug supply through courier networks.
+297,2018-01-06 14:24:07,2018-01-06 18:24:07,2018-01-06 18:24:07,12.792188,74.913654,Burglary reported in Dakshina Kannada. MO: Drug supply through courier networks.
+298,2019-04-26 17:15:48,2019-04-26 20:15:48,2019-04-26 20:15:48,13.929581,75.414893,POCSO reported in Shivamogga. MO: Vehicle theft from parking lots at night.
+299,2024-04-28 10:45:23,2024-04-28 10:45:23,2024-04-28 10:45:23,12.941617,74.8983,Burglary reported in Dakshina Kannada. MO: Pickpocketing in BMTC buses.
+300,2019-09-07 17:42:52,2019-09-08 03:42:52,2019-09-08 03:42:52,13.453835,77.249067,Murder reported in Tumakuru. MO: SIM swap + OTP intercept.
+301,2020-02-29 18:10:50,2020-03-01 02:10:50,2020-03-01 02:10:50,13.862849,75.55783,NDPS reported in Shivamogga. MO: Night-time entry through rear window.
+302,2023-01-18 13:59:09,2023-01-18 14:59:09,2023-01-18 14:59:09,15.989586,74.536226,POCSO reported in Belagavi. MO: Posing as government official.
+303,2019-12-08 09:04:24,2019-12-08 11:04:24,2019-12-08 11:04:24,15.86645,74.364544,Vehicle Theft reported in Belagavi. MO: Hawala transfer through shell accounts.
+304,2023-05-19 17:27:09,2023-05-19 23:27:09,2023-05-19 23:27:09,15.916667,74.608915,Smuggling reported in Belagavi. MO: Hawala transfer through shell accounts.
+305,2020-03-30 00:34:53,2020-03-30 04:34:53,2020-03-30 04:34:53,15.468658,75.03639,Robbery reported in Dharwad. MO: Night-time entry through rear window.
+306,2021-02-08 04:16:03,2021-02-08 09:16:03,2021-02-08 09:16:03,15.105759,76.944571,Assault reported in Ballari. MO: SIM swap + OTP intercept.
+307,2021-09-30 23:13:34,2021-10-01 10:13:34,2021-10-01 10:13:34,15.52792,75.25136,Financial Fraud reported in Dharwad. MO: Drug supply through courier networks.
+308,2024-06-15 18:55:10,2024-06-16 05:55:10,2024-06-16 05:55:10,14.025629,75.428496,Vehicle Theft reported in Shivamogga. MO: Distraction theft in crowded market.
+309,2024-05-10 12:43:49,2024-05-10 19:43:49,2024-05-10 19:43:49,12.857499,74.878503,"Vehicle Theft reported in Dakshina Kannada. MO: Residential burglary, targets electronics."
+310,2025-12-28 13:41:37,2025-12-28 20:41:37,2025-12-28 20:41:37,13.068096,76.017041,Theft reported in Hassan. MO: Online investment scam via WhatsApp.
+311,2018-08-15 19:20:09,2018-08-16 03:20:09,2018-08-16 03:20:09,17.240951,76.932524,Kidnapping reported in Kalaburagi. MO: Chain snatching near signal stops.
+312,2019-12-30 14:44:32,2019-12-30 18:44:32,2019-12-30 18:44:32,13.333545,77.213291,Murder reported in Tumakuru. MO: Distraction theft in crowded market.
+313,2021-09-20 01:22:08,2021-09-20 09:22:08,2021-09-20 09:22:08,13.083281,76.091471,Robbery reported in Hassan. MO: SIM swap + OTP intercept.
+314,2022-10-31 04:22:58,2022-10-31 11:22:58,2022-10-31 11:22:58,12.89725,77.464155,Fraud reported in Bengaluru Urban. MO: Highway robbery targeting truck drivers.
+315,2018-06-04 01:14:44,2018-06-04 12:14:44,2018-06-04 12:14:44,13.495439,77.044237,Fraud reported in Tumakuru. MO: Night-time entry through rear window.
+316,2022-07-25 16:23:44,2022-07-26 02:23:44,2022-07-26 02:23:44,17.270302,76.93642,Theft reported in Kalaburagi. MO: Night-time entry through rear window.
+317,2024-12-24 03:13:33,2024-12-24 08:13:33,2024-12-24 08:13:33,17.277199,76.856256,Theft reported in Kalaburagi. MO: Drug supply through courier networks.
+318,2023-07-12 16:15:13,2023-07-12 21:15:13,2023-07-12 21:15:13,13.280184,77.090395,POCSO reported in Tumakuru. MO: Pickpocketing in BMTC buses.
+319,2019-03-06 22:32:15,2019-03-07 00:32:15,2019-03-07 00:32:15,12.812364,75.010415,Financial Fraud reported in Dakshina Kannada. MO: Impersonation fraud at banks.
+320,2022-02-25 04:25:20,2022-02-25 10:25:20,2022-02-25 10:25:20,13.32435,77.038441,Burglary reported in Tumakuru. MO: Distraction theft in crowded market.
+321,2026-07-24 11:14:07,2026-07-24 19:14:07,2026-07-24 19:14:07,12.218942,76.734857,Burglary reported in Mysuru. MO: Night-time entry through rear window.
+322,2019-02-21 17:16:17,2019-02-21 20:16:17,2019-02-21 20:16:17,13.974014,75.488179,Robbery reported in Shivamogga. MO: Vehicle theft from parking lots at night.
+323,2024-09-14 16:59:47,2024-09-14 23:59:47,2024-09-14 23:59:47,13.091685,77.722556,NDPS reported in Bengaluru Urban. MO: Distraction theft in crowded market.
+324,2019-02-19 16:41:30,2019-02-19 18:41:30,2019-02-19 18:41:30,15.301203,76.888817,Domestic Violence reported in Ballari. MO: Online investment scam via WhatsApp.
+325,2026-09-29 02:44:50,2026-09-29 07:44:50,2026-09-29 07:44:50,15.525774,75.131743,Theft reported in Dharwad. MO: Hawala transfer through shell accounts.
+326,2019-04-14 06:00:06,2019-04-14 06:00:06,2019-04-14 06:00:06,13.034609,77.559871,POCSO reported in Bengaluru Urban. MO: Chain snatching near signal stops.
+327,2019-08-16 16:42:21,2019-08-16 20:42:21,2019-08-16 20:42:21,13.097404,77.521212,Theft reported in Bengaluru Urban. MO: Online investment scam via WhatsApp.
+328,2018-12-15 10:57:30,2018-12-15 20:57:30,2018-12-15 20:57:30,13.024033,76.11642,Financial Fraud reported in Hassan. MO: Night-time entry through rear window.
+329,2021-06-12 06:03:46,2021-06-12 11:03:46,2021-06-12 11:03:46,14.058506,75.58428,Theft reported in Shivamogga. MO: Distraction theft in crowded market.
+330,2019-07-21 19:21:04,2019-07-22 01:21:04,2019-07-22 01:21:04,12.769932,74.964964,Chain Snatching reported in Dakshina Kannada. MO: Online investment scam via WhatsApp.
+331,2022-11-29 08:20:49,2022-11-29 12:20:49,2022-11-29 12:20:49,15.768978,74.390715,"POCSO reported in Belagavi. MO: Residential burglary, targets electronics."
+332,2021-06-07 14:30:23,2021-06-07 16:30:23,2021-06-07 16:30:23,15.901433,74.511474,POCSO reported in Belagavi. MO: Hawala transfer through shell accounts.
+333,2024-01-08 06:10:56,2024-01-08 15:10:56,2024-01-08 15:10:56,12.31957,76.738158,Kidnapping reported in Mysuru. MO: Online investment scam via WhatsApp.
+334,2021-10-18 05:04:31,2021-10-18 13:04:31,2021-10-18 13:04:31,13.449232,77.243408,Domestic Violence reported in Tumakuru. MO: Pickpocketing in BMTC buses.
+335,2018-06-21 17:02:39,2018-06-22 02:02:39,2018-06-22 02:02:39,12.995967,74.752406,Vehicle Theft reported in Dakshina Kannada. MO: Distraction theft in crowded market.
+336,2021-09-08 14:38:36,2021-09-08 17:38:36,2021-09-08 17:38:36,13.017264,77.485999,Murder reported in Bengaluru Urban. MO: Posing as government official.
+337,2021-09-27 05:31:36,2021-09-27 12:31:36,2021-09-27 12:31:36,15.892363,74.360439,Theft reported in Belagavi. MO: Night-time entry through rear window.
+338,2019-11-25 07:40:11,2019-11-25 11:40:11,2019-11-25 11:40:11,12.789118,74.816023,Burglary reported in Dakshina Kannada. MO: Highway robbery targeting truck drivers.
+339,2018-03-20 22:16:03,2018-03-21 09:16:03,2018-03-21 09:16:03,17.457039,76.993995,POCSO reported in Kalaburagi. MO: Vehicle theft from parking lots at night.
+340,2025-04-13 22:46:06,2025-04-14 02:46:06,2025-04-14 02:46:06,15.279102,76.909208,Chain Snatching reported in Ballari. MO: Night-time entry through rear window.
+341,2025-12-04 04:34:04,2025-12-04 10:34:04,2025-12-04 10:34:04,17.329949,76.898353,Cyber Crime reported in Kalaburagi. MO: Vehicle theft from parking lots at night.
+342,2024-11-30 05:59:37,2024-11-30 08:59:37,2024-11-30 08:59:37,14.05519,75.411755,Theft reported in Shivamogga. MO: Chain snatching near signal stops.
+343,2023-02-04 08:54:25,2023-02-04 13:54:25,2023-02-04 13:54:25,13.028581,77.637197,Fraud reported in Bengaluru Urban. MO: Chain snatching near signal stops.
+344,2020-10-24 23:59:59,2020-10-25 06:59:59,2020-10-25 06:59:59,15.897735,74.418936,Financial Fraud reported in Belagavi. MO: Impersonation fraud at banks.
+345,2024-10-13 10:11:35,2024-10-13 22:11:35,2024-10-13 22:11:35,13.302331,77.101813,Murder reported in Tumakuru. MO: Highway robbery targeting truck drivers.
+346,2021-12-12 06:27:40,2021-12-12 13:27:40,2021-12-12 13:27:40,15.419619,75.273557,Murder reported in Dharwad. MO: Pickpocketing in BMTC buses.
+347,2025-12-02 17:35:19,2025-12-02 21:35:19,2025-12-02 21:35:19,15.303477,75.134721,POCSO reported in Dharwad. MO: Posing as government official.
+348,2024-12-19 06:36:31,2024-12-19 10:36:31,2024-12-19 10:36:31,15.45805,75.142842,"Vehicle Theft reported in Dharwad. MO: Residential burglary, targets electronics."
+349,2020-01-02 16:24:21,2020-01-03 04:24:21,2020-01-03 04:24:21,17.40057,76.802773,"Robbery reported in Kalaburagi. MO: Residential burglary, targets electronics."
+350,2025-03-20 15:06:56,2025-03-20 23:06:56,2025-03-20 23:06:56,12.304001,76.627692,Vehicle Theft reported in Mysuru. MO: Drug supply through courier networks.
+351,2025-12-24 13:04:11,2025-12-24 17:04:11,2025-12-24 17:04:11,12.31224,76.736365,Financial Fraud reported in Mysuru. MO: Posing as government official.
+352,2019-11-26 01:06:56,2019-11-26 12:06:56,2019-11-26 12:06:56,15.429614,75.163523,"Assault reported in Dharwad. MO: ATM corner ambush, motorbike getaway."
+353,2020-05-22 17:21:48,2020-05-23 05:21:48,2020-05-23 05:21:48,12.38785,76.624941,"Theft reported in Mysuru. MO: ATM corner ambush, motorbike getaway."
+354,2019-05-10 19:31:52,2019-05-11 05:31:52,2019-05-11 05:31:52,13.040143,77.647816,Burglary reported in Bengaluru Urban. MO: Impersonation fraud at banks.
+355,2025-06-13 08:37:10,2025-06-13 11:37:10,2025-06-13 11:37:10,12.961175,76.126294,NDPS reported in Hassan. MO: Distraction theft in crowded market.
+356,2022-10-26 07:05:06,2022-10-26 14:05:06,2022-10-26 14:05:06,12.996278,77.72354,Robbery reported in Bengaluru Urban. MO: SIM swap + OTP intercept.
+357,2021-11-17 20:25:25,2021-11-18 00:25:25,2021-11-18 00:25:25,13.25614,77.253603,Cyber Crime reported in Tumakuru. MO: Posing as government official.
+358,2018-01-31 05:20:02,2018-01-31 10:20:02,2018-01-31 10:20:02,12.852929,75.047843,Burglary reported in Dakshina Kannada. MO: Hawala transfer through shell accounts.
+359,2021-05-07 08:22:55,2021-05-07 08:22:55,2021-05-07 08:22:55,13.035783,77.530888,Robbery reported in Bengaluru Urban. MO: Pickpocketing in BMTC buses.
+360,2023-08-04 11:26:34,2023-08-04 15:26:34,2023-08-04 15:26:34,12.967301,77.500641,Chain Snatching reported in Bengaluru Urban. MO: Highway robbery targeting truck drivers.
+361,2020-04-01 10:10:11,2020-04-01 15:10:11,2020-04-01 15:10:11,13.022283,76.135819,NDPS reported in Hassan. MO: Drug supply through courier networks.
+362,2023-08-09 21:00:50,2023-08-09 21:00:50,2023-08-09 21:00:50,15.955292,74.396894,Domestic Violence reported in Belagavi. MO: Vehicle theft from parking lots at night.
+363,2025-04-04 00:46:33,2025-04-04 11:46:33,2025-04-04 11:46:33,15.984135,74.400465,Smuggling reported in Belagavi. MO: Highway robbery targeting truck drivers.
+364,2025-03-20 09:18:29,2025-03-20 12:18:29,2025-03-20 12:18:29,15.765205,74.587081,Domestic Violence reported in Belagavi. MO: Drug supply through courier networks.
+365,2021-05-14 12:56:59,2021-05-14 13:56:59,2021-05-14 13:56:59,15.789936,74.527229,Assault reported in Belagavi. MO: Distraction theft in crowded market.
+366,2025-10-14 10:53:19,2025-10-14 21:53:19,2025-10-14 21:53:19,13.857624,75.503972,"Cyber Crime reported in Shivamogga. MO: ATM corner ambush, motorbike getaway."
+367,2023-03-19 13:42:58,2023-03-19 17:42:58,2023-03-19 17:42:58,13.855943,75.424073,Murder reported in Shivamogga. MO: Posing as government official.
+368,2018-03-05 02:13:43,2018-03-05 11:13:43,2018-03-05 11:13:43,13.471072,77.078588,POCSO reported in Tumakuru. MO: Hawala transfer through shell accounts.
+369,2024-04-12 00:40:05,2024-04-12 04:40:05,2024-04-12 04:40:05,15.103584,76.933938,Cyber Crime reported in Ballari. MO: Vehicle theft from parking lots at night.
+370,2023-12-09 10:35:52,2023-12-09 22:35:52,2023-12-09 22:35:52,12.944902,77.477169,NDPS reported in Bengaluru Urban. MO: Vehicle theft from parking lots at night.
+371,2022-03-19 14:00:11,2022-03-19 17:00:11,2022-03-19 17:00:11,13.053575,77.546945,Burglary reported in Bengaluru Urban. MO: Distraction theft in crowded market.
+372,2023-05-28 02:15:05,2023-05-28 09:15:05,2023-05-28 09:15:05,13.1064,76.249244,Robbery reported in Hassan. MO: Posing as government official.
+373,2024-06-08 08:27:00,2024-06-08 18:27:00,2024-06-08 18:27:00,13.351028,77.050635,Financial Fraud reported in Tumakuru. MO: Drug supply through courier networks.
+374,2023-02-18 20:14:22,2023-02-19 05:14:22,2023-02-19 05:14:22,12.934576,74.822694,Assault reported in Dakshina Kannada. MO: Chain snatching near signal stops.
+375,2018-01-18 00:20:59,2018-01-18 07:20:59,2018-01-18 07:20:59,17.351875,76.955247,Chain Snatching reported in Kalaburagi. MO: Hawala transfer through shell accounts.
+376,2023-02-03 12:59:57,2023-02-04 00:59:57,2023-02-04 00:59:57,13.290808,77.133562,"Robbery reported in Tumakuru. MO: ATM corner ambush, motorbike getaway."
+377,2022-12-24 09:11:17,2022-12-24 12:11:17,2022-12-24 12:11:17,17.354751,76.933456,Domestic Violence reported in Kalaburagi. MO: Online investment scam via WhatsApp.
+378,2021-10-31 08:55:58,2021-10-31 17:55:58,2021-10-31 17:55:58,15.241069,76.828891,Domestic Violence reported in Ballari. MO: Distraction theft in crowded market.
+379,2025-06-21 10:48:54,2025-06-21 16:48:54,2025-06-21 16:48:54,14.057511,75.648235,POCSO reported in Shivamogga. MO: Impersonation fraud at banks.
+380,2026-04-24 13:51:34,2026-04-25 01:51:34,2026-04-25 01:51:34,13.452268,77.215558,NDPS reported in Tumakuru. MO: Hawala transfer through shell accounts.
+381,2025-07-06 06:26:35,2025-07-06 10:26:35,2025-07-06 10:26:35,13.068687,77.673013,Cyber Crime reported in Bengaluru Urban. MO: Highway robbery targeting truck drivers.
+382,2018-12-07 17:59:22,2018-12-08 03:59:22,2018-12-08 03:59:22,13.063425,77.460831,Theft reported in Bengaluru Urban. MO: Highway robbery targeting truck drivers.
+383,2026-02-21 06:18:06,2026-02-21 15:18:06,2026-02-21 15:18:06,14.059123,75.665538,Theft reported in Shivamogga. MO: SIM swap + OTP intercept.
+384,2022-11-11 08:49:23,2022-11-11 16:49:23,2022-11-11 16:49:23,13.483086,77.146618,"Cyber Crime reported in Tumakuru. MO: ATM corner ambush, motorbike getaway."
+385,2025-04-14 09:46:21,2025-04-14 10:46:21,2025-04-14 10:46:21,12.440938,76.635371,Burglary reported in Mysuru. MO: SIM swap + OTP intercept.
+386,2019-12-11 05:29:50,2019-12-11 05:29:50,2019-12-11 05:29:50,13.260604,77.018249,Theft reported in Tumakuru. MO: Posing as government official.
+387,2023-01-20 23:06:12,2023-01-21 04:06:12,2023-01-21 04:06:12,12.898133,74.776526,Chain Snatching reported in Dakshina Kannada. MO: Online investment scam via WhatsApp.
+388,2022-09-01 05:15:14,2022-09-01 09:15:14,2022-09-01 09:15:14,15.294663,76.839684,NDPS reported in Ballari. MO: Distraction theft in crowded market.
+389,2023-01-08 04:19:19,2023-01-08 16:19:19,2023-01-08 16:19:19,13.100161,76.111201,POCSO reported in Hassan. MO: Hawala transfer through shell accounts.
+390,2024-04-06 08:16:57,2024-04-06 12:16:57,2024-04-06 12:16:57,12.232705,76.507588,Smuggling reported in Mysuru. MO: Vehicle theft from parking lots at night.
+391,2020-04-20 19:43:11,2020-04-20 19:43:11,2020-04-20 19:43:11,15.397737,75.256921,Theft reported in Dharwad. MO: Pickpocketing in BMTC buses.
+392,2020-09-21 07:48:09,2020-09-21 13:48:09,2020-09-21 13:48:09,15.367148,75.128607,Smuggling reported in Dharwad. MO: Drug supply through courier networks.
+393,2020-03-08 03:41:53,2020-03-08 04:41:53,2020-03-08 04:41:53,17.238286,76.709618,Assault reported in Kalaburagi. MO: Hawala transfer through shell accounts.
+394,2023-05-27 05:12:46,2023-05-27 07:12:46,2023-05-27 07:12:46,15.823174,74.589588,Fraud reported in Belagavi. MO: Impersonation fraud at banks.
+395,2019-06-26 12:27:46,2019-06-26 13:27:46,2019-06-26 13:27:46,14.040719,75.567619,"Smuggling reported in Shivamogga. MO: Residential burglary, targets electronics."
+396,2019-09-08 14:32:23,2019-09-08 15:32:23,2019-09-08 15:32:23,14.099673,75.57074,Vehicle Theft reported in Shivamogga. MO: SIM swap + OTP intercept.
+397,2021-06-03 18:12:36,2021-06-03 19:12:36,2021-06-03 19:12:36,15.136299,76.809126,Burglary reported in Ballari. MO: Hawala transfer through shell accounts.
+398,2026-12-08 01:41:22,2026-12-08 05:41:22,2026-12-08 05:41:22,12.99669,77.632169,Murder reported in Bengaluru Urban. MO: Chain snatching near signal stops.
+399,2023-09-24 13:49:56,2023-09-25 00:49:56,2023-09-25 00:49:56,13.093145,77.55361,Theft reported in Bengaluru Urban. MO: Online investment scam via WhatsApp.
+400,2022-02-28 10:35:26,2022-02-28 13:35:26,2022-02-28 13:35:26,12.252613,76.684942,Theft reported in Mysuru. MO: Online investment scam via WhatsApp.
+401,2018-01-21 13:02:39,2018-01-21 21:02:39,2018-01-21 21:02:39,13.08992,77.474074,"Theft reported in Bengaluru Urban. MO: ATM corner ambush, motorbike getaway."
+402,2018-06-11 13:29:50,2018-06-12 01:29:50,2018-06-12 01:29:50,15.103376,76.837194,Cyber Crime reported in Ballari. MO: Chain snatching near signal stops.
+403,2018-02-25 20:33:36,2018-02-26 01:33:36,2018-02-26 01:33:36,17.322858,76.731952,"NDPS reported in Kalaburagi. MO: ATM corner ambush, motorbike getaway."
+404,2020-03-30 21:34:47,2020-03-31 04:34:47,2020-03-31 04:34:47,13.871944,75.479619,"Financial Fraud reported in Shivamogga. MO: Residential burglary, targets electronics."
+405,2025-05-20 00:48:14,2025-05-20 11:48:14,2025-05-20 11:48:14,13.33769,77.134261,Fraud reported in Tumakuru. MO: Highway robbery targeting truck drivers.
+406,2023-03-14 13:40:05,2023-03-14 22:40:05,2023-03-14 22:40:05,15.34135,76.875024,Fraud reported in Ballari. MO: Online investment scam via WhatsApp.
+407,2024-09-12 14:34:29,2024-09-13 01:34:29,2024-09-13 01:34:29,12.895536,74.866797,Smuggling reported in Dakshina Kannada. MO: Night-time entry through rear window.
+408,2023-04-08 00:29:52,2023-04-08 02:29:52,2023-04-08 02:29:52,17.412289,76.915452,Chain Snatching reported in Kalaburagi. MO: Hawala transfer through shell accounts.
+409,2020-07-11 22:53:53,2020-07-12 09:53:53,2020-07-12 09:53:53,12.374107,76.710366,Fraud reported in Mysuru. MO: Pickpocketing in BMTC buses.
+410,2020-12-01 15:03:18,2020-12-01 18:03:18,2020-12-01 18:03:18,12.950538,76.063257,Domestic Violence reported in Hassan. MO: Distraction theft in crowded market.
+411,2022-10-25 08:30:24,2022-10-25 20:30:24,2022-10-25 20:30:24,15.147244,77.003958,Theft reported in Ballari. MO: Highway robbery targeting truck drivers.
+412,2021-07-01 17:31:12,2021-07-02 05:31:12,2021-07-02 05:31:12,13.410618,77.296411,Burglary reported in Tumakuru. MO: Night-time entry through rear window.
+413,2023-03-07 06:42:56,2023-03-07 12:42:56,2023-03-07 12:42:56,12.287551,76.644529,Chain Snatching reported in Mysuru. MO: Impersonation fraud at banks.
+414,2019-10-13 19:43:47,2019-10-14 07:43:47,2019-10-14 07:43:47,15.265176,77.007592,"Assault reported in Ballari. MO: Residential burglary, targets electronics."
+415,2019-09-24 18:00:01,2019-09-25 01:00:01,2019-09-25 01:00:01,12.823282,74.838656,"Vehicle Theft reported in Dakshina Kannada. MO: Residential burglary, targets electronics."
+416,2025-11-20 21:38:46,2025-11-20 21:38:46,2025-11-20 21:38:46,12.272831,76.642036,Fraud reported in Mysuru. MO: Posing as government official.
+417,2023-11-29 11:52:23,2023-11-29 15:52:23,2023-11-29 15:52:23,15.457171,75.187213,Kidnapping reported in Dharwad. MO: Highway robbery targeting truck drivers.
+418,2023-10-09 18:24:23,2023-10-09 22:24:23,2023-10-09 22:24:23,15.161834,76.808005,Financial Fraud reported in Ballari. MO: Chain snatching near signal stops.
+419,2019-11-06 20:46:11,2019-11-06 20:46:11,2019-11-06 20:46:11,14.065007,75.581216,Chain Snatching reported in Shivamogga. MO: Online investment scam via WhatsApp.
+420,2023-06-18 23:00:46,2023-06-19 06:00:46,2023-06-19 06:00:46,13.942695,75.662106,POCSO reported in Shivamogga. MO: Distraction theft in crowded market.
+421,2026-05-15 23:04:04,2026-05-16 02:04:04,2026-05-16 02:04:04,15.485436,75.118621,Fraud reported in Dharwad. MO: Impersonation fraud at banks.
+422,2018-10-16 11:31:42,2018-10-16 22:31:42,2018-10-16 22:31:42,15.847683,74.618553,Cyber Crime reported in Belagavi. MO: Chain snatching near signal stops.
+423,2026-03-16 12:41:12,2026-03-16 21:41:12,2026-03-16 21:41:12,13.175451,76.086443,Theft reported in Hassan. MO: SIM swap + OTP intercept.
+424,2024-06-22 16:01:05,2024-06-23 03:01:05,2024-06-23 03:01:05,13.400866,77.110342,"Theft reported in Tumakuru. MO: Residential burglary, targets electronics."
+425,2019-05-30 12:50:47,2019-05-30 12:50:47,2019-05-30 12:50:47,12.958297,75.005793,Robbery reported in Dakshina Kannada. MO: Posing as government official.
+426,2019-07-18 11:43:05,2019-07-18 13:43:05,2019-07-18 13:43:05,12.850441,77.510593,Cyber Crime reported in Bengaluru Urban. MO: Vehicle theft from parking lots at night.
+427,2022-04-25 08:33:38,2022-04-25 15:33:38,2022-04-25 15:33:38,13.036598,77.579078,NDPS reported in Bengaluru Urban. MO: Vehicle theft from parking lots at night.
+428,2019-07-09 00:04:33,2019-07-09 10:04:33,2019-07-09 10:04:33,15.775508,74.58023,"Fraud reported in Belagavi. MO: Residential burglary, targets electronics."
+429,2018-08-16 02:23:48,2018-08-16 09:23:48,2018-08-16 09:23:48,12.393797,76.574698,POCSO reported in Mysuru. MO: Posing as government official.
+430,2018-10-19 15:20:59,2018-10-19 18:20:59,2018-10-19 18:20:59,13.140817,76.04642,Cyber Crime reported in Hassan. MO: Night-time entry through rear window.
+431,2018-12-25 21:12:22,2018-12-26 07:12:22,2018-12-26 07:12:22,12.992734,74.832771,NDPS reported in Dakshina Kannada. MO: Vehicle theft from parking lots at night.
+432,2025-07-18 10:01:03,2025-07-18 17:01:03,2025-07-18 17:01:03,15.309923,76.976368,Kidnapping reported in Ballari. MO: Night-time entry through rear window.
+433,2025-04-18 12:01:21,2025-04-19 00:01:21,2025-04-19 00:01:21,17.229108,76.802056,Financial Fraud reported in Kalaburagi. MO: Chain snatching near signal stops.
+434,2026-01-06 00:40:01,2026-01-06 08:40:01,2026-01-06 08:40:01,14.035016,75.648454,Theft reported in Shivamogga. MO: Drug supply through courier networks.
+435,2021-12-28 15:47:53,2021-12-29 00:47:53,2021-12-29 00:47:53,15.851792,74.415886,POCSO reported in Belagavi. MO: Distraction theft in crowded market.
+436,2019-11-13 14:35:47,2019-11-14 01:35:47,2019-11-14 01:35:47,13.974629,75.69212,Theft reported in Shivamogga. MO: Posing as government official.
+437,2022-03-03 08:48:10,2022-03-03 08:48:10,2022-03-03 08:48:10,15.108163,76.976155,Smuggling reported in Ballari. MO: Impersonation fraud at banks.
+438,2018-06-19 17:20:39,2018-06-20 04:20:39,2018-06-20 04:20:39,12.98433,77.628497,Robbery reported in Bengaluru Urban. MO: Highway robbery targeting truck drivers.
+439,2021-06-13 06:09:10,2021-06-13 06:09:10,2021-06-13 06:09:10,12.994191,76.133546,Fraud reported in Hassan. MO: Online investment scam via WhatsApp.
+440,2023-06-30 08:35:26,2023-06-30 18:35:26,2023-06-30 18:35:26,15.315958,76.951717,NDPS reported in Ballari. MO: Online investment scam via WhatsApp.
+441,2023-04-26 20:51:40,2023-04-27 05:51:40,2023-04-27 05:51:40,13.926233,75.404007,Fraud reported in Shivamogga. MO: Hawala transfer through shell accounts.
+442,2018-10-13 06:52:42,2018-10-13 13:52:42,2018-10-13 13:52:42,12.96682,76.103701,"Theft reported in Hassan. MO: ATM corner ambush, motorbike getaway."
+443,2018-12-18 22:40:16,2018-12-18 22:40:16,2018-12-18 22:40:16,12.971333,74.840145,Cyber Crime reported in Dakshina Kannada. MO: Vehicle theft from parking lots at night.
+444,2025-01-13 05:22:04,2025-01-13 10:22:04,2025-01-13 10:22:04,12.865085,74.767047,Murder reported in Dakshina Kannada. MO: Pickpocketing in BMTC buses.
+445,2026-09-05 07:24:40,2026-09-05 17:24:40,2026-09-05 17:24:40,13.037967,76.158238,"POCSO reported in Hassan. MO: ATM corner ambush, motorbike getaway."
+446,2019-05-30 19:58:38,2019-05-31 02:58:38,2019-05-31 02:58:38,13.269002,77.18371,Smuggling reported in Tumakuru. MO: Vehicle theft from parking lots at night.
+447,2024-07-15 12:31:57,2024-07-15 17:31:57,2024-07-15 17:31:57,13.325869,77.013502,Kidnapping reported in Tumakuru. MO: SIM swap + OTP intercept.
+448,2024-09-15 21:01:13,2024-09-16 02:01:13,2024-09-16 02:01:13,17.478853,76.774017,POCSO reported in Kalaburagi. MO: Vehicle theft from parking lots at night.
+449,2025-04-09 19:27:37,2025-04-09 20:27:37,2025-04-09 20:27:37,13.03526,77.735907,"Domestic Violence reported in Bengaluru Urban. MO: Residential burglary, targets electronics."
+450,2023-09-30 15:28:01,2023-10-01 00:28:01,2023-10-01 00:28:01,12.98821,76.091806,Cyber Crime reported in Hassan. MO: Distraction theft in crowded market.
+451,2019-08-07 04:07:46,2019-08-07 13:07:46,2019-08-07 13:07:46,13.13659,76.187167,Assault reported in Hassan. MO: Pickpocketing in BMTC buses.
+452,2023-12-16 19:36:18,2023-12-16 19:36:18,2023-12-16 19:36:18,12.267744,76.735836,Domestic Violence reported in Mysuru. MO: Distraction theft in crowded market.
+453,2023-01-18 08:30:52,2023-01-18 08:30:52,2023-01-18 08:30:52,13.382058,77.085139,Fraud reported in Tumakuru. MO: Highway robbery targeting truck drivers.
+454,2021-09-12 09:39:07,2021-09-12 21:39:07,2021-09-12 21:39:07,13.129567,76.105312,Robbery reported in Hassan. MO: Chain snatching near signal stops.
+455,2023-04-26 11:38:46,2023-04-26 23:38:46,2023-04-26 23:38:46,15.955371,74.443873,Theft reported in Belagavi. MO: Highway robbery targeting truck drivers.
+456,2026-03-20 06:40:32,2026-03-20 15:40:32,2026-03-20 15:40:32,13.299758,77.141912,Fraud reported in Tumakuru. MO: Impersonation fraud at banks.
+457,2026-06-03 10:16:30,2026-06-03 20:16:30,2026-06-03 20:16:30,15.338368,76.812771,Robbery reported in Ballari. MO: Online investment scam via WhatsApp.
+458,2025-12-13 08:40:15,2025-12-13 12:40:15,2025-12-13 12:40:15,17.386325,76.957725,"Fraud reported in Kalaburagi. MO: ATM corner ambush, motorbike getaway."
+459,2024-08-24 14:29:30,2024-08-24 20:29:30,2024-08-24 20:29:30,15.305948,76.77984,"Vehicle Theft reported in Ballari. MO: Residential burglary, targets electronics."
+460,2021-12-05 12:32:18,2021-12-05 18:32:18,2021-12-05 18:32:18,12.965694,74.79397,Vehicle Theft reported in Dakshina Kannada. MO: Hawala transfer through shell accounts.
+461,2019-08-02 22:32:51,2019-08-03 07:32:51,2019-08-03 07:32:51,12.856314,74.942636,Cyber Crime reported in Dakshina Kannada. MO: Pickpocketing in BMTC buses.
+462,2020-06-06 00:56:28,2020-06-06 12:56:28,2020-06-06 12:56:28,12.976308,77.667252,Chain Snatching reported in Bengaluru Urban. MO: Online investment scam via WhatsApp.
+463,2018-08-28 17:44:38,2018-08-29 01:44:38,2018-08-29 01:44:38,12.43269,76.76999,Assault reported in Mysuru. MO: Vehicle theft from parking lots at night.
+464,2020-02-13 10:09:04,2020-02-13 16:09:04,2020-02-13 16:09:04,15.537137,75.187502,Burglary reported in Dharwad. MO: SIM swap + OTP intercept.
+465,2019-11-27 01:33:43,2019-11-27 11:33:43,2019-11-27 11:33:43,13.911582,75.567662,Financial Fraud reported in Shivamogga. MO: Vehicle theft from parking lots at night.
+466,2020-02-26 16:11:54,2020-02-26 23:11:54,2020-02-26 23:11:54,15.349796,75.205997,"Theft reported in Dharwad. MO: ATM corner ambush, motorbike getaway."
+467,2023-02-21 16:47:31,2023-02-22 00:47:31,2023-02-22 00:47:31,17.409808,76.736298,Burglary reported in Kalaburagi. MO: Distraction theft in crowded market.
+468,2025-04-23 16:24:37,2025-04-23 21:24:37,2025-04-23 21:24:37,15.288385,76.839587,"Kidnapping reported in Ballari. MO: Residential burglary, targets electronics."
+469,2021-01-09 04:56:31,2021-01-09 11:56:31,2021-01-09 11:56:31,13.886103,75.415212,Theft reported in Shivamogga. MO: Online investment scam via WhatsApp.
+470,2021-06-01 16:37:11,2021-06-02 04:37:11,2021-06-02 04:37:11,12.905323,74.842563,Robbery reported in Dakshina Kannada. MO: SIM swap + OTP intercept.
+471,2026-10-17 05:36:26,2026-10-17 10:36:26,2026-10-17 10:36:26,12.859245,77.608097,Burglary reported in Bengaluru Urban. MO: Night-time entry through rear window.
+472,2018-04-03 08:09:33,2018-04-03 15:09:33,2018-04-03 15:09:33,13.105721,76.154485,POCSO reported in Hassan. MO: Pickpocketing in BMTC buses.
+473,2025-06-21 06:20:09,2025-06-21 16:20:09,2025-06-21 16:20:09,12.859202,77.639074,Domestic Violence reported in Bengaluru Urban. MO: Online investment scam via WhatsApp.
+474,2024-06-13 14:23:29,2024-06-13 15:23:29,2024-06-13 15:23:29,13.386685,77.167634,Kidnapping reported in Tumakuru. MO: Online investment scam via WhatsApp.
+475,2020-07-23 10:36:02,2020-07-23 10:36:02,2020-07-23 10:36:02,14.019163,75.439104,Kidnapping reported in Shivamogga. MO: Impersonation fraud at banks.
+476,2018-03-25 16:11:11,2018-03-25 21:11:11,2018-03-25 21:11:11,15.327039,75.085613,Vehicle Theft reported in Dharwad. MO: Pickpocketing in BMTC buses.
+477,2025-01-14 23:02:51,2025-01-14 23:02:51,2025-01-14 23:02:51,13.307691,77.091152,"Burglary reported in Tumakuru. MO: ATM corner ambush, motorbike getaway."
+478,2020-02-24 08:08:33,2020-02-24 14:08:33,2020-02-24 14:08:33,13.483979,77.270237,"Assault reported in Tumakuru. MO: Residential burglary, targets electronics."
+479,2019-11-30 22:40:09,2019-11-30 22:40:09,2019-11-30 22:40:09,13.418135,77.053507,NDPS reported in Tumakuru. MO: Drug supply through courier networks.
+480,2024-09-14 15:22:29,2024-09-15 02:22:29,2024-09-15 02:22:29,15.778351,74.540253,"Kidnapping reported in Belagavi. MO: ATM corner ambush, motorbike getaway."
+481,2024-09-14 07:50:14,2024-09-14 19:50:14,2024-09-14 19:50:14,15.765765,74.501681,NDPS reported in Belagavi. MO: Highway robbery targeting truck drivers.
+482,2020-08-22 16:40:02,2020-08-23 01:40:02,2020-08-23 01:40:02,12.854375,74.923803,NDPS reported in Dakshina Kannada. MO: Highway robbery targeting truck drivers.
+483,2021-10-26 17:01:18,2021-10-26 22:01:18,2021-10-26 22:01:18,17.480534,76.809051,Financial Fraud reported in Kalaburagi. MO: Distraction theft in crowded market.
+484,2018-01-05 17:43:27,2018-01-06 04:43:27,2018-01-06 04:43:27,13.132614,76.052276,Murder reported in Hassan. MO: Drug supply through courier networks.
+485,2025-01-16 22:57:37,2025-01-16 23:57:37,2025-01-16 23:57:37,13.275366,77.159899,"Domestic Violence reported in Tumakuru. MO: ATM corner ambush, motorbike getaway."
+486,2022-06-24 15:50:48,2022-06-24 19:50:48,2022-06-24 19:50:48,12.328589,76.733558,"NDPS reported in Mysuru. MO: ATM corner ambush, motorbike getaway."
+487,2020-10-04 11:30:51,2020-10-04 19:30:51,2020-10-04 19:30:51,15.101531,76.908267,Theft reported in Ballari. MO: Online investment scam via WhatsApp.
+488,2024-03-20 02:18:11,2024-03-20 11:18:11,2024-03-20 11:18:11,12.943016,74.943011,Assault reported in Dakshina Kannada. MO: Night-time entry through rear window.
+489,2018-02-05 06:02:18,2018-02-05 16:02:18,2018-02-05 16:02:18,15.997929,74.433728,NDPS reported in Belagavi. MO: Posing as government official.
+490,2021-11-04 03:34:07,2021-11-04 08:34:07,2021-11-04 08:34:07,12.381418,76.552777,POCSO reported in Mysuru. MO: Night-time entry through rear window.
+491,2024-08-03 04:55:07,2024-08-03 04:55:07,2024-08-03 04:55:07,15.918847,74.402217,Murder reported in Belagavi. MO: Highway robbery targeting truck drivers.
+492,2018-03-04 13:09:21,2018-03-04 20:09:21,2018-03-04 20:09:21,12.410506,76.504707,Domestic Violence reported in Mysuru. MO: Night-time entry through rear window.
+493,2026-02-11 12:19:57,2026-02-11 23:19:57,2026-02-11 23:19:57,12.303927,76.603223,Robbery reported in Mysuru. MO: Impersonation fraud at banks.
+494,2018-04-27 13:02:26,2018-04-27 20:02:26,2018-04-27 20:02:26,15.288159,76.807744,Chain Snatching reported in Ballari. MO: SIM swap + OTP intercept.
+495,2020-06-28 21:58:02,2020-06-28 22:58:02,2020-06-28 22:58:02,15.32568,77.019724,Vehicle Theft reported in Ballari. MO: Highway robbery targeting truck drivers.
+496,2025-04-20 10:16:16,2025-04-20 22:16:16,2025-04-20 22:16:16,13.129654,76.240458,Fraud reported in Hassan. MO: Hawala transfer through shell accounts.
+497,2023-01-03 10:57:14,2023-01-03 10:57:14,2023-01-03 10:57:14,12.76948,74.877583,Theft reported in Dakshina Kannada. MO: Drug supply through courier networks.
+498,2021-09-30 16:49:29,2021-10-01 01:49:29,2021-10-01 01:49:29,12.900342,74.972654,Domestic Violence reported in Dakshina Kannada. MO: Pickpocketing in BMTC buses.
+499,2021-10-30 18:02:17,2021-10-31 00:02:17,2021-10-31 00:02:17,13.379415,77.180802,"POCSO reported in Tumakuru. MO: Residential burglary, targets electronics."
+500,2024-03-31 02:59:21,2024-03-31 08:59:21,2024-03-31 08:59:21,14.047774,75.620644,"Fraud reported in Shivamogga. MO: ATM corner ambush, motorbike getaway."

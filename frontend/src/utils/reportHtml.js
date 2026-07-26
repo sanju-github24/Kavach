@@ -1,0 +1,110 @@
+import { API } from '../api.js'
+
+// Server-side PDF generation via Catalyst SmartBrowz (the Catalyst-native
+// headless-browser service). We build fully branded HTML here, POST it to the
+// `pdf_render` function which renders it with real Chromium, and download the
+// returned PDF. Because it's a true browser, CSS, the '→' arrow, and Kannada
+// glyphs all render correctly — things the client-side jsPDF path can't do.
+// Every caller passes an `onFallback` that runs the original jsPDF export, so
+// if SmartBrowz isn't provisioned yet the download still works.
+
+const ESC = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }
+const escapeHtml = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ESC[c])
+
+// **bold** → <strong>; everything else escaped. Safe for untrusted model text.
+function inlineMarkdown(raw) {
+  return escapeHtml(raw).replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+}
+
+// The KAVACH shield+eye mark as inline SVG — identical to the app logo/favicon.
+const LOGO_SVG = `<svg width="26" height="26" viewBox="0 0 64 64" style="flex:none">
+  <path d="M32 10 L48 15 V30 C48 42 41 50 32 54 C23 50 16 42 16 30 V15 Z" fill="#FFFFFF"/>
+  <circle cx="32" cy="31" r="10" fill="#0A0A0A"/><circle cx="32" cy="31" r="3.6" fill="#FFFFFF"/>
+</svg>`
+
+// Builds a complete, self-contained branded HTML document from a simple model:
+//   sections: [{ heading, paragraphs?: string[], table?: { head:[], rows:[[]] } }]
+export function buildReportHtml({ title, subtitle, meta, intro, sections = [] }) {
+  const sectionHtml = sections.map((s) => {
+    const parts = [`<h2 class="sec">${escapeHtml(s.heading)}</h2>`]
+    if (intro && s === sections[0] && intro) { /* intro handled separately */ }
+    if (s.paragraphs?.length) {
+      parts.push(s.paragraphs.filter(Boolean).map((p) => {
+        const bullet = /^\s*[-•*]\s+/.test(p)
+        const body = inlineMarkdown(p.replace(/^\s*[-•*]\s+/, ''))
+        return bullet ? `<p class="bul">• ${body}</p>` : `<p>${body}</p>`
+      }).join(''))
+    }
+    if (s.table?.head?.length) {
+      const head = s.table.head.map((h) => `<th>${escapeHtml(h)}</th>`).join('')
+      const rows = (s.table.rows || []).map((r) =>
+        `<tr>${r.map((c) => `<td>${escapeHtml(c === null || c === undefined || c === '' ? '—' : c)}</td>`).join('')}</tr>`
+      ).join('')
+      parts.push(`<table><thead><tr>${head}</tr></thead><tbody>${rows}</tbody></table>`)
+    }
+    return `<section>${parts.join('')}</section>`
+  }).join('')
+
+  return `<!doctype html><html><head><meta charset="utf-8"/><style>
+    * { box-sizing: border-box; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    @page { size: A4; margin: 0; }
+    body { font-family: Helvetica, Arial, sans-serif; color: #0B0B0B; margin: 0; }
+    .page { padding: 0 14mm 22mm; }
+    header.bar { background: #0A0A0A; color: #fff; padding: 8mm 14mm 6mm; }
+    header .row { display: flex; align-items: center; gap: 8px; }
+    header .brand { font-weight: 700; font-size: 15px; letter-spacing: .5px; }
+    header .kicker { color: #c8c8c8; font-size: 8px; letter-spacing: 1.5px; text-transform: uppercase; margin-top: 2px; }
+    header h1 { font-size: 17px; margin: 7mm 0 0; font-weight: 700; }
+    header .sub { color: #bcbcbc; font-size: 9.5px; margin-top: 3px; display:flex; justify-content:space-between; gap:12px; }
+    .intro { font-size: 10px; color: #333; margin: 7mm 0 0; line-height: 1.5; }
+    h2.sec { font-size: 10.5px; text-transform: uppercase; letter-spacing: .5px; margin: 7mm 0 1mm;
+             border-bottom: 1.5px solid #111; display: inline-block; padding-bottom: 1mm; }
+    section { margin-top: 2mm; }
+    p { font-size: 10px; line-height: 1.55; margin: 1.5mm 0; }
+    p.bul { margin-left: 4mm; }
+    strong { font-weight: 700; }
+    table { width: 100%; border-collapse: collapse; margin: 2mm 0 1mm; font-size: 8.7px; }
+    th { background: #0A0A0A; color: #fff; text-align: left; padding: 2mm 2.4mm; font-size: 8px; text-transform: uppercase; letter-spacing: .3px; }
+    td { padding: 1.8mm 2.4mm; border-bottom: .3px solid #ddd; }
+    tbody tr:nth-child(even) { background: #f6f6f6; }
+    footer { position: fixed; bottom: 0; left: 0; right: 0; padding: 4mm 14mm; font-size: 7.5px;
+             color: #6B7280; border-top: .3px solid #d8d8d8; display: flex; justify-content: space-between; }
+  </style></head><body>
+    <header class="bar">
+      <div class="row">${LOGO_SVG}<div><div class="brand">KAVACH</div>
+        <div class="kicker">Karnataka State Police · Crime Intelligence Platform</div></div></div>
+      <h1>${escapeHtml(title)}</h1>
+      <div class="sub"><span>${escapeHtml(subtitle || '')}</span><span>${escapeHtml(meta || '')}</span></div>
+    </header>
+    <div class="page">
+      ${intro ? `<p class="intro">${inlineMarkdown(intro)}</p>` : ''}
+      ${sectionHtml}
+    </div>
+    <footer><span>KAVACH Intelligence Platform · Karnataka State Police · CONFIDENTIAL</span><span>Generated by SmartBrowz</span></footer>
+  </body></html>`
+}
+
+// Renders `html` to a PDF via SmartBrowz and downloads it. On any failure
+// (service not provisioned, error) runs `onFallback()` — the original jsPDF
+// export — so the user always gets a file. Returns true if SmartBrowz served.
+export async function serverPdf(html, filename, onFallback) {
+  try {
+    const res = await fetch(API.DATA_QUERY, {
+      method: 'POST', credentials: 'include',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ action: 'pdf_render', html }),
+    })
+    const data = await res.json()
+    if (!data?.pdfBase64) throw new Error(data?.error || 'no pdf')
+    const bytes = Uint8Array.from(atob(data.pdfBase64), (c) => c.charCodeAt(0))
+    const url = URL.createObjectURL(new Blob([bytes], { type: 'application/pdf' }))
+    const a = document.createElement('a')
+    a.href = url; a.download = filename; a.click()
+    URL.revokeObjectURL(url)
+    return true
+  } catch (e) {
+    console.warn('SmartBrowz PDF unavailable, using local fallback:', e.message)
+    onFallback?.()
+    return false
+  }
+}

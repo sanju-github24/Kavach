@@ -1,0 +1,16 @@
+{
+	"name": "ksp_crimint_function",
+	"version": "1.0.0",
+	"main": "index.js",
+	"author": "sanjusanjay0444@gmail.com",
+	"dependencies": {
+		"express": "^5.2.1",
+		"zcatalyst-sdk-node": "^3.4.0"
+	},
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"keywords": [],
+	"license": "ISC",
+	"description": ""
+}

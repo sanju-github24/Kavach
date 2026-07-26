@@ -1,0 +1,33 @@
+{
+  "name": "ksp-crimint-frontend",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "axios": "^1.6.7",
+    "cytoscape": "^3.34.0",
+    "echarts": "^6.1.0",
+    "echarts-for-react": "^3.0.6",
+    "jspdf": "^4.2.1",
+    "jspdf-autotable": "^5.0.8",
+    "leaflet": "^1.9.4",
+    "leaflet.heat": "^0.2.0",
+    "react": "^18.2.0",
+    "react-cytoscapejs": "^2.0.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.22.0",
+    "xlsx": "^0.18.5"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.2.1",
+    "autoprefixer": "^10.5.0",
+    "postcss": "^8.5.15",
+    "tailwindcss": "^3.4.19",
+    "vite": "^8.0.16"
+  }
+}

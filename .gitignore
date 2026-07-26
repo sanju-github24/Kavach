@@ -1,0 +1,7 @@
+node_modules/
+dist/
+.build/
+catalyst-debug.log
+functions/*/catalyst-config.json
+.env
+*.env

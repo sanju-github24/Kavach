@@ -1,0 +1,27 @@
+ActCode,SectionCode,SectionDescription,Active
+IPC,379,IPC Section 379,true
+IPC,380,IPC Section 380,true
+IPC,457,IPC Section 457,true
+IPC,392,IPC Section 392,true
+IPC,393,IPC Section 393,true
+IPC,411,IPC Section 411,true
+IPC,356,IPC Section 356,true
+IPC,323,IPC Section 323,true
+IPC,324,IPC Section 324,true
+IPC,302,IPC Section 302,true
+IPC,307,IPC Section 307,true
+IPC,363,IPC Section 363,true
+IPC,364,IPC Section 364,true
+IPC,498A,IPC Section 498A,true
+DVACT,1,DVACT Section 1,true
+POCSO,4,POCSO Section 4,true
+POCSO,6,POCSO Section 6,true
+IPC,420,IPC Section 420,true
+IPC,406,IPC Section 406,true
+IPC,467,IPC Section 467,true
+CUSTOMS,135,CUSTOMS Section 135,true
+IPC,120B,IPC Section 120B,true
+NDPS,20,NDPS Section 20,true
+NDPS,21,NDPS Section 21,true
+ITACT,66C,ITACT Section 66C,true
+ITACT,66D,ITACT Section 66D,true

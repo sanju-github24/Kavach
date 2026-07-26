@@ -1,0 +1,51 @@
+account_id,account_number,bank,linked_accused_id,flagged,suspicious_txn_count,total_suspicious_amount,notes
+FA1,SBI-4968,Canara Bank,19,false,0,0,
+FA2,HDF-8518,HDFC,46,false,2,0,
+FA3,ICI-5256,SBI,52,true,3,2147764,Multiple high-value transfers inconsistent with declared income
+FA4,CAN-7362,SBI,58,true,16,605508,Multiple high-value transfers inconsistent with declared income
+FA5,HDF-3193,HDFC,68,false,1,0,
+FA6,SBI-9636,SBI,81,false,1,0,
+FA7,SBI-4362,SBI,108,true,12,98991,Multiple high-value transfers inconsistent with declared income
+FA8,AXI-4601,Canara Bank,113,true,4,1533136,Multiple high-value transfers inconsistent with declared income
+FA9,CAN-2919,SBI,117,false,2,0,
+FA10,ICI-3929,Canara Bank,126,false,2,0,
+FA11,HDF-1996,HDFC,137,true,6,1995536,Multiple high-value transfers inconsistent with declared income
+FA12,SBI-2612,ICICI,146,true,19,1016722,Multiple high-value transfers inconsistent with declared income
+FA13,ICI-1783,ICICI,165,true,3,2120043,Multiple high-value transfers inconsistent with declared income
+FA14,CAN-3392,Canara Bank,176,true,15,1939129,Multiple high-value transfers inconsistent with declared income
+FA15,HDF-1690,ICICI,194,true,10,1750405,Multiple high-value transfers inconsistent with declared income
+FA16,SBI-5457,Canara Bank,197,false,0,0,
+FA17,AXI-4922,Canara Bank,203,false,1,0,
+FA18,AXI-9652,ICICI,212,false,0,0,
+FA19,AXI-7981,HDFC,213,false,1,0,
+FA20,HDF-4523,Axis Bank,222,false,2,0,
+FA21,ICI-8353,Canara Bank,226,true,8,1722204,Multiple high-value transfers inconsistent with declared income
+FA22,HDF-8347,Axis Bank,231,false,1,0,
+FA23,CAN-7161,Canara Bank,235,true,18,1789537,Multiple high-value transfers inconsistent with declared income
+FA24,AXI-2715,HDFC,237,false,2,0,
+FA25,SBI-9162,SBI,239,false,2,0,
+FA26,CAN-6676,ICICI,248,true,8,217145,Multiple high-value transfers inconsistent with declared income
+FA27,HDF-2724,ICICI,249,true,10,449458,Multiple high-value transfers inconsistent with declared income
+FA28,AXI-6821,ICICI,278,true,11,184171,Multiple high-value transfers inconsistent with declared income
+FA29,HDF-4261,ICICI,289,false,0,0,
+FA30,SBI-6309,ICICI,290,true,19,846738,Multiple high-value transfers inconsistent with declared income
+FA31,CAN-4229,HDFC,294,false,2,0,
+FA32,CAN-1415,ICICI,305,false,0,0,
+FA33,CAN-9577,SBI,310,true,14,2214693,Multiple high-value transfers inconsistent with declared income
+FA34,AXI-2719,HDFC,314,false,1,0,
+FA35,HDF-1217,ICICI,329,false,0,0,
+FA36,AXI-4302,HDFC,335,false,1,0,
+FA37,ICI-2970,ICICI,343,false,1,0,
+FA38,HDF-7838,Canara Bank,352,false,1,0,
+FA39,CAN-1748,Canara Bank,353,false,0,0,
+FA40,HDF-6370,HDFC,361,true,3,585059,Multiple high-value transfers inconsistent with declared income
+FA41,SBI-7551,ICICI,364,true,6,1555338,Multiple high-value transfers inconsistent with declared income
+FA42,AXI-4556,Canara Bank,372,false,0,0,
+FA43,SBI-7889,ICICI,374,false,1,0,
+FA44,ICI-1154,Canara Bank,381,true,9,2412442,Multiple high-value transfers inconsistent with declared income
+FA45,ICI-4334,Canara Bank,385,true,19,1800774,Multiple high-value transfers inconsistent with declared income
+FA46,SBI-4830,Canara Bank,389,false,0,0,
+FA47,SBI-8577,Axis Bank,391,true,5,2166190,Multiple high-value transfers inconsistent with declared income
+FA48,CAN-2734,SBI,395,false,2,0,
+FA49,HDF-6994,ICICI,396,true,5,1892123,Multiple high-value transfers inconsistent with declared income
+FA50,AXI-9538,Canara Bank,399,true,13,1285492,Multiple high-value transfers inconsistent with declared income

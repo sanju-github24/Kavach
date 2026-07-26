@@ -1,0 +1,1012 @@
+age,gender,district,primary_crime,repeat_case_count,is_repeat_offender,risk_label
+48,Male,Kalaburagi,Vehicle Theft,2,1,Medium
+34,Male,Bengaluru Urban,POCSO,1,0,Medium
+46,Male,Dharwad,Assault,2,1,Medium
+55,Female,Dakshina Kannada,Smuggling,3,1,Medium
+20,Male,Dharwad,Assault,1,0,Low
+31,Male,Dharwad,Murder,3,1,High
+38,Male,Shivamogga,Kidnapping,2,1,High
+22,Male,Dakshina Kannada,Vehicle Theft,2,1,Medium
+52,Male,Kalaburagi,POCSO,2,1,High
+48,Male,Kalaburagi,Theft,1,0,Low
+33,Male,Kalaburagi,Theft,1,0,Low
+54,Male,Kalaburagi,Murder,1,0,Medium
+23,Male,Kalaburagi,Burglary,2,1,Medium
+30,Male,Kalaburagi,Burglary,2,1,Medium
+33,Male,Mysuru,Financial Fraud,1,0,Low
+18,Male,Ballari,Chain Snatching,1,0,Low
+48,Male,Dakshina Kannada,Kidnapping,1,0,Medium
+18,Male,Shivamogga,Kidnapping,1,0,Medium
+38,Male,Ballari,Fraud,1,0,Low
+45,Male,Shivamogga,Cyber Crime,2,1,Medium
+53,Male,Ballari,Fraud,2,1,Medium
+50,Male,Bengaluru Urban,Robbery,1,0,Medium
+49,Male,Tumakuru,Assault,1,0,Low
+52,Male,Hassan,Financial Fraud,1,0,Low
+43,Male,Dharwad,Murder,1,0,Medium
+53,Male,Ballari,Financial Fraud,2,1,Medium
+52,Male,Hassan,Vehicle Theft,1,0,Low
+29,Male,Hassan,Theft,2,1,Medium
+29,Male,Belagavi,Smuggling,1,0,Low
+42,Male,Hassan,Vehicle Theft,3,1,Medium
+43,Male,Dakshina Kannada,Kidnapping,1,0,Medium
+45,Male,Shivamogga,Vehicle Theft,1,0,Low
+49,Male,Tumakuru,Theft,1,0,Low
+40,Male,Ballari,POCSO,1,0,Medium
+48,Male,Hassan,Cyber Crime,1,0,Low
+20,Male,Belagavi,Assault,1,0,Low
+32,Male,Kalaburagi,Burglary,1,0,Low
+34,Male,Bengaluru Urban,Chain Snatching,1,0,Low
+18,Male,Dakshina Kannada,Burglary,2,1,Medium
+42,Male,Tumakuru,Fraud,1,0,Low
+37,Male,Kalaburagi,Theft,1,0,Low
+44,Male,Bengaluru Urban,Theft,1,0,Low
+43,Male,Dakshina Kannada,Chain Snatching,1,0,Low
+43,Male,Dharwad,Murder,2,1,High
+26,Male,Dharwad,Vehicle Theft,1,0,Low
+43,Male,Hassan,NDPS,1,0,Medium
+39,Male,Belagavi,Domestic Violence,1,0,Low
+41,Male,Belagavi,Assault,1,0,Low
+34,Male,Kalaburagi,Assault,3,1,Medium
+27,Male,Shivamogga,Smuggling,1,0,Low
+25,Female,Tumakuru,Burglary,3,1,Medium
+41,Male,Dakshina Kannada,Vehicle Theft,2,1,Medium
+30,Male,Hassan,Theft,2,1,Medium
+23,Male,Dharwad,Assault,3,1,Medium
+43,Male,Tumakuru,Burglary,2,1,Medium
+34,Male,Tumakuru,POCSO,2,1,High
+33,Male,Kalaburagi,Vehicle Theft,2,1,Medium
+54,Male,Dakshina Kannada,Robbery,1,0,Medium
+41,Male,Hassan,Cyber Crime,1,0,Low
+40,Male,Shivamogga,Vehicle Theft,1,0,Low
+37,Male,Bengaluru Urban,Smuggling,2,1,Medium
+37,Male,Dharwad,POCSO,1,0,Medium
+49,Male,Bengaluru Urban,Murder,1,0,Medium
+44,Male,Hassan,Cyber Crime,1,0,Low
+52,Male,Ballari,Domestic Violence,2,1,Medium
+26,Male,Ballari,Robbery,2,1,High
+52,Male,Bengaluru Urban,POCSO,2,1,High
+30,Male,Kalaburagi,Burglary,1,0,Low
+43,Male,Tumakuru,Theft,2,1,Medium
+40,Male,Ballari,Robbery,2,1,High
+46,Male,Hassan,Robbery,1,0,Medium
+34,Male,Dakshina Kannada,Theft,3,1,Medium
+52,Male,Dharwad,Fraud,1,0,Low
+35,Male,Hassan,Fraud,1,0,Low
+45,Male,Ballari,Fraud,1,0,Low
+53,Male,Hassan,Vehicle Theft,1,0,Low
+37,Male,Kalaburagi,Financial Fraud,1,0,Low
+45,Male,Dakshina Kannada,Murder,2,1,High
+30,Male,Dharwad,Vehicle Theft,1,0,Low
+52,Male,Bengaluru Urban,Domestic Violence,2,1,Medium
+51,Male,Bengaluru Urban,Domestic Violence,1,0,Low
+34,Male,Dakshina Kannada,Kidnapping,1,0,Medium
+41,Male,Hassan,Cyber Crime,1,0,Low
+50,Male,Kalaburagi,Financial Fraud,1,0,Low
+32,Male,Dakshina Kannada,POCSO,1,0,Medium
+38,Male,Mysuru,Burglary,3,1,Medium
+30,Male,Belagavi,POCSO,1,0,Medium
+38,Male,Dharwad,Robbery,1,0,Medium
+43,Female,Ballari,Domestic Violence,1,0,Low
+43,Male,Hassan,Financial Fraud,1,0,Low
+19,Male,Dakshina Kannada,Burglary,1,0,Low
+28,Male,Dakshina Kannada,Burglary,1,0,Low
+46,Male,Bengaluru Urban,Fraud,1,0,Low
+47,Male,Mysuru,Financial Fraud,1,0,Low
+49,Male,Tumakuru,Cyber Crime,1,0,Low
+51,Male,Kalaburagi,Chain Snatching,1,0,Low
+47,Male,Kalaburagi,Chain Snatching,2,1,Medium
+32,Male,Mysuru,Burglary,1,0,Low
+25,Male,Ballari,Burglary,1,0,Low
+46,Female,Shivamogga,Financial Fraud,1,0,Low
+50,Male,Ballari,Theft,1,0,Low
+36,Male,Hassan,Domestic Violence,1,0,Low
+30,Male,Ballari,Financial Fraud,1,0,Low
+49,Male,Ballari,Smuggling,1,0,Low
+19,Male,Dakshina Kannada,Cyber Crime,1,0,Low
+24,Female,Belagavi,Theft,2,1,Medium
+19,Male,Bengaluru Urban,Chain Snatching,1,0,Low
+25,Male,Tumakuru,Kidnapping,1,0,Medium
+46,Female,Tumakuru,NDPS,1,0,Medium
+47,Female,Tumakuru,Domestic Violence,2,1,Medium
+31,Male,Ballari,Vehicle Theft,1,0,Low
+37,Male,Kalaburagi,Vehicle Theft,1,0,Low
+55,Male,Bengaluru Urban,NDPS,1,0,Medium
+54,Male,Mysuru,Burglary,2,1,Medium
+39,Female,Hassan,Assault,1,0,Low
+29,Male,Kalaburagi,Murder,1,0,Medium
+44,Male,Hassan,Cyber Crime,2,1,Medium
+52,Male,Ballari,Theft,1,0,Low
+47,Male,Dharwad,Murder,2,1,High
+51,Male,Belagavi,Robbery,2,1,High
+21,Male,Hassan,Robbery,2,1,High
+25,Male,Mysuru,Financial Fraud,2,1,Medium
+18,Male,Ballari,Robbery,2,1,High
+36,Male,Dakshina Kannada,POCSO,1,0,Medium
+39,Female,Ballari,NDPS,2,1,High
+53,Male,Dakshina Kannada,NDPS,2,1,High
+39,Male,Kalaburagi,Fraud,2,1,Medium
+50,Female,Ballari,NDPS,1,0,Medium
+29,Male,Shivamogga,Cyber Crime,1,0,Low
+28,Male,Belagavi,Vehicle Theft,2,1,Medium
+43,Male,Dharwad,Financial Fraud,3,1,Medium
+44,Male,Tumakuru,Chain Snatching,2,1,Medium
+27,Male,Bengaluru Urban,Chain Snatching,1,0,Low
+41,Male,Bengaluru Urban,Chain Snatching,1,0,Low
+52,Female,Ballari,Domestic Violence,2,1,Medium
+45,Male,Bengaluru Urban,POCSO,1,0,Medium
+54,Male,Bengaluru Urban,Smuggling,2,1,Medium
+34,Male,Ballari,Smuggling,3,1,Medium
+19,Male,Dakshina Kannada,Assault,1,0,Low
+41,Male,Bengaluru Urban,Chain Snatching,1,0,Low
+20,Male,Bengaluru Urban,Chain Snatching,1,0,Low
+37,Female,Bengaluru Urban,Chain Snatching,1,0,Low
+38,Male,Hassan,Smuggling,1,0,Low
+55,Male,Tumakuru,POCSO,3,1,High
+42,Male,Mysuru,Chain Snatching,2,1,Medium
+48,Male,Kalaburagi,Kidnapping,1,0,Medium
+33,Male,Kalaburagi,Kidnapping,1,0,Medium
+48,Male,Bengaluru Urban,NDPS,1,0,Medium
+29,Male,Shivamogga,Robbery,1,0,Medium
+38,Male,Belagavi,POCSO,2,1,High
+20,Male,Tumakuru,Domestic Violence,1,0,Low
+46,Male,Mysuru,Kidnapping,2,1,High
+31,Male,Kalaburagi,Robbery,1,0,Medium
+19,Male,Belagavi,Smuggling,1,0,Low
+39,Male,Ballari,Cyber Crime,1,0,Low
+18,Female,Bengaluru Urban,Cyber Crime,1,0,Low
+36,Male,Dharwad,Theft,2,1,Medium
+52,Male,Kalaburagi,NDPS,1,0,Medium
+46,Female,Hassan,Domestic Violence,1,0,Low
+49,Male,Dharwad,Fraud,1,0,Low
+46,Male,Bengaluru Urban,Robbery,1,0,Medium
+18,Male,Hassan,Theft,1,0,Low
+38,Male,Dakshina Kannada,Murder,2,1,High
+33,Male,Kalaburagi,POCSO,1,0,Medium
+29,Male,Dharwad,Burglary,1,0,Low
+44,Male,Mysuru,Burglary,3,1,Medium
+34,Male,Bengaluru Urban,POCSO,2,1,High
+42,Male,Dharwad,Financial Fraud,1,0,Low
+26,Male,Dharwad,Murder,1,0,Medium
+39,Male,Bengaluru Urban,Smuggling,1,0,Low
+32,Male,Ballari,Assault,1,0,Low
+30,Male,Bengaluru Urban,POCSO,2,1,High
+31,Male,Dakshina Kannada,Burglary,1,0,Low
+22,Male,Belagavi,Kidnapping,2,1,High
+34,Male,Tumakuru,NDPS,3,1,High
+29,Male,Shivamogga,Murder,2,1,High
+23,Male,Tumakuru,Assault,1,0,Low
+46,Male,Belagavi,Vehicle Theft,2,1,Medium
+31,Male,Belagavi,Assault,1,0,Low
+27,Female,Kalaburagi,Financial Fraud,1,0,Low
+50,Male,Kalaburagi,POCSO,2,1,High
+29,Male,Dakshina Kannada,Domestic Violence,2,1,Medium
+44,Male,Shivamogga,Robbery,1,0,Medium
+21,Male,Belagavi,Domestic Violence,1,0,Low
+41,Male,Ballari,Robbery,2,1,High
+37,Male,Hassan,Burglary,1,0,Low
+28,Male,Dakshina Kannada,Robbery,2,1,High
+46,Male,Dharwad,Domestic Violence,1,0,Low
+27,Male,Dharwad,Kidnapping,1,0,Medium
+45,Male,Bengaluru Urban,Vehicle Theft,2,1,Medium
+51,Female,Belagavi,POCSO,1,0,Medium
+27,Male,Belagavi,Vehicle Theft,1,0,Low
+34,Male,Tumakuru,Burglary,2,1,Medium
+48,Male,Tumakuru,Burglary,1,0,Low
+27,Male,Belagavi,POCSO,1,0,Medium
+38,Male,Tumakuru,Murder,3,1,High
+47,Male,Dharwad,POCSO,2,1,High
+29,Female,Tumakuru,POCSO,1,0,Medium
+47,Male,Hassan,Robbery,1,0,Medium
+43,Male,Shivamogga,Theft,1,0,Low
+42,Male,Dharwad,Smuggling,1,0,Low
+24,Male,Bengaluru Urban,Theft,1,0,Low
+25,Male,Kalaburagi,NDPS,1,0,Medium
+24,Male,Shivamogga,Financial Fraud,3,1,Medium
+54,Male,Mysuru,Chain Snatching,1,0,Low
+18,Male,Dakshina Kannada,NDPS,1,0,Medium
+33,Female,Kalaburagi,Financial Fraud,1,0,Low
+33,Male,Hassan,Assault,1,0,Low
+55,Male,Kalaburagi,Fraud,1,0,Low
+27,Male,Dharwad,Theft,2,1,Medium
+44,Male,Shivamogga,Theft,1,0,Low
+52,Male,Hassan,POCSO,1,0,Medium
+47,Male,Hassan,Murder,1,0,Medium
+21,Male,Ballari,Chain Snatching,1,0,Low
+40,Male,Dakshina Kannada,Domestic Violence,1,0,Low
+47,Male,Dakshina Kannada,Robbery,1,0,Medium
+38,Male,Shivamogga,Domestic Violence,1,0,Low
+35,Male,Dharwad,Financial Fraud,1,0,Low
+47,Male,Dakshina Kannada,Robbery,2,1,High
+29,Male,Hassan,Theft,2,1,Medium
+28,Male,Dharwad,Kidnapping,1,0,Medium
+28,Male,Bengaluru Urban,Murder,2,1,High
+49,Male,Hassan,Financial Fraud,2,1,Medium
+50,Male,Ballari,Domestic Violence,1,0,Low
+29,Male,Kalaburagi,Vehicle Theft,1,0,Low
+41,Male,Dakshina Kannada,Domestic Violence,2,1,Medium
+23,Male,Kalaburagi,Theft,1,0,Low
+36,Male,Tumakuru,Financial Fraud,1,0,Low
+43,Male,Dharwad,Murder,1,0,Medium
+53,Female,Tumakuru,Smuggling,1,0,Low
+19,Male,Tumakuru,POCSO,1,0,Medium
+30,Male,Mysuru,NDPS,2,1,High
+37,Female,Belagavi,Theft,1,0,Low
+52,Male,Belagavi,Domestic Violence,1,0,Low
+42,Male,Dharwad,Fraud,1,0,Low
+37,Male,Tumakuru,Theft,1,0,Low
+41,Male,Belagavi,Kidnapping,1,0,Medium
+23,Male,Tumakuru,Financial Fraud,1,0,Low
+28,Male,Mysuru,Assault,3,1,Medium
+53,Male,Tumakuru,Murder,1,0,Medium
+43,Male,Belagavi,Vehicle Theft,1,0,Low
+34,Male,Tumakuru,Burglary,1,0,Low
+27,Male,Mysuru,Burglary,2,1,Medium
+36,Male,Dharwad,Theft,1,0,Low
+44,Male,Bengaluru Urban,Murder,1,0,Medium
+29,Male,Dharwad,Vehicle Theft,1,0,Low
+48,Male,Dharwad,Assault,1,0,Low
+49,Male,Bengaluru Urban,Burglary,1,0,Low
+38,Male,Tumakuru,Financial Fraud,1,0,Low
+21,Male,Tumakuru,Financial Fraud,1,0,Low
+41,Male,Tumakuru,Cyber Crime,1,0,Low
+32,Female,Shivamogga,Smuggling,1,0,Low
+18,Male,Ballari,Cyber Crime,1,0,Low
+47,Male,Dakshina Kannada,Smuggling,1,0,Low
+23,Female,Kalaburagi,Chain Snatching,1,0,Low
+43,Male,Ballari,Financial Fraud,1,0,Low
+33,Male,Hassan,Cyber Crime,1,0,Low
+23,Female,Ballari,Kidnapping,1,0,Medium
+28,Male,Shivamogga,Theft,1,0,Low
+52,Male,Bengaluru Urban,Domestic Violence,1,0,Low
+40,Male,Bengaluru Urban,Chain Snatching,2,1,Medium
+53,Male,Dakshina Kannada,Robbery,1,0,Medium
+48,Male,Tumakuru,Kidnapping,1,0,Medium
+47,Male,Hassan,Murder,1,0,Medium
+18,Male,Ballari,Chain Snatching,1,0,Low
+49,Male,Dharwad,Assault,1,0,Low
+51,Female,Bengaluru Urban,Theft,1,0,Low
+51,Male,Bengaluru Urban,NDPS,1,0,Medium
+45,Male,Mysuru,NDPS,1,0,Medium
+43,Male,Dakshina Kannada,Robbery,1,0,Medium
+27,Male,Belagavi,POCSO,1,0,Medium
+55,Male,Belagavi,Cyber Crime,3,1,Medium
+33,Male,Bengaluru Urban,Smuggling,1,0,Low
+43,Female,Bengaluru Urban,Smuggling,2,1,Medium
+47,Male,Kalaburagi,Theft,2,1,Medium
+52,Male,Dakshina Kannada,Chain Snatching,2,1,Medium
+55,Male,Kalaburagi,Robbery,2,1,High
+53,Male,Kalaburagi,Financial Fraud,2,1,Medium
+47,Male,Mysuru,Vehicle Theft,2,1,Medium
+40,Male,Dakshina Kannada,Theft,1,0,Low
+31,Male,Ballari,NDPS,1,0,Medium
+40,Male,Ballari,NDPS,1,0,Medium
+22,Male,Tumakuru,Theft,1,0,Low
+29,Male,Dharwad,Chain Snatching,1,0,Low
+37,Male,Ballari,Domestic Violence,2,1,Medium
+36,Male,Dakshina Kannada,Smuggling,1,0,Low
+50,Male,Kalaburagi,Domestic Violence,2,1,Medium
+23,Male,Kalaburagi,NDPS,1,0,Medium
+19,Male,Dharwad,Theft,1,0,Low
+27,Male,Kalaburagi,Kidnapping,3,1,High
+49,Male,Dakshina Kannada,Murder,3,1,High
+40,Male,Kalaburagi,Cyber Crime,1,0,Low
+32,Male,Belagavi,Assault,2,1,Medium
+52,Male,Tumakuru,Murder,1,0,Medium
+33,Male,Kalaburagi,Kidnapping,1,0,Medium
+19,Male,Belagavi,Assault,1,0,Low
+47,Male,Dakshina Kannada,Domestic Violence,3,1,Medium
+33,Male,Mysuru,Assault,2,1,Medium
+40,Male,Shivamogga,NDPS,2,1,High
+30,Male,Dakshina Kannada,Financial Fraud,2,1,Medium
+30,Male,Dakshina Kannada,Financial Fraud,2,1,Medium
+23,Male,Dakshina Kannada,Financial Fraud,1,0,Low
+20,Male,Tumakuru,POCSO,1,0,Medium
+26,Male,Belagavi,POCSO,1,0,Medium
+34,Male,Mysuru,Financial Fraud,1,0,Low
+21,Female,Hassan,NDPS,1,0,Medium
+29,Male,Hassan,NDPS,3,1,High
+19,Male,Belagavi,Assault,1,0,Low
+22,Male,Shivamogga,Murder,1,0,Medium
+25,Male,Shivamogga,Theft,2,1,Medium
+30,Male,Ballari,NDPS,1,0,Medium
+29,Male,Bengaluru Urban,Murder,3,1,High
+50,Male,Bengaluru Urban,Theft,1,0,Low
+19,Male,Ballari,Financial Fraud,1,0,Low
+41,Male,Hassan,Cyber Crime,1,0,Low
+31,Female,Belagavi,POCSO,1,0,Medium
+33,Female,Ballari,Financial Fraud,1,0,Low
+46,Male,Dakshina Kannada,Robbery,2,1,High
+49,Male,Hassan,Burglary,1,0,Low
+22,Male,Mysuru,Burglary,2,1,Medium
+22,Male,Hassan,Domestic Violence,2,1,Medium
+19,Male,Hassan,Fraud,2,1,Medium
+27,Male,Belagavi,Cyber Crime,2,1,Medium
+30,Male,Ballari,Assault,3,1,Medium
+35,Male,Belagavi,Robbery,1,0,Medium
+30,Male,Ballari,Vehicle Theft,2,1,Medium
+51,Male,Ballari,Vehicle Theft,2,1,Medium
+47,Male,Belagavi,Assault,1,0,Low
+45,Male,Dakshina Kannada,Kidnapping,1,0,Medium
+40,Male,Hassan,Fraud,1,0,Low
+31,Male,Tumakuru,NDPS,2,1,High
+55,Male,Ballari,NDPS,2,1,High
+48,Male,Shivamogga,Burglary,2,1,Medium
+33,Male,Hassan,Robbery,1,0,Medium
+50,Male,Tumakuru,Assault,1,0,Low
+36,Male,Dharwad,Fraud,1,0,Low
+50,Male,Dakshina Kannada,Chain Snatching,1,0,Low
+21,Male,Tumakuru,Smuggling,1,0,Low
+32,Male,Ballari,Chain Snatching,2,1,Medium
+25,Male,Tumakuru,Chain Snatching,1,0,Low
+20,Female,Ballari,Fraud,1,0,Low
+20,Female,Hassan,Theft,1,0,Low
+45,Male,Dakshina Kannada,Murder,1,0,Medium
+55,Male,Ballari,NDPS,2,1,High
+46,Male,Mysuru,Fraud,1,0,Low
+33,Male,Shivamogga,NDPS,1,0,Medium
+30,Male,Hassan,Burglary,3,1,Medium
+25,Female,Kalaburagi,Kidnapping,1,0,Medium
+21,Male,Kalaburagi,Kidnapping,1,0,Medium
+28,Male,Kalaburagi,Financial Fraud,2,1,Medium
+28,Male,Tumakuru,Assault,1,0,Low
+44,Male,Tumakuru,Assault,1,0,Low
+26,Male,Mysuru,Murder,1,0,Medium
+20,Male,Dharwad,Kidnapping,1,0,Medium
+20,Female,Hassan,Smuggling,1,0,Low
+42,Male,Belagavi,Smuggling,1,0,Low
+39,Male,Tumakuru,POCSO,1,0,Medium
+18,Male,Shivamogga,Robbery,2,1,High
+29,Male,Bengaluru Urban,Robbery,2,1,High
+43,Male,Tumakuru,Cyber Crime,2,1,Medium
+40,Male,Dakshina Kannada,Burglary,1,0,Low
+19,Male,Belagavi,Domestic Violence,2,1,Medium
+45,Male,Tumakuru,POCSO,1,0,Medium
+43,Male,Ballari,Cyber Crime,2,1,Medium
+33,Male,Mysuru,Burglary,1,0,Low
+38,Female,Dharwad,Theft,1,0,Low
+18,Male,Mysuru,Theft,1,0,Low
+19,Male,Tumakuru,Fraud,1,0,Low
+34,Male,Dharwad,Kidnapping,1,0,Medium
+37,Male,Belagavi,Cyber Crime,1,0,Low
+49,Male,Belagavi,POCSO,1,0,Medium
+55,Male,Kalaburagi,Financial Fraud,1,0,Low
+20,Male,Dakshina Kannada,Cyber Crime,1,0,Low
+40,Male,Dakshina Kannada,Murder,1,0,Medium
+21,Male,Kalaburagi,Burglary,1,0,Low
+26,Male,Ballari,Kidnapping,1,0,Medium
+39,Male,Tumakuru,NDPS,1,0,Medium
+36,Male,Kalaburagi,Financial Fraud,1,0,Low
+41,Male,Ballari,Financial Fraud,2,1,Medium
+52,Male,Bengaluru Urban,Murder,1,0,Medium
+38,Male,Hassan,Robbery,2,1,High
+50,Male,Dakshina Kannada,Robbery,2,1,High
+54,Male,Mysuru,Murder,1,0,Medium
+22,Male,Bengaluru Urban,Smuggling,2,1,Medium
+35,Male,Ballari,Smuggling,1,0,Low
+27,Male,Kalaburagi,Robbery,2,1,High
+40,Male,Ballari,Cyber Crime,2,1,Medium
+35,Male,Ballari,Chain Snatching,2,1,Medium
+46,Male,Dakshina Kannada,Theft,1,0,Low
+55,Male,Shivamogga,Kidnapping,1,0,Medium
+27,Male,Hassan,Fraud,3,1,Medium
+27,Male,Dharwad,Chain Snatching,2,1,Medium
+30,Male,Dharwad,Chain Snatching,1,0,Low
+21,Female,Shivamogga,Theft,2,1,Medium
+30,Male,Dharwad,Domestic Violence,1,0,Low
+36,Male,Tumakuru,Kidnapping,1,0,Medium
+45,Male,Hassan,Theft,1,0,Low
+53,Male,Dharwad,Theft,3,1,Medium
+41,Male,Hassan,POCSO,2,1,High
+37,Male,Dakshina Kannada,Theft,1,0,Low
+39,Male,Tumakuru,Cyber Crime,1,0,Low
+27,Female,Dakshina Kannada,Kidnapping,1,0,Medium
+21,Male,Dakshina Kannada,Assault,1,0,Low
+50,Male,Tumakuru,Murder,1,0,Medium
+52,Male,Shivamogga,Domestic Violence,1,0,Low
+45,Male,Tumakuru,Assault,1,0,Low
+26,Male,Mysuru,Murder,2,1,High
+51,Female,Shivamogga,NDPS,2,1,High
+35,Male,Belagavi,POCSO,1,0,Medium
+28,Male,Kalaburagi,Theft,1,0,Low
+46,Male,Tumakuru,POCSO,1,0,Medium
+51,Male,Kalaburagi,Theft,1,0,Low
+54,Male,Kalaburagi,Robbery,1,0,Medium
+23,Male,Belagavi,Smuggling,1,0,Low
+36,Male,Belagavi,Domestic Violence,1,0,Low
+33,Male,Shivamogga,Vehicle Theft,1,0,Low
+52,Male,Shivamogga,Vehicle Theft,1,0,Low
+36,Male,Dakshina Kannada,Vehicle Theft,1,0,Low
+25,Male,Mysuru,Fraud,2,1,Medium
+27,Female,Shivamogga,Chain Snatching,1,0,Low
+41,Male,Dakshina Kannada,Robbery,2,1,High
+27,Male,Bengaluru Urban,NDPS,1,0,Medium
+20,Male,Ballari,Robbery,1,0,Medium
+22,Male,Dharwad,Burglary,1,0,Low
+21,Male,Dharwad,Vehicle Theft,1,0,Low
+51,Male,Dakshina Kannada,NDPS,1,0,Medium
+42,Male,Tumakuru,POCSO,1,0,Medium
+51,Male,Tumakuru,Fraud,2,1,Medium
+24,Male,Dharwad,Kidnapping,1,0,Medium
+22,Male,Shivamogga,Domestic Violence,1,0,Low
+53,Male,Ballari,POCSO,2,1,High
+18,Male,Kalaburagi,Murder,2,1,High
+31,Male,Belagavi,Financial Fraud,3,1,Medium
+30,Male,Tumakuru,Robbery,1,0,Medium
+37,Male,Tumakuru,Robbery,1,0,Medium
+43,Male,Ballari,Domestic Violence,2,1,Medium
+19,Male,Dakshina Kannada,Burglary,3,1,Medium
+30,Male,Mysuru,Financial Fraud,2,1,Medium
+50,Male,Ballari,Robbery,2,1,High
+43,Male,Kalaburagi,Financial Fraud,1,0,Low
+49,Male,Kalaburagi,Fraud,2,1,Medium
+34,Male,Dakshina Kannada,Theft,1,0,Low
+23,Male,Belagavi,Chain Snatching,1,0,Low
+37,Male,Shivamogga,Burglary,3,1,Medium
+19,Female,Tumakuru,Financial Fraud,1,0,Low
+27,Female,Hassan,Fraud,1,0,Low
+45,Male,Dharwad,Domestic Violence,2,1,Medium
+52,Male,Kalaburagi,POCSO,1,0,Medium
+49,Male,Dakshina Kannada,Vehicle Theft,1,0,Low
+19,Male,Bengaluru Urban,POCSO,2,1,High
+27,Male,Kalaburagi,POCSO,2,1,High
+35,Male,Bengaluru Urban,Vehicle Theft,2,1,Medium
+18,Male,Hassan,Cyber Crime,2,1,Medium
+32,Male,Hassan,Cyber Crime,1,0,Low
+36,Male,Bengaluru Urban,Domestic Violence,1,0,Low
+40,Male,Dakshina Kannada,POCSO,1,0,Medium
+48,Male,Mysuru,Financial Fraud,1,0,Low
+49,Male,Bengaluru Urban,Assault,1,0,Low
+41,Male,Hassan,Chain Snatching,2,1,Medium
+46,Male,Tumakuru,Smuggling,1,0,Low
+34,Male,Tumakuru,Murder,1,0,Medium
+39,Male,Tumakuru,Fraud,1,0,Low
+21,Male,Kalaburagi,Theft,1,0,Low
+28,Male,Belagavi,POCSO,1,0,Medium
+45,Male,Belagavi,POCSO,1,0,Medium
+38,Male,Dharwad,POCSO,1,0,Medium
+18,Male,Tumakuru,NDPS,1,0,Medium
+35,Male,Tumakuru,Theft,1,0,Low
+28,Male,Mysuru,Theft,2,1,Medium
+34,Male,Mysuru,Theft,1,0,Low
+31,Male,Ballari,Theft,1,0,Low
+42,Male,Bengaluru Urban,Cyber Crime,1,0,Low
+39,Male,Mysuru,POCSO,1,0,Medium
+41,Male,Belagavi,Fraud,3,1,Medium
+21,Male,Mysuru,POCSO,1,0,Medium
+49,Male,Kalaburagi,POCSO,1,0,Medium
+43,Male,Ballari,Vehicle Theft,1,0,Low
+40,Female,Mysuru,Assault,1,0,Low
+46,Male,Shivamogga,Financial Fraud,1,0,Low
+19,Male,Kalaburagi,Financial Fraud,1,0,Low
+27,Male,Mysuru,Robbery,1,0,Medium
+35,Male,Dakshina Kannada,Domestic Violence,1,0,Low
+53,Male,Kalaburagi,Financial Fraud,1,0,Low
+29,Male,Hassan,Chain Snatching,2,1,Medium
+55,Male,Hassan,Burglary,2,1,Medium
+36,Male,Tumakuru,Fraud,3,1,Medium
+55,Male,Dharwad,Murder,2,1,High
+29,Male,Dharwad,Murder,1,0,Medium
+38,Male,Shivamogga,Kidnapping,1,0,Medium
+52,Male,Kalaburagi,NDPS,1,0,Medium
+44,Male,Tumakuru,Theft,1,0,Low
+18,Male,Kalaburagi,POCSO,1,0,Medium
+50,Male,Dharwad,Theft,2,1,Medium
+35,Male,Dharwad,Theft,1,0,Low
+35,Male,Shivamogga,Kidnapping,1,0,Medium
+19,Male,Ballari,Robbery,1,0,Medium
+18,Male,Shivamogga,Cyber Crime,1,0,Low
+34,Male,Ballari,Murder,1,0,Medium
+36,Male,Mysuru,Assault,1,0,Low
+30,Male,Hassan,Financial Fraud,2,1,Medium
+47,Female,Hassan,Vehicle Theft,1,0,Low
+41,Male,Kalaburagi,Kidnapping,2,1,High
+24,Male,Dharwad,Smuggling,1,0,Low
+30,Male,Tumakuru,POCSO,1,0,Medium
+39,Male,Dakshina Kannada,Kidnapping,1,0,Medium
+24,Male,Shivamogga,NDPS,1,0,Medium
+23,Male,Dakshina Kannada,Kidnapping,1,0,Medium
+24,Male,Ballari,Robbery,2,1,High
+48,Male,Bengaluru Urban,Kidnapping,2,1,High
+32,Male,Shivamogga,Domestic Violence,1,0,Low
+31,Male,Shivamogga,Theft,1,0,Low
+29,Male,Tumakuru,Financial Fraud,2,1,Medium
+47,Male,Hassan,Chain Snatching,1,0,Low
+19,Male,Mysuru,Chain Snatching,2,1,Medium
+38,Male,Tumakuru,Murder,1,0,Medium
+36,Female,Hassan,Theft,2,1,Medium
+26,Female,Bengaluru Urban,Fraud,1,0,Low
+35,Male,Tumakuru,Fraud,3,1,Medium
+54,Male,Shivamogga,Theft,1,0,Low
+54,Male,Ballari,Chain Snatching,1,0,Low
+50,Male,Bengaluru Urban,Fraud,2,1,Medium
+28,Male,Bengaluru Urban,Robbery,1,0,Medium
+51,Male,Belagavi,Smuggling,1,0,Low
+45,Male,Shivamogga,Murder,1,0,Medium
+47,Male,Ballari,Cyber Crime,1,0,Low
+19,Male,Tumakuru,Financial Fraud,1,0,Low
+40,Male,Tumakuru,Robbery,1,0,Medium
+38,Male,Kalaburagi,Assault,1,0,Low
+29,Male,Shivamogga,Vehicle Theft,1,0,Low
+40,Male,Bengaluru Urban,Theft,2,1,Medium
+44,Male,Mysuru,Fraud,1,0,Low
+28,Male,Tumakuru,Theft,1,0,Low
+18,Male,Dakshina Kannada,Robbery,1,0,Medium
+49,Male,Dakshina Kannada,Murder,2,1,High
+42,Male,Tumakuru,Fraud,1,0,Low
+25,Male,Belagavi,Theft,2,1,Medium
+45,Male,Ballari,Vehicle Theft,1,0,Low
+39,Male,Tumakuru,Assault,1,0,Low
+52,Male,Mysuru,POCSO,1,0,Medium
+38,Male,Belagavi,Murder,1,0,Medium
+32,Male,Kalaburagi,Burglary,1,0,Low
+33,Male,Belagavi,POCSO,1,0,Medium
+26,Male,Dharwad,Murder,1,0,Medium
+41,Male,Mysuru,Cyber Crime,1,0,Low
+24,Male,Shivamogga,Murder,2,1,High
+23,Male,Ballari,Domestic Violence,1,0,Low
+31,Male,Dharwad,NDPS,1,0,Medium
+24,Male,Ballari,Robbery,1,0,Medium
+20,Male,Ballari,Robbery,1,0,Medium
+42,Female,Mysuru,Domestic Violence,2,1,Medium
+42,Female,Dakshina Kannada,Domestic Violence,2,1,Medium
+26,Male,Kalaburagi,Theft,2,1,Medium
+25,Male,Kalaburagi,Fraud,1,0,Low
+23,Male,Belagavi,Chain Snatching,3,1,Medium
+55,Male,Dharwad,Fraud,1,0,Low
+53,Male,Dharwad,Kidnapping,3,1,High
+28,Male,Tumakuru,Smuggling,2,1,Medium
+22,Female,Bengaluru Urban,Chain Snatching,2,1,Medium
+31,Male,Ballari,Fraud,1,0,Low
+33,Male,Hassan,Theft,1,0,Low
+54,Female,Kalaburagi,POCSO,1,0,Medium
+26,Male,Mysuru,Burglary,1,0,Low
+20,Male,Shivamogga,Vehicle Theft,1,0,Low
+30,Male,Tumakuru,Cyber Crime,1,0,Low
+23,Male,Hassan,Smuggling,2,1,Medium
+46,Male,Ballari,Smuggling,1,0,Low
+34,Male,Belagavi,Cyber Crime,1,0,Low
+30,Male,Dakshina Kannada,Vehicle Theft,3,1,Medium
+54,Male,Belagavi,Kidnapping,2,1,High
+20,Female,Dakshina Kannada,Vehicle Theft,1,0,Low
+25,Female,Bengaluru Urban,Chain Snatching,1,0,Low
+52,Male,Ballari,Theft,1,0,Low
+23,Male,Kalaburagi,Smuggling,1,0,Low
+23,Male,Shivamogga,NDPS,1,0,Medium
+35,Male,Shivamogga,Vehicle Theft,1,0,Low
+50,Male,Dharwad,Theft,1,0,Low
+44,Male,Bengaluru Urban,Theft,1,0,Low
+24,Male,Dakshina Kannada,Vehicle Theft,1,0,Low
+49,Male,Belagavi,Theft,1,0,Low
+27,Male,Belagavi,Theft,1,0,Low
+53,Male,Tumakuru,Cyber Crime,2,1,Medium
+25,Male,Bengaluru Urban,Chain Snatching,1,0,Low
+51,Female,Shivamogga,Cyber Crime,1,0,Low
+50,Female,Hassan,Robbery,1,0,Medium
+37,Male,Dharwad,Smuggling,1,0,Low
+41,Male,Belagavi,Fraud,1,0,Low
+48,Male,Ballari,Fraud,1,0,Low
+39,Male,Tumakuru,Burglary,1,0,Low
+51,Male,Tumakuru,Theft,1,0,Low
+42,Male,Dharwad,Fraud,1,0,Low
+44,Male,Ballari,NDPS,1,0,Medium
+51,Male,Hassan,POCSO,2,1,High
+54,Male,Tumakuru,Smuggling,1,0,Low
+21,Male,Mysuru,Domestic Violence,1,0,Low
+25,Male,Bengaluru Urban,Domestic Violence,1,0,Low
+27,Male,Kalaburagi,Burglary,1,0,Low
+48,Male,Shivamogga,Kidnapping,1,0,Medium
+36,Female,Hassan,Murder,1,0,Medium
+24,Male,Dakshina Kannada,Assault,1,0,Low
+53,Male,Belagavi,NDPS,1,0,Medium
+35,Female,Tumakuru,POCSO,1,0,Medium
+33,Male,Dharwad,Burglary,1,0,Low
+25,Male,Ballari,Smuggling,3,1,Medium
+23,Male,Ballari,Assault,1,0,Low
+22,Male,Hassan,Cyber Crime,1,0,Low
+38,Male,Ballari,Theft,2,1,Medium
+29,Female,Tumakuru,Chain Snatching,1,0,Low
+32,Male,Mysuru,Murder,1,0,Medium
+21,Male,Ballari,Fraud,2,1,Medium
+22,Male,Mysuru,Chain Snatching,2,1,Medium
+33,Male,Kalaburagi,Robbery,1,0,Medium
+29,Male,Belagavi,Assault,1,0,Low
+53,Male,Dakshina Kannada,Theft,1,0,Low
+33,Male,Mysuru,Robbery,1,0,Medium
+31,Male,Ballari,Fraud,1,0,Low
+46,Male,Dharwad,Burglary,1,0,Low
+41,Female,Shivamogga,Theft,1,0,Low
+54,Male,Dharwad,Financial Fraud,1,0,Low
+29,Male,Kalaburagi,NDPS,1,0,Medium
+54,Male,Tumakuru,Chain Snatching,1,0,Low
+34,Male,Mysuru,NDPS,1,0,Medium
+40,Male,Belagavi,Theft,1,0,Low
+50,Male,Shivamogga,Murder,3,1,High
+25,Male,Dharwad,Domestic Violence,1,0,Low
+24,Male,Dakshina Kannada,Assault,1,0,Low
+34,Male,Belagavi,Assault,1,0,Low
+45,Male,Tumakuru,Financial Fraud,1,0,Low
+37,Male,Dharwad,Kidnapping,1,0,Medium
+51,Male,Tumakuru,POCSO,1,0,Medium
+31,Male,Tumakuru,Murder,2,1,High
+18,Female,Hassan,Robbery,1,0,Medium
+50,Male,Ballari,Domestic Violence,1,0,Low
+28,Male,Bengaluru Urban,Theft,1,0,Low
+20,Male,Kalaburagi,POCSO,1,0,Medium
+26,Male,Belagavi,Financial Fraud,1,0,Low
+48,Male,Dharwad,Murder,1,0,Medium
+41,Male,Bengaluru Urban,Robbery,3,1,High
+52,Male,Dakshina Kannada,Burglary,1,0,Low
+22,Female,Bengaluru Urban,Chain Snatching,1,0,Low
+32,Male,Bengaluru Urban,Theft,1,0,Low
+40,Male,Bengaluru Urban,Theft,1,0,Low
+45,Male,Tumakuru,Cyber Crime,1,0,Low
+36,Male,Dharwad,Theft,1,0,Low
+47,Male,Kalaburagi,Chain Snatching,1,0,Low
+34,Male,Hassan,Domestic Violence,1,0,Low
+40,Male,Ballari,Assault,1,0,Low
+55,Male,Shivamogga,Chain Snatching,1,0,Low
+28,Male,Bengaluru Urban,NDPS,1,0,Medium
+51,Male,Tumakuru,Fraud,1,0,Low
+30,Female,Dakshina Kannada,Vehicle Theft,1,0,Low
+27,Male,Kalaburagi,Burglary,2,1,Medium
+18,Male,Mysuru,NDPS,2,1,High
+20,Male,Kalaburagi,Vehicle Theft,2,1,Medium
+21,Male,Bengaluru Urban,POCSO,2,1,High
+22,Male,Dharwad,Chain Snatching,1,0,Low
+19,Female,Kalaburagi,Vehicle Theft,2,1,Medium
+35,Female,Mysuru,NDPS,1,0,Medium
+18,Male,Belagavi,POCSO,2,1,High
+49,Male,Dharwad,Murder,1,0,Medium
+49,Male,Dharwad,Kidnapping,2,1,High
+46,Male,Hassan,Theft,2,1,Medium
+21,Male,Hassan,Chain Snatching,2,1,Medium
+31,Male,Ballari,Smuggling,1,0,Low
+48,Male,Mysuru,Financial Fraud,1,0,Low
+49,Male,Kalaburagi,Assault,2,1,Medium
+20,Male,Belagavi,Kidnapping,1,0,Medium
+24,Male,Belagavi,Assault,1,0,Low
+48,Male,Ballari,NDPS,2,1,High
+36,Male,Ballari,NDPS,1,0,Medium
+19,Male,Kalaburagi,Assault,1,0,Low
+44,Male,Bengaluru Urban,Robbery,1,0,Medium
+53,Male,Mysuru,Assault,2,1,Medium
+34,Male,Belagavi,POCSO,2,1,High
+20,Male,Belagavi,Assault,2,1,Medium
+55,Female,Ballari,Financial Fraud,1,0,Low
+41,Male,Dakshina Kannada,Murder,1,0,Medium
+43,Female,Dakshina Kannada,Murder,1,0,Medium
+54,Male,Ballari,NDPS,1,0,Medium
+20,Male,Dakshina Kannada,Smuggling,1,0,Low
+52,Male,Dakshina Kannada,Kidnapping,2,1,High
+35,Male,Tumakuru,Murder,1,0,Medium
+33,Male,Hassan,Burglary,1,0,Low
+55,Male,Mysuru,Murder,1,0,Medium
+43,Male,Mysuru,Murder,2,1,High
+49,Male,Tumakuru,Smuggling,2,1,Medium
+26,Male,Bengaluru Urban,Vehicle Theft,2,1,Medium
+30,Male,Dharwad,Robbery,2,1,High
+40,Male,Dharwad,Robbery,1,0,Medium
+35,Male,Kalaburagi,Kidnapping,2,1,High
+47,Male,Ballari,Domestic Violence,1,0,Low
+40,Male,Dakshina Kannada,Chain Snatching,1,0,Low
+49,Male,Kalaburagi,POCSO,1,0,Medium
+34,Male,Bengaluru Urban,Burglary,1,0,Low
+19,Female,Bengaluru Urban,Robbery,1,0,Medium
+51,Male,Hassan,POCSO,1,0,Medium
+51,Female,Ballari,Cyber Crime,1,0,Low
+39,Male,Ballari,Fraud,1,0,Low
+54,Male,Dakshina Kannada,Vehicle Theft,1,0,Low
+29,Male,Belagavi,Cyber Crime,1,0,Low
+31,Male,Dakshina Kannada,NDPS,1,0,Medium
+26,Male,Shivamogga,Theft,1,0,Low
+47,Male,Bengaluru Urban,Robbery,1,0,Medium
+20,Male,Kalaburagi,POCSO,2,1,High
+52,Male,Hassan,Assault,1,0,Low
+23,Male,Tumakuru,Fraud,1,0,Low
+55,Male,Shivamogga,Financial Fraud,1,0,Low
+55,Male,Tumakuru,NDPS,1,0,Medium
+43,Male,Belagavi,Kidnapping,1,0,Medium
+29,Male,Mysuru,Domestic Violence,1,0,Low
+51,Male,Dakshina Kannada,Theft,1,0,Low
+24,Female,Dharwad,Assault,2,1,Medium
+34,Male,Ballari,Financial Fraud,3,1,Medium
+34,Female,Dharwad,Chain Snatching,2,1,Medium
+42,Female,Dharwad,Financial Fraud,1,0,Low
+23,Male,Dakshina Kannada,Robbery,1,0,Medium
+18,Male,Belagavi,Cyber Crime,2,1,Medium
+40,Male,Dakshina Kannada,Vehicle Theft,2,1,Medium
+38,Male,Shivamogga,Financial Fraud,1,0,Low
+40,Male,Bengaluru Urban,POCSO,1,0,Medium
+55,Male,Ballari,Fraud,1,0,Low
+18,Male,Kalaburagi,Robbery,2,1,High
+51,Male,Ballari,Theft,1,0,Low
+29,Male,Ballari,Chain Snatching,2,1,Medium
+28,Male,Dakshina Kannada,Theft,3,1,Medium
+27,Male,Dharwad,Burglary,2,1,Medium
+29,Male,Ballari,Cyber Crime,1,0,Low
+28,Male,Shivamogga,Burglary,1,0,Low
+29,Male,Dharwad,Kidnapping,1,0,Medium
+25,Male,Bengaluru Urban,Kidnapping,2,1,High
+45,Male,Ballari,Fraud,2,1,Medium
+49,Male,Mysuru,Fraud,1,0,Low
+32,Male,Shivamogga,Murder,1,0,Medium
+55,Male,Belagavi,Robbery,2,1,High
+46,Male,Kalaburagi,POCSO,2,1,High
+33,Male,Tumakuru,Cyber Crime,1,0,Low
+31,Male,Dakshina Kannada,Smuggling,1,0,Low
+47,Female,Hassan,Burglary,1,0,Low
+53,Male,Shivamogga,NDPS,1,0,Medium
+43,Male,Shivamogga,NDPS,1,0,Medium
+25,Male,Belagavi,Cyber Crime,1,0,Low
+29,Male,Mysuru,Murder,1,0,Medium
+41,Male,Dharwad,Financial Fraud,1,0,Low
+26,Female,Mysuru,Domestic Violence,1,0,Low
+51,Male,Hassan,Smuggling,2,1,Medium
+43,Male,Mysuru,Chain Snatching,1,0,Low
+46,Male,Dakshina Kannada,Burglary,1,0,Low
+51,Male,Bengaluru Urban,Fraud,1,0,Low
+32,Male,Dakshina Kannada,Chain Snatching,1,0,Low
+20,Male,Belagavi,Financial Fraud,1,0,Low
+42,Male,Belagavi,Financial Fraud,1,0,Low
+36,Male,Dharwad,Vehicle Theft,1,0,Low
+41,Male,Mysuru,Vehicle Theft,2,1,Medium
+46,Male,Bengaluru Urban,Robbery,1,0,Medium
+48,Male,Dakshina Kannada,Burglary,1,0,Low
+51,Male,Belagavi,Domestic Violence,1,0,Low
+44,Male,Ballari,Domestic Violence,1,0,Low
+44,Male,Shivamogga,Theft,1,0,Low
+32,Female,Dakshina Kannada,Chain Snatching,1,0,Low
+49,Male,Dharwad,Smuggling,1,0,Low
+18,Male,Mysuru,Fraud,1,0,Low
+21,Male,Ballari,Theft,1,0,Low
+40,Male,Bengaluru Urban,Cyber Crime,1,0,Low
+41,Male,Ballari,NDPS,1,0,Medium
+22,Male,Dakshina Kannada,Cyber Crime,1,0,Low
+29,Male,Shivamogga,Theft,2,1,Medium
+49,Male,Belagavi,Murder,1,0,Medium
+41,Male,Hassan,Fraud,1,0,Low
+29,Male,Hassan,Chain Snatching,1,0,Low
+53,Female,Ballari,Murder,2,1,High
+29,Female,Dakshina Kannada,POCSO,1,0,Medium
+40,Male,Mysuru,Assault,2,1,Medium
+41,Male,Mysuru,Murder,1,0,Medium
+44,Male,Bengaluru Urban,POCSO,1,0,Medium
+43,Male,Mysuru,NDPS,1,0,Medium
+28,Male,Ballari,Fraud,1,0,Low
+34,Male,Shivamogga,Burglary,1,0,Low
+46,Female,Kalaburagi,Murder,2,1,High
+48,Male,Ballari,Fraud,1,0,Low
+27,Male,Mysuru,Assault,1,0,Low
+34,Male,Dharwad,Kidnapping,1,0,Medium
+40,Male,Kalaburagi,NDPS,1,0,Medium
+23,Male,Shivamogga,NDPS,2,1,High
+38,Male,Kalaburagi,Financial Fraud,1,0,Low
+50,Male,Dharwad,Smuggling,1,0,Low
+38,Male,Ballari,NDPS,1,0,Medium
+31,Male,Kalaburagi,Cyber Crime,1,0,Low
+34,Male,Bengaluru Urban,Smuggling,2,1,Medium
+24,Male,Bengaluru Urban,Burglary,1,0,Low
+20,Male,Dakshina Kannada,Kidnapping,2,1,High
+49,Male,Shivamogga,Robbery,1,0,Medium
+41,Male,Mysuru,Financial Fraud,2,1,Medium
+18,Male,Shivamogga,Theft,3,1,Medium
+31,Male,Belagavi,Smuggling,1,0,Low
+45,Male,Hassan,Vehicle Theft,2,1,Medium
+50,Male,Dharwad,Vehicle Theft,1,0,Low
+30,Male,Dakshina Kannada,Burglary,2,1,Medium
+25,Male,Belagavi,Vehicle Theft,1,0,Low
+39,Male,Tumakuru,Murder,1,0,Medium
+42,Male,Bengaluru Urban,POCSO,2,1,High
+49,Male,Shivamogga,Theft,1,0,Low
+35,Male,Belagavi,Theft,2,1,Medium
+25,Male,Kalaburagi,POCSO,1,0,Medium
+24,Female,Mysuru,Theft,1,0,Low
+33,Male,Bengaluru Urban,Robbery,1,0,Medium
+26,Male,Belagavi,Assault,1,0,Low
+32,Male,Bengaluru Urban,NDPS,1,0,Medium
+46,Male,Bengaluru Urban,NDPS,1,0,Medium
+39,Male,Hassan,Robbery,1,0,Medium
+54,Male,Mysuru,Burglary,1,0,Low
+26,Male,Shivamogga,Smuggling,1,0,Low
+37,Male,Bengaluru Urban,Theft,1,0,Low
+31,Male,Dakshina Kannada,Smuggling,2,1,Medium
+47,Male,Dharwad,Kidnapping,1,0,Medium
+20,Male,Dakshina Kannada,Robbery,1,0,Medium
+30,Female,Hassan,Theft,3,1,Medium
+35,Female,Mysuru,Domestic Violence,1,0,Low
+33,Female,Mysuru,Domestic Violence,1,0,Low
+50,Male,Hassan,Robbery,1,0,Medium
+28,Male,Dharwad,Vehicle Theft,1,0,Low
+46,Male,Mysuru,NDPS,1,0,Medium
+41,Male,Mysuru,NDPS,1,0,Medium
+41,Male,Mysuru,Domestic Violence,2,1,Medium
+20,Male,Bengaluru Urban,POCSO,1,0,Medium
+27,Male,Tumakuru,POCSO,2,1,High
+42,Male,Ballari,Smuggling,1,0,Low
+42,Male,Dharwad,Theft,2,1,Medium
+43,Male,Hassan,Fraud,1,0,Low
+52,Male,Hassan,Fraud,1,0,Low
+34,Male,Kalaburagi,Murder,1,0,Medium
+49,Male,Hassan,Cyber Crime,1,0,Low
+49,Male,Ballari,Assault,1,0,Low
+51,Male,Hassan,Theft,3,1,Medium
+19,Male,Hassan,Cyber Crime,2,1,Medium
+33,Male,Ballari,Vehicle Theft,3,1,Medium
+55,Male,Ballari,Robbery,1,0,Medium
+26,Male,Hassan,Fraud,1,0,Low
+44,Male,Tumakuru,NDPS,1,0,Medium
+51,Male,Shivamogga,Burglary,2,1,Medium
+42,Male,Shivamogga,Cyber Crime,1,0,Low
+29,Male,Mysuru,Robbery,1,0,Medium
+44,Male,Tumakuru,Assault,1,0,Low
+53,Male,Belagavi,Vehicle Theft,1,0,Low
+46,Male,Dharwad,Vehicle Theft,1,0,Low
+44,Male,Tumakuru,Smuggling,2,1,Medium
+40,Male,Belagavi,Robbery,3,1,High
+45,Male,Dakshina Kannada,Burglary,2,1,Medium
+20,Male,Kalaburagi,Kidnapping,1,0,Medium
+49,Male,Dakshina Kannada,Murder,3,1,High
+24,Male,Dharwad,Vehicle Theft,2,1,Medium
+24,Male,Shivamogga,NDPS,1,0,Medium
+22,Male,Dakshina Kannada,Kidnapping,1,0,Medium
+40,Male,Dakshina Kannada,Robbery,2,1,High
+51,Male,Dakshina Kannada,Chain Snatching,1,0,Low
+54,Male,Kalaburagi,Financial Fraud,1,0,Low
+54,Male,Dakshina Kannada,Domestic Violence,1,0,Low
+55,Female,Dharwad,Domestic Violence,1,0,Low
+52,Male,Mysuru,Chain Snatching,1,0,Low
+47,Male,Ballari,Assault,1,0,Low
+35,Male,Ballari,Assault,1,0,Low
+41,Female,Shivamogga,Robbery,1,0,Medium
+24,Male,Hassan,Financial Fraud,1,0,Low
+54,Male,Mysuru,Kidnapping,1,0,Medium
+26,Male,Mysuru,Financial Fraud,1,0,Low
+30,Male,Belagavi,Domestic Violence,2,1,Medium
+39,Male,Shivamogga,Cyber Crime,1,0,Low
+24,Male,Tumakuru,POCSO,1,0,Medium
+41,Male,Dakshina Kannada,Assault,1,0,Low
+32,Male,Ballari,NDPS,1,0,Medium
+43,Male,Ballari,Cyber Crime,3,1,Medium
+38,Male,Dakshina Kannada,Smuggling,1,0,Low
+52,Male,Shivamogga,POCSO,3,1,High
+33,Male,Ballari,Smuggling,1,0,Low
+55,Male,Hassan,Fraud,1,0,Low
+19,Male,Shivamogga,Fraud,1,0,Low
+27,Male,Tumakuru,Kidnapping,1,0,Medium
+25,Male,Shivamogga,Theft,1,0,Low
+33,Male,Dharwad,Vehicle Theft,1,0,Low
+25,Female,Belagavi,Kidnapping,1,0,Medium
+31,Male,Dakshina Kannada,Domestic Violence,1,0,Low
+46,Male,Bengaluru Urban,POCSO,1,0,Medium
+46,Male,Hassan,Burglary,1,0,Low
+49,Male,Mysuru,Burglary,2,1,Medium
+47,Male,Belagavi,Cyber Crime,1,0,Low
+36,Male,Dakshina Kannada,POCSO,1,0,Medium
+37,Male,Dakshina Kannada,Vehicle Theft,2,1,Medium
+18,Male,Tumakuru,Chain Snatching,3,1,Medium
+25,Male,Dharwad,Kidnapping,1,0,Medium
+35,Male,Dakshina Kannada,Burglary,1,0,Low
+36,Male,Ballari,Domestic Violence,1,0,Low
+23,Male,Mysuru,Chain Snatching,1,0,Low
+38,Male,Mysuru,Chain Snatching,3,1,Medium
+35,Male,Kalaburagi,Robbery,1,0,Medium
+42,Male,Dakshina Kannada,POCSO,1,0,Medium
+39,Male,Ballari,Robbery,3,1,High
+21,Male,Kalaburagi,Murder,2,1,High
+50,Male,Ballari,NDPS,1,0,Medium
+22,Male,Dakshina Kannada,Domestic Violence,1,0,Low
+32,Male,Bengaluru Urban,Robbery,1,0,Medium
+45,Male,Hassan,Fraud,1,0,Low
+54,Male,Dakshina Kannada,Smuggling,1,0,Low
+38,Male,Shivamogga,NDPS,1,0,Medium
+52,Male,Ballari,Fraud,2,1,Medium
+18,Male,Dakshina Kannada,Kidnapping,1,0,Medium
+37,Male,Belagavi,Theft,1,0,Low
+43,Male,Dakshina Kannada,Theft,2,1,Medium
+48,Male,Hassan,Smuggling,1,0,Low
+49,Male,Hassan,Cyber Crime,1,0,Low
+29,Male,Dakshina Kannada,POCSO,1,0,Medium
+41,Male,Hassan,Burglary,2,1,Medium
+40,Male,Bengaluru Urban,Cyber Crime,1,0,Low
+40,Male,Kalaburagi,Burglary,2,1,Medium
+30,Male,Bengaluru Urban,Chain Snatching,2,1,Medium
+36,Male,Shivamogga,POCSO,1,0,Medium
+55,Male,Hassan,Robbery,2,1,High
+44,Male,Kalaburagi,Theft,1,0,Low
+36,Male,Kalaburagi,Theft,1,0,Low
+25,Male,Hassan,Financial Fraud,1,0,Low
+19,Male,Shivamogga,Theft,1,0,Low
+53,Male,Kalaburagi,Chain Snatching,1,0,Low
+29,Male,Shivamogga,POCSO,1,0,Medium
+37,Male,Ballari,Burglary,1,0,Low
+40,Male,Ballari,Burglary,1,0,Low
+42,Male,Mysuru,Fraud,1,0,Low
+29,Male,Tumakuru,Theft,1,0,Low
+42,Male,Bengaluru Urban,NDPS,1,0,Medium
+52,Male,Dakshina Kannada,NDPS,2,1,High
+22,Male,Tumakuru,Smuggling,1,0,Low
+44,Female,Tumakuru,Fraud,1,0,Low
+30,Male,Dakshina Kannada,Vehicle Theft,1,0,Low
+55,Male,Mysuru,Assault,1,0,Low
+54,Male,Belagavi,NDPS,1,0,Medium
+24,Male,Mysuru,Domestic Violence,1,0,Low
+49,Male,Dakshina Kannada,Theft,2,1,Medium
+43,Male,Dakshina Kannada,Fraud,1,0,Low
+26,Male,Dakshina Kannada,Robbery,1,0,Medium
+44,Female,Hassan,Chain Snatching,2,1,Medium
+27,Male,Kalaburagi,Vehicle Theft,2,1,Medium
+49,Male,Ballari,POCSO,2,1,High
+40,Male,Dharwad,Theft,1,0,Low
+35,Male,Dharwad,Assault,1,0,Low
+54,Male,Dharwad,Murder,1,0,Medium
+20,Male,Dakshina Kannada,POCSO,2,1,High
+54,Female,Belagavi,Robbery,1,0,Medium
+38,Male,Kalaburagi,POCSO,2,1,High
+55,Female,Ballari,Fraud,1,0,Low
+41,Male,Mysuru,NDPS,1,0,Medium
+31,Male,Ballari,Theft,1,0,Low
+55,Male,Dakshina Kannada,Theft,1,0,Low
+26,Male,Dakshina Kannada,Domestic Violence,1,0,Low
+46,Male,Dakshina Kannada,Theft,2,1,Medium
+26,Male,Belagavi,Chain Snatching,1,0,Low
+37,Male,Mysuru,Robbery,2,1,High
+34,Male,Ballari,Domestic Violence,1,0,Low
+22,Male,Dharwad,Vehicle Theft,1,0,Low
+20,Male,Dharwad,Financial Fraud,1,0,Low
+28,Male,Tumakuru,Kidnapping,1,0,Medium
+22,Male,Bengaluru Urban,POCSO,1,0,Medium
+22,Male,Belagavi,Theft,1,0,Low
+55,Male,Tumakuru,Cyber Crime,1,0,Low
+24,Male,Dharwad,Domestic Violence,1,0,Low
+32,Male,Bengaluru Urban,Kidnapping,1,0,Medium
+43,Male,Dakshina Kannada,Chain Snatching,1,0,Low
+47,Male,Mysuru,Domestic Violence,1,0,Low
+43,Male,Tumakuru,POCSO,1,0,Medium
+31,Male,Ballari,Assault,1,0,Low
+23,Male,Dharwad,Financial Fraud,1,0,Low
+43,Male,Dakshina Kannada,Vehicle Theft,1,0,Low
+36,Male,Dharwad,Theft,2,1,Medium
+20,Female,Dakshina Kannada,Vehicle Theft,1,0,Low
+43,Male,Kalaburagi,Cyber Crime,1,0,Low
+22,Male,Shivamogga,Theft,2,1,Medium
+36,Female,Mysuru,Theft,1,0,Low
+44,Male,Hassan,NDPS,1,0,Medium
+22,Male,Hassan,NDPS,2,1,High
+33,Male,Kalaburagi,Domestic Violence,1,0,Low
+47,Male,Mysuru,Smuggling,1,0,Low
+40,Male,Kalaburagi,NDPS,1,0,Medium
+30,Male,Ballari,Fraud,2,1,Medium
+19,Male,Mysuru,Fraud,1,0,Low
+48,Male,Hassan,Theft,1,0,Low
+51,Male,Shivamogga,Theft,1,0,Low
+27,Male,Bengaluru Urban,Robbery,1,0,Medium
+23,Male,Hassan,Cyber Crime,2,1,Medium
+22,Male,Dakshina Kannada,Vehicle Theft,1,0,Low
+29,Male,Dharwad,Theft,1,0,Low
+52,Male,Tumakuru,Burglary,1,0,Low
+23,Male,Kalaburagi,Financial Fraud,1,0,Low
+51,Male,Ballari,Theft,1,0,Low
+52,Male,Mysuru,Robbery,1,0,Medium
+46,Male,Ballari,Vehicle Theft,1,0,Low
+19,Male,Tumakuru,POCSO,1,0,Medium
+40,Male,Hassan,Cyber Crime,2,1,Medium
+49,Male,Ballari,Robbery,1,0,Medium
+55,Male,Ballari,Vehicle Theft,1,0,Low
+52,Male,Bengaluru Urban,Chain Snatching,2,1,Medium
+27,Male,Bengaluru Urban,Domestic Violence,1,0,Low
+22,Male,Dakshina Kannada,Theft,2,1,Medium
+29,Male,Ballari,Vehicle Theft,1,0,Low
+54,Male,Hassan,Fraud,1,0,Low
+50,Male,Hassan,Theft,1,0,Low
+42,Male,Dakshina Kannada,Cyber Crime,1,0,Low
+54,Male,Dharwad,Burglary,1,0,Low
+47,Male,Dharwad,Theft,1,0,Low
+20,Male,Tumakuru,Burglary,1,0,Low
+26,Male,Shivamogga,Fraud,1,0,Low
+39,Male,Bengaluru Urban,Burglary,1,0,Low
+38,Male,Tumakuru,Assault,1,0,Low
+27,Male,Kalaburagi,Financial Fraud,2,1,Medium
+38,Male,Belagavi,Murder,1,0,Medium
+18,Male,Ballari,Chain Snatching,1,0,Low
+46,Male,Shivamogga,Fraud,1,0,Low

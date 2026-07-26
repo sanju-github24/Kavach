@@ -1,0 +1,17 @@
+{
+  "counts": {
+    "states": 1,
+    "districts": 10,
+    "units": 34,
+    "employees": 69,
+    "courts": 20,
+    "cases": 500,
+    "complainants": 566,
+    "victims": 993,
+    "accused": 1010,
+    "arrestSurrenders": 319,
+    "chargesheets": 394,
+    "relationships": 837,
+    "financialAccounts": 50
+  }
+}

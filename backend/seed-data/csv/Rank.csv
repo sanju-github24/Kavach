@@ -1,0 +1,9 @@
+RankID,RankName,Hierarchy,Active
+1,Constable,8,true
+2,Head Constable,7,true
+3,ASI,6,true
+4,SI,5,true
+5,PSI,4,true
+6,Inspector,3,true
+7,DSP,2,true
+8,SP,1,true

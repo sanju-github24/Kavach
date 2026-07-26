@@ -1,0 +1,11 @@
+DistrictID,DistrictName,StateID,Active
+1,Bengaluru Urban,1,true
+2,Mysuru,1,true
+3,Tumakuru,1,true
+4,Belagavi,1,true
+5,Kalaburagi,1,true
+6,Dakshina Kannada,1,true
+7,Dharwad,1,true
+8,Ballari,1,true
+9,Shivamogga,1,true
+10,Hassan,1,true

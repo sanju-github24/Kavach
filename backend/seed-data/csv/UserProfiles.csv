@@ -1,0 +1,6 @@
+user_id,email,first_name,last_name,role,EmployeeID,is_active
+USR001,admin@ksp.gov.in,Arjun,Nair,admin,,true
+USR002,supervisor@ksp.gov.in,Priya,Sharma,supervisor,,true
+USR003,investigator@ksp.gov.in,Kiran,Gowda,investigator,1,true
+USR004,analyst@ksp.gov.in,Divya,Rao,analyst,,true
+USR005,policymaker@ksp.gov.in,Suresh,Patil,policymaker,,true

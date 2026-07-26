@@ -1,0 +1,7 @@
+CrimeHeadID,CrimeGroupName,Active
+1,Crimes Against Body,true
+2,Crimes Against Property,true
+3,Crimes Against Women,true
+4,Economic Offences,true
+5,Narcotics Offences,true
+6,Cyber Crime,true
