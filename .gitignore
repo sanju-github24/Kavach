@@ -5,3 +5,4 @@ catalyst-debug.log
 functions/*/catalyst-config.json
 .env
 *.env
+client/

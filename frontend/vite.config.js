@@ -1,7 +1,10 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
-export default defineConfig({
+// Catalyst Web Client Hosting serves the app under `/app/`, so the production
+// build must reference assets from `/app/` (base). Dev/serve stays at `/`.
+export default defineConfig(({ command }) => ({
+  base: command === 'build' ? '/app/' : '/',
   plugins: [react()],
   server: {
     port: 5173,
@@ -13,4 +16,4 @@ export default defineConfig({
       }
     }
   }
-})
+}))

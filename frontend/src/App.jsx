@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
+import { HashRouter, Routes, Route, Navigate } from 'react-router-dom'
 import { AuthProvider } from './contexts/AuthContext'
 import { SpotlightProvider } from './contexts/SpotlightContext'
 import { ToastProvider } from './components/ui/Toast'
@@ -24,7 +24,7 @@ export default function App() {
   return (
     <AuthProvider>
     <ToastProvider>
-      <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
+      <HashRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
         <Routes>
 
           {/* Public */}
@@ -52,7 +52,7 @@ export default function App() {
           <Route path="*" element={<Navigate to="/login" replace />} />
 
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
     </ToastProvider>
     </AuthProvider>
   )

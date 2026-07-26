@@ -35,6 +35,12 @@ export default function Login() {
   const [loading, setLoading]   = useState(false)
   const [showPass, setShowPass] = useState(false)
 
+  // The platform runs on demo accounts whenever no real Catalyst Auth project
+  // is configured at build time (VITE_CATALYST_PROJECT_ID unset). In that mode
+  // — including the hosted demo build — surface the quick-fill accounts so an
+  // evaluator can actually sign in. With a real project id set, this hides.
+  const demoMode = !import.meta.env.VITE_CATALYST_PROJECT_ID
+
   const handleChange = (e) => {
     setError?.(null)
     setForm(p => ({ ...p, [e.target.name]: e.target.value }))
@@ -164,9 +170,9 @@ export default function Login() {
             Forgot password? Contact your system administrator.
           </p>
 
-          {import.meta.env.DEV && (
+          {demoMode && (
             <div className="mt-6 bg-risk-high/[0.06] border border-risk-high/20 rounded-xl px-4 py-3.5">
-              <p className="text-risk-high text-[11px] font-semibold tracking-widest uppercase mb-2.5 flex items-center gap-1.5"><IconBolt className="w-3 h-3" /> Dev — click to fill</p>
+              <p className="text-risk-high text-[11px] font-semibold tracking-widest uppercase mb-2.5 flex items-center gap-1.5"><IconBolt className="w-3 h-3" /> Demo accounts — click to fill</p>
               <div className="flex flex-col gap-1">
                 {DEV_ACCOUNTS.map(({ email, role }) => (
                   <button

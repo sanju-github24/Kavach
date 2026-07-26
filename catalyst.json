@@ -1,4 +1,7 @@
 {
+  "client": {
+    "source": "client"
+  },
   "functions": {
     "targets": [
       "ksp_crimint_function"
