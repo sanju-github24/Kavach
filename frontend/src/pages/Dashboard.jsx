@@ -8,7 +8,7 @@ import { useSpotlight } from '../contexts/SpotlightContext';
 import {
   IconChat, IconAnalytics, IconNetwork, IconProfiler,
   IconForecast, IconSociological, IconFinancial, IconReports,
-  IconLogout, IconCollapse, IconExpand, IconTimeline, IconBriefing,
+  IconLogout, IconCollapse, IconExpand, IconTimeline, IconBriefing, IconScan,
 } from '../components/ui/Icons';
 
 const ALL_NAV_ITEMS = [
@@ -18,6 +18,7 @@ const ALL_NAV_ITEMS = [
   { id: 'network',      label: 'Network Relations',      Icon: IconNetwork,      route: '/dashboard/network' },
   { id: 'profiler',     label: 'Criminal Profiler',      Icon: IconProfiler,     route: '/dashboard/profiler' },
   { id: 'caseinsight',  label: 'Case Insight',           Icon: IconTimeline,     route: '/dashboard/case-insight' },
+  { id: 'visualintel',  label: 'Visual Intelligence',    Icon: IconScan,         route: '/dashboard/visual-intel' },
   { id: 'forecast',     label: 'Crime Forecasting',      Icon: IconForecast,     route: '/dashboard/forecast' },
   { id: 'sociological', label: 'Sociological Insights',  Icon: IconSociological, route: '/dashboard/sociological' },
   { id: 'financial',    label: 'Financial Crime',        Icon: IconFinancial,    route: '/dashboard/financial' },

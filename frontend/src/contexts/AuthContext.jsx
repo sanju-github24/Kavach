@@ -11,10 +11,10 @@ export const ROLES = {
 }
 
 const ROLE_PERMISSIONS = {
-  admin:        ['dashboard', 'briefing', 'chat', 'analytics', 'network', 'profiler', 'caseinsight', 'forecast', 'sociological', 'financial', 'reports', 'settings', 'user_management'],
-  supervisor:   ['dashboard', 'briefing', 'chat', 'analytics', 'network', 'profiler', 'caseinsight', 'forecast', 'sociological', 'financial', 'reports', 'settings'],
-  investigator: ['dashboard', 'briefing', 'chat', 'network', 'profiler', 'caseinsight', 'financial'],
-  analyst:      ['dashboard', 'briefing', 'chat', 'analytics', 'caseinsight', 'forecast', 'sociological', 'financial', 'reports'],
+  admin:        ['dashboard', 'briefing', 'chat', 'analytics', 'network', 'profiler', 'caseinsight', 'visualintel', 'forecast', 'sociological', 'financial', 'reports', 'settings', 'user_management'],
+  supervisor:   ['dashboard', 'briefing', 'chat', 'analytics', 'network', 'profiler', 'caseinsight', 'visualintel', 'forecast', 'sociological', 'financial', 'reports', 'settings'],
+  investigator: ['dashboard', 'briefing', 'chat', 'network', 'profiler', 'caseinsight', 'visualintel', 'financial'],
+  analyst:      ['dashboard', 'briefing', 'chat', 'analytics', 'caseinsight', 'visualintel', 'forecast', 'sociological', 'financial', 'reports'],
   policymaker:  ['dashboard', 'briefing', 'analytics', 'forecast', 'sociological', 'reports'],
 }
 

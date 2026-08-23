@@ -247,6 +247,156 @@ module.exports = async (context, basicIO) => {
       return basicIO.response.status(200).json({ deleted });
     }
 
+    // ── ZIA VISION — Catalyst Zia image intelligence. Three features, each of
+    // which ends in analysable data rather than a standalone tool:
+    //   ocr_intake        paper FIR   -> structured case fields + entities
+    //   face_match        probe photo -> ranked matches in the accused gallery
+    //   evidence_analyze  scene photo -> tagged objects (new analytic dimension)
+    const _fsV = require('fs'), _osV = require('os'), _pathV = require('path');
+    // NOTE: the file EXTENSION matters — form-data derives the upload filename
+    // from the stream path, and Zia rejects unrecognised types. Always write
+    // with a real image extension taken from the data-URI mime.
+    const visionTmp = (b64, tag) => {
+      const raw = String(b64 || '');
+      const m = raw.match(/^data:image\/([a-zA-Z+]+);base64,/);
+      const ext = ((m && m[1]) || 'png').toLowerCase().replace('jpeg', 'jpg');
+      const clean = raw.replace(/^data:image\/[a-zA-Z+]+;base64,/, '');
+      if (!clean) return null;
+      const p = _pathV.join(_osV.tmpdir(), `kv_${tag}_${Date.now()}_${Math.random().toString(36).slice(2, 8)}.${['png','jpg','webp','bmp'].includes(ext) ? ext : 'png'}`);
+      _fsV.writeFileSync(p, Buffer.from(clean, 'base64'));
+      return p;
+    };
+    const rmTmp = (p) => { try { p && _fsV.unlinkSync(p); } catch (_) {} };
+    // Pull a 0-100 similarity out of whatever shape Zia returns for a face pair.
+    const faceScore = (d) => {
+      if (!d || typeof d !== 'object') return null;
+      for (const k of ['confidence', 'similarity', 'match_confidence', 'score']) {
+        const v = Number(d[k]);
+        if (Number.isFinite(v)) return v > 1 ? v : v * 100;
+      }
+      return null;
+    };
+    // Bounded-concurrency map so a large gallery doesn't fire N parallel calls.
+    const pool = async (items, n, fn) => {
+      const out = []; let i = 0;
+      await Promise.all(Array.from({ length: Math.min(n, items.length) }, async () => {
+        while (i < items.length) { const idx = i++; try { out[idx] = await fn(items[idx]); } catch (e) { out[idx] = { error: e.message }; } }
+      }));
+      return out;
+    };
+
+    if (action === 'ocr_intake') {
+      const tmp = visionTmp(body.imageB64, 'ocr');
+      if (!tmp) return basicIO.response.status(400).json({ error: 'imageB64 required' });
+      try {
+        const zia = adminApp().zia();
+        const ocr = await zia.extractOpticalCharacters(_fsV.createReadStream(tmp));
+        const text = String(ocr?.text || '').trim();
+        if (!text) return basicIO.response.status(200).json({ error: 'no_text_found' });
+
+        // Structured field extraction — the OCR text is turned into the same
+        // shape the rest of the platform already understands.
+        const grab = (re) => { const m = text.match(re); return m ? m[1].trim().replace(/\s+/g, ' ') : ''; };
+        const fields = {
+          fir_number:  grab(/(?:FIR|Crime)\s*(?:No|Number|#)\s*[:.\-]?\s*([A-Za-z0-9/\-]+)/i),
+          station:     grab(/Police\s*Station\s*[:.\-]?\s*([^\n]+)/i),
+          district:    grab(/District\s*[:.\-]?\s*([^\n]+)/i),
+          date_filed:  grab(/Date\s*(?:of\s*[A-Za-z]+)?\s*[:.\-]?\s*([^\n]+)/i),
+          offence:     grab(/(?:Offence|Offense|Crime\s*Type)\s*[:.\-]?\s*([^\n]+)/i),
+          complainant: grab(/Complainant\s*[:.\-]?\s*([^\n]+)/i),
+          accused:     grab(/Accused\s*[:.\-]?\s*([^\n]+)/i),
+          property:    grab(/(?:Property|Stolen|Articles)\s*[:.\-]?\s*([^\n]+)/i),
+        };
+
+        // Zia NER on the same text so people/places/dates are tagged even when
+        // the document doesn't follow the standard FIR label layout.
+        let entities = [];
+        try {
+          const ner = await adminApp().zia().getNERPrediction([text]);
+          entities = ner?.entities?.[0]?.ner?.general_entities || [];
+        } catch (e) { console.log('OCR_NER_SKIP:', e.message); }
+
+        return basicIO.response.status(200).json({
+          text, confidence: ocr?.confidence ?? null, fields, entities,
+          extractedCount: Object.values(fields).filter(Boolean).length,
+        });
+      } catch (e) {
+        console.error('OCR_ERR:', e.message);
+        return basicIO.response.status(200).json({ error: 'ocr_unavailable', detail: e.message });
+      } finally { rmTmp(tmp); }
+    }
+
+    if (action === 'evidence_analyze') {
+      const tmp = visionTmp(body.imageB64, 'obj');
+      if (!tmp) return basicIO.response.status(400).json({ error: 'imageB64 required' });
+      try {
+        const res = await adminApp().zia().detectObject(_fsV.createReadStream(tmp));
+        const objects = (res?.objects || []).map(o => ({
+          name: o.object_type || o.name || o.label || 'object',
+          confidence: Number(o.confidence ?? o.score ?? 0),
+        })).filter(o => o.name);
+        return basicIO.response.status(200).json({ objects, count: objects.length });
+      } catch (e) {
+        console.error('OBJ_ERR:', e.message);
+        return basicIO.response.status(200).json({ error: 'object_detection_unavailable', detail: e.message });
+      } finally { rmTmp(tmp); }
+    }
+
+    if (action === 'face_match') {
+      const probe = visionTmp(body.imageB64, 'probe');
+      if (!probe) return basicIO.response.status(400).json({ error: 'imageB64 required' });
+      const limit = Math.min(Number(body.limit) || 40, 100);
+      const tmps = [];
+      try {
+        const listed = await photoBucket().listPagedObjects({ prefix: PHOTO_PREFIX, maxKeys: '500' });
+        const keys = (listed?.contents || [])
+          .map(o => String(o.key || o.key_name || ''))
+          .filter(k => k.startsWith(PHOTO_PREFIX) && k.length > PHOTO_PREFIX.length)
+          .slice(0, limit);
+        if (!keys.length) return basicIO.response.status(200).json({ matches: [], comparedCount: 0, note: 'no_gallery_photos' });
+
+        const zia = adminApp().zia();
+        const results = await pool(keys, 5, async (key) => {
+          const accusedId = key.slice(PHOTO_PREFIX.length);
+          const signed = await photoBucket().generatePreSignedUrl(key, 'GET', { expiryIn: '600' });
+          if (!signed?.signature) return null;
+          const resp = await fetch(signed.signature);
+          if (!resp.ok) return null;
+          const p = _pathV.join(_osV.tmpdir(), `kv_gal_${accusedId}_${Date.now()}.png`);
+          _fsV.writeFileSync(p, Buffer.from(await resp.arrayBuffer()));
+          tmps.push(p);
+          const cmp = await zia.compareFace(_fsV.createReadStream(probe), _fsV.createReadStream(p));
+          return { accused_id: accusedId, confidence: faceScore(cmp), raw: cmp?.message || null };
+        });
+
+        const matches = results
+          .filter(r => r && Number.isFinite(r.confidence))
+          .sort((a, b) => b.confidence - a.confidence)
+          .slice(0, 10);
+
+        // Enrich the top hits with the officer-facing profile details.
+        if (matches.length) {
+          try {
+            const inList = matches.map(m => `'${escStr(m.accused_id)}'`).join(',');
+            const rows = await qAll(app, q, `SELECT AccusedID, AccusedName, Age, Gender FROM Accused WHERE AccusedID IN (${inList})`);
+            const byId = {};
+            flatAll(rows, 'Accused').forEach(r => { byId[String(r.AccusedID)] = r; });
+            matches.forEach(m => {
+              const r = byId[m.accused_id];
+              if (r) { m.name = r.AccusedName; m.age = r.Age; m.gender = r.Gender; }
+            });
+          } catch (e) { console.log('FACE_ENRICH_SKIP:', e.message); }
+        }
+        return basicIO.response.status(200).json({
+          matches, comparedCount: keys.length,
+          noFace: results.every(r => !r || !Number.isFinite(r.confidence)),
+        });
+      } catch (e) {
+        console.error('FACE_ERR:', e.message);
+        return basicIO.response.status(200).json({ error: 'face_match_unavailable', detail: e.message });
+      } finally { rmTmp(probe); tmps.forEach(rmTmp); }
+    }
+
     // ── PDF RENDER — server-side report generation via Catalyst SmartBrowz
     // (the Catalyst-native headless-browser service). The frontend sends fully
     // branded HTML and gets back a print-quality PDF, rendered by a real
@@ -415,7 +565,45 @@ module.exports = async (context, basicIO) => {
         firByCaseId[c.CaseMasterID] = denormalizeCase(c, lookups);
         gravityByCaseId[c.CaseMasterID] = lookups.gravityMap[c.GravityOffenceID];
       });
-      const firs = Object.values(firByCaseId);
+      const allFirs = Object.values(firByCaseId);
+
+      // ── Interactive filtering ────────────────────────────────────────────
+      // Every chart below is computed from `firs`, so filtering here makes the
+      // whole page cross-filter from a single source of truth. Options come
+      // from the UNFILTERED set so the controls never lose their choices.
+      const filterOptions = {
+        districts:  [...new Set(allFirs.map(f => f.district).filter(Boolean))].sort(),
+        crimeTypes: [...new Set(allFirs.map(f => f.crime_type).filter(Boolean))].sort(),
+        statuses:   [...new Set(allFirs.map(f => f.status).filter(Boolean))].sort(),
+        years:      [...new Set(allFirs.map(f => String(f.date_filed || '').slice(0, 4)).filter(y => /^\d{4}$/.test(y)))].sort(),
+      };
+      const F = (body.filters && typeof body.filters === 'object') ? body.filters : {};
+      const appliedFilters = {
+        district:  F.district  || '',
+        crimeType: F.crimeType || '',
+        status:    F.status    || '',
+        year:      F.year ? String(F.year) : '',
+      };
+      const firs = allFirs.filter(f =>
+        (!appliedFilters.district  || f.district   === appliedFilters.district) &&
+        (!appliedFilters.crimeType || f.crime_type === appliedFilters.crimeType) &&
+        (!appliedFilters.status    || f.status     === appliedFilters.status) &&
+        (!appliedFilters.year      || String(f.date_filed || '').slice(0, 4) === appliedFilters.year)
+      );
+      const filteredCaseIds = new Set(firs.map(f => String(f.fir_id)));
+
+      // Nothing matched — return an empty-but-valid payload so the page keeps
+      // its filter controls instead of erroring out.
+      if (!firs.length) {
+        return basicIO.response.status(200).json({
+          crimeTypes: { labels: [], data: [] }, timeline: { labels: [], data: [] },
+          districts: [], status: [], socio: [], gender: { male: 0, female: 0 },
+          heatmap: { crimes: [], statuses: [], data: [] }, calendar: [], scatter: [],
+          radar: { indicators: [], series: [] },
+          stats: { total_firs: 0, total_accused: 0, repeat_offenders: 0, total_victims: 0, unsolved: 0 },
+          filterOptions, appliedFilters, empty: true,
+        });
+      }
       const victimCountByCase = {};
       flatAll(victimRows, 'Victim').forEach(v => { victimCountByCase[v.CaseMasterID] = (victimCountByCase[v.CaseMasterID]||0)+1; });
 
@@ -429,7 +617,7 @@ module.exports = async (context, basicIO) => {
         if (f.date_filed) { try { const mon = new Date(f.date_filed).toLocaleString('en',{month:'short'}); monthCounts[mon]=(monthCounts[mon]||0)+1; } catch {} }
       });
 
-      const profiles = computeAccusedProfiles(accused, firByCaseId, gravityByCaseId);
+      const profiles = computeAccusedProfiles(accused.filter(a => filteredCaseIds.has(String(a.CaseMasterID))), firByCaseId, gravityByCaseId);
       const ageGroups = { '18–25':0,'26–35':0,'36–45':0,'46+':0 };
       let maleCount=0, femaleCount=0;
       profiles.forEach(a => {
@@ -490,9 +678,10 @@ module.exports = async (context, basicIO) => {
         scatter, radar,
         stats: {
           total_firs: firs.length, total_accused: profiles.length, repeat_offenders: repeatCount,
-          total_victims: victimRows.length,
+          total_victims: firs.reduce((n, f) => n + (victimCountByCase[f.fir_id] || 0), 0),
           unsolved: (statusCounts['Under Investigation']||0)+(statusCounts['Pending Trial']||0),
         },
+        filterOptions, appliedFilters,
       });
     }
 
@@ -650,6 +839,61 @@ module.exports = async (context, basicIO) => {
     // ── MODUS OPERANDI PATTERNS ──────────────────────────────────────────────
     // Recurring-MO discovery: clusters cases sharing an identical MO narrative
     // and reports where/when each pattern operates.
+    // ── SENTINEL SCAN — the 24/7 watch. Recomputes the live alert set on a
+    // schedule (Catalyst Cron) rather than only when an officer opens the app,
+    // and can deliver a priority digest by email. The scan is useful on its
+    // own, so a mail misconfiguration never fails it.
+    if (action === 'sentinel_scan') {
+      const cases = await loadIntelCases(app, q, lookups);
+      if (!cases.length) return basicIO.response.status(200).json({ alerts: [], priorityCount: 0, criticalCount: 0 });
+      const [accusedRows, accRows] = await Promise.all([
+        qAll(app, q, 'SELECT AccusedMasterID, CaseMasterID, AccusedName, AgeYear, GenderID FROM Accused'),
+        q(app, 'SELECT account_id, flagged, total_suspicious_amount FROM FinancialAccounts LIMIT 200'),
+      ]);
+      const firByCaseId = {}; const gravityByCaseId = {};
+      cases.forEach(c => { firByCaseId[c.fir_id] = c; gravityByCaseId[c.fir_id] = c.gravity; });
+      const profiles  = computeAccusedProfiles(flatAll(accusedRows, 'Accused'), firByCaseId, gravityByCaseId);
+      const accounts  = flatAll(accRows, 'FinancialAccounts');
+      const moGroups  = groupMOPatterns(cases);
+      const anomalies = detectAnomalies(cases);
+      const alerts    = buildLiveAlerts({ cases, profiles, accounts, moGroups, anomalies });
+      const priority  = alerts.filter(a => a.severity === 'CRITICAL' || a.severity === 'HIGH');
+      const generatedAt = new Date().toISOString();
+
+      let emailed = false, emailError = null;
+      const to = String(body.to || '').trim();
+      if (body.notify && to) {
+        try {
+          const esc = (t) => String(t || '').replace(/[<>&]/g, c => ({ '<': '&lt;', '>': '&gt;', '&': '&amp;' }[c]));
+          const rows = priority.slice(0, 10).map(a =>
+            `<tr><td style="padding:6px 10px;border-bottom:1px solid #eee;font-weight:700;color:${a.severity === 'CRITICAL' ? '#c0392b' : '#b26a00'}">${esc(a.severity)}</td>` +
+            `<td style="padding:6px 10px;border-bottom:1px solid #eee">${esc(a.type)}</td>` +
+            `<td style="padding:6px 10px;border-bottom:1px solid #eee">${esc(a.msg)}</td></tr>`).join('');
+          await app.email().sendMail({
+            from_email: String(body.from || to),
+            to_email: to,
+            subject: `KAVACH Sentinel - ${priority.length} priority alert(s)`,
+            content: `<div style="font-family:Arial,sans-serif;color:#1a1a1f">
+              <h2 style="margin:0 0 4px">KAVACH Sentinel digest</h2>
+              <p style="color:#666;font-size:13px;margin:0 0 14px">${priority.length} priority alert(s) as of ${new Date(generatedAt).toLocaleString('en-IN')} — Karnataka State Police</p>
+              <table style="border-collapse:collapse;width:100%;font-size:13px">${rows}</table></div>`,
+            html_mode: true,
+          });
+          emailed = true;
+        } catch (e) { emailError = e.message; console.error('SENTINEL_MAIL:', e.message); }
+      }
+
+      return basicIO.response.status(200).json({
+        generatedAt,
+        totalAlerts:   alerts.length,
+        priorityCount: priority.length,
+        criticalCount: priority.filter(a => a.severity === 'CRITICAL').length,
+        alerts:        priority.slice(0, 10),
+        anomalies:     anomalies.slice(0, 5),
+        emailed, emailError,
+      });
+    }
+
     if (action === 'mo_patterns') {
       const cases = await loadIntelCases(app, q, lookups);
       if (!cases.length) return basicIO.response.status(200).json({ patterns: [] });

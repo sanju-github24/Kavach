@@ -256,6 +256,14 @@ export function IconNode({ className = 'w-8 h-8' }) {
     </svg>
   )
 }
+export function IconScan({ className = 'w-[18px] h-[18px]' }) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} {...base}>
+      <path d="M4 8V6a2 2 0 0 1 2-2h2M16 4h2a2 2 0 0 1 2 2v2M20 16v2a2 2 0 0 1-2 2h-2M8 20H6a2 2 0 0 1-2-2v-2" />
+      <path d="M4 12h16" />
+    </svg>
+  )
+}
 export function IconDots({ className = 'w-4 h-4' }) {
   return (
     <svg viewBox="0 0 24 24" className={className} fill="currentColor" stroke="none">

@@ -14,6 +14,7 @@ import Analytics    from './pages/Analytics'
 import Network      from './pages/Network'
 import Profiler     from './pages/Profiler'
 import CaseInsight  from './pages/CaseInsight'
+import VisualIntelligence from './pages/VisualIntelligence'
 import Briefing     from './pages/Briefing'
 import Forecast     from './pages/Forecast'
 import Sociological from './pages/Sociological'
@@ -40,6 +41,7 @@ export default function App() {
               <Route path="network"   element={<Network />} />
               <Route path="profiler"     element={<Profiler />} />
               <Route path="case-insight" element={<CaseInsight />} />
+              <Route path="visual-intel" element={<VisualIntelligence />} />
               <Route path="briefing"     element={<Briefing />} />
               <Route path="forecast"     element={<Forecast />} />
               <Route path="sociological" element={<Sociological />} />

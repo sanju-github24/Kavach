@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import ReactECharts from 'echarts-for-react'
 import { dataQuery } from '../api.js'
 import { PageHeader, KpiCard } from '../components/ui/Panel'
@@ -28,19 +28,63 @@ function barColor(ratio) {
 
 const TABS = ['Overview','Districts','Sociological','Trends','Advanced Visuals']
 
+// Global filter bar — one control surface that drives every chart on the page.
+// Selecting here (or clicking a district / crime bar) re-queries the analytics
+// action server-side, so all views stay consistent with one another.
+const FILTER_DEFS = [
+  { key: 'district',  label: 'District',   opt: 'districts'  },
+  { key: 'crimeType', label: 'Crime type', opt: 'crimeTypes' },
+  { key: 'status',    label: 'Status',     opt: 'statuses'   },
+  { key: 'year',      label: 'Year',       opt: 'years'      },
+]
+
+function FilterBar({ options, filters, onChange, busy }) {
+  const active = FILTER_DEFS.filter(f => filters[f.key])
+  return (
+    <div className="kv-card p-3 flex items-center gap-2.5 flex-wrap animate-fade-up">
+      <span className="text-[10px] uppercase tracking-widest text-ink-faint pl-1">Filters</span>
+      {FILTER_DEFS.map(f => (
+        <select key={f.key} value={filters[f.key]} disabled={busy}
+          onChange={e => onChange({ ...filters, [f.key]: e.target.value })}
+          className={`bg-base border rounded-lg px-2.5 py-1.5 text-[11px] outline-none transition-colors cursor-pointer ${
+            filters[f.key] ? 'border-white/50 text-white' : 'border-base-border text-ink-dim hover:border-white/30'}`}>
+          <option value="">{f.label}: All</option>
+          {(options?.[f.opt] || []).map(o => <option key={o} value={o}>{o}</option>)}
+        </select>
+      ))}
+      {active.length > 0 && (
+        <button onClick={() => onChange({ district: '', crimeType: '', status: '', year: '' })}
+          className="text-[11px] text-ink-faint hover:text-white border border-base-border hover:border-white/40 rounded-lg px-2.5 py-1.5 transition-colors">
+          Clear {active.length} filter{active.length > 1 ? 's' : ''}
+        </button>
+      )}
+      {busy && <span className="w-3.5 h-3.5 border-2 border-t-transparent border-white/60 rounded-full animate-spin ml-auto" />}
+    </div>
+  )
+}
+
 export default function Analytics() {
   const [data, setData]       = useState(null)
   const [loading, setLoading] = useState(true)
   const [tab, setTab]         = useState('Overview')
   const [hoveredCrime, setHoveredCrime] = useState(null)
   const [hoveredMonth, setHoveredMonth] = useState(null)
+  const [filters, setFilters] = useState({ district: '', crimeType: '', status: '', year: '' })
+  const [refreshing, setRefreshing] = useState(false)
+  const firstLoad = useRef(true)
 
+  // Re-queries whenever a filter changes. Results are cached per filter combo
+  // in api.js, so flipping back to a previous selection is instant.
   useEffect(() => {
-    dataQuery('analytics')
+    if (firstLoad.current) setLoading(true); else setRefreshing(true)
+    dataQuery('analytics', { filters })
       .then(d => setData(d?.crimeTypes ? d : EMPTY))
       .catch(()  => setData(EMPTY))
-      .finally(()=> setLoading(false))
-  }, [])
+      .finally(()=> { firstLoad.current = false; setLoading(false); setRefreshing(false) })
+  }, [filters])
+
+  const drill = (key, value) =>
+    setFilters(f => ({ ...f, [key]: f[key] === value ? '' : value }))
 
   const d        = data || EMPTY
   const maxCrime = Math.max(...(d.crimeTypes?.data || [1]))
@@ -76,11 +120,19 @@ export default function Analytics() {
       />
 
       {/* ── KPI row ── */}
+      <FilterBar options={d.filterOptions} filters={filters} onChange={setFilters} busy={refreshing} />
+
       <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
         {kpis.map((k, i) => (
           <KpiCard key={k.label} label={k.label} value={k.value} sub={k.sub} color={k.color} delay={i * 40} />
         ))}
       </div>
+
+      {d.empty && (
+        <div className="kv-card p-8 text-center text-ink-faint text-xs">
+          No cases match these filters. Try clearing one of them.
+        </div>
+      )}
 
       {/* ── TAB: OVERVIEW ── */}
       {tab === 'Overview' && (
@@ -105,7 +157,9 @@ export default function Analytics() {
                   <div key={lbl}
                     onMouseEnter={() => setHoveredCrime(i)}
                     onMouseLeave={() => setHoveredCrime(null)}
-                    className="group cursor-default">
+                    onClick={() => drill('crimeType', lbl)}
+                    title={`Filter the page by ${lbl}`}
+                    className={`group cursor-pointer rounded-lg -mx-1 px-1 transition-colors ${filters.crimeType === lbl ? 'bg-white/[0.06]' : 'hover:bg-white/[0.03]'}`}>
                     <div className="flex justify-between text-[11px] mb-1">
                       <span className={`transition-colors ${isHov ? 'text-white' : 'text-gray-400'}`}>{lbl}</span>
                       <span className="font-bold tabular-nums" style={{ color: isHov ? color : '#707070' }}>{d.crimeTypes.data[i]}</span>
@@ -235,7 +289,9 @@ export default function Analytics() {
               const color    = i < 3 ? '#F1493F' : i < 6 ? '#F0A23D' : '#FFFFFF'
               return (
                 <div key={dist.name}
-                  className="flex items-center gap-4 px-5 py-3 hover:bg-[#000000]/60 transition group">
+                  onClick={() => drill('district', dist.name)}
+                  title={`Filter the page by ${dist.name}`}
+                  className={`flex items-center gap-4 px-5 py-3 transition cursor-pointer group ${filters.district === dist.name ? 'bg-white/[0.06]' : 'hover:bg-[#000000]/60'}`}>
                   <span className="text-gray-700 text-xs w-5 tabular-nums group-hover:text-gray-500 transition">{i+1}</span>
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-2 mb-1.5">

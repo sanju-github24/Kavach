@@ -5,6 +5,7 @@ import 'leaflet.heat'
 import ReactECharts from 'echarts-for-react'
 import { dataQuery } from '../api.js'
 import { PageHeader, KpiCard } from '../components/ui/Panel'
+import SentinelPanel from '../components/ui/SentinelPanel'
 import { IconFlame, IconCheck } from '../components/ui/Icons'
 
 const DARK = { textStyle: { color: '#A1A1A1', fontFamily: 'monospace' }, backgroundColor: 'transparent' }
@@ -207,6 +208,8 @@ export default function Forecast() {
           <KpiCard key={k.label} label={k.label} value={k.value} color={k.color} delay={i * 40} />
         ))}
       </div>
+
+      <SentinelPanel />
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
 

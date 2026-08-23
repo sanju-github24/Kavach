@@ -242,6 +242,34 @@ export async function predictRisk(features) {
   return request(API.DATA_QUERY, { method: 'POST', body: JSON.stringify({ action: 'predict_risk', features }) }, { useCache: false })
 }
 
+// ── Catalyst Zia Vision ───────────────────────────────────────────────────────
+// Three image-intelligence calls. Each is designed to end in analysable data:
+// OCR turns paper FIRs into structured case fields, face match ranks the
+// accused gallery, and object detection tags evidence photos so the tags can
+// be charted as a new analytic dimension.
+
+// Scanned/photographed FIR -> { text, confidence, fields, entities }
+export async function ocrIntake(imageB64) {
+  return request(API.DATA_QUERY, { method: 'POST', body: JSON.stringify({ action: 'ocr_intake', imageB64 }) }, { useCache: false })
+}
+
+// Probe photo -> { matches: [{ accused_id, name, confidence }], comparedCount }
+export async function faceMatch(imageB64, limit = 40) {
+  return request(API.DATA_QUERY, { method: 'POST', body: JSON.stringify({ action: 'face_match', imageB64, limit }) }, { useCache: false })
+}
+
+// Scene/evidence photo -> { objects: [{ name, confidence }], count }
+export async function evidenceAnalyze(imageB64) {
+  return request(API.DATA_QUERY, { method: 'POST', body: JSON.stringify({ action: 'evidence_analyze', imageB64 }) }, { useCache: false })
+}
+
+// ── KAVACH Sentinel ───────────────────────────────────────────────────────────
+// Recomputes the live alert set on demand (and on a Catalyst Cron schedule),
+// optionally delivering a priority digest by Catalyst Email.
+export async function sentinelScan({ notify = false, to = '' } = {}) {
+  return request(API.DATA_QUERY, { method: 'POST', body: JSON.stringify({ action: 'sentinel_scan', notify, to }) }, { useCache: false })
+}
+
 // ── Convenience wrappers used by pages ────────────────────────────────────────
 export const fetchAnalytics = () => dataQuery('analytics')
 export const fetchNetwork   = () => dataQuery('networks')
