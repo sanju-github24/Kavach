@@ -162,11 +162,20 @@ export function logoutUser() {
 }
 
 // ── Data Query (all pages) ─────────────────────────────────────────────────────
+// The signed-in officer's role travels with every query so the server can
+// decide what identity data this viewer is entitled to see (see _lib/privacy.js).
+// It is part of the cache key too, so one role's view can never be served to
+// another from cache.
+function currentRole() {
+  try { return JSON.parse(localStorage.getItem('ksp_user') || '{}')?.role || '' } catch { return '' }
+}
+
 export async function dataQuery(action, body = {}) {
+  const role = currentRole()
   return request(
     API.DATA_QUERY,
-    { method: 'POST', body: JSON.stringify({ action, ...body }) },
-    { useCache: true, cacheKey: `data_${action}_${JSON.stringify(body)}` }
+    { method: 'POST', body: JSON.stringify({ action, role, ...body }) },
+    { useCache: true, cacheKey: `data_${action}_${role}_${JSON.stringify(body)}` }
   )
 }
 

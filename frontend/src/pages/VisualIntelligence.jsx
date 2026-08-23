@@ -17,9 +17,19 @@ const TABS = [
   { id: 'evidence', label: 'Evidence Analysis', hint: 'Tag objects in a crime-scene photo' },
 ]
 
-// Downscale before upload: OCR quality holds well at 1600px and it keeps the
-// request small enough for the serverless payload limit.
-function fileToBase64(file, maxDim = 1600) {
+// The serverless request body caps at ~100KB, and a base64 image inflates by
+// ~33%, so an A4 scan must be compressed to fit. Documents survive aggressive
+// compression well: we step down resolution/quality (and drop to greyscale
+// with a slight contrast lift, which also helps OCR) until the payload fits.
+const MAX_B64 = 88000
+
+const STEPS = [
+  { dim: 1600, q: 0.72 }, { dim: 1400, q: 0.65 }, { dim: 1200, q: 0.58 },
+  { dim: 1100, q: 0.52 }, { dim: 1000, q: 0.48 }, { dim: 900,  q: 0.42 },
+  { dim: 800,  q: 0.38 },
+]
+
+function fileToBase64(file) {
   return new Promise((resolve, reject) => {
     const reader = new FileReader()
     reader.onerror = () => reject(new Error('Could not read that file'))
@@ -27,12 +37,23 @@ function fileToBase64(file, maxDim = 1600) {
       const img = new Image()
       img.onerror = () => reject(new Error('That file is not a readable image'))
       img.onload = () => {
-        const scale = Math.min(1, maxDim / Math.max(img.width, img.height))
-        const w = Math.round(img.width * scale), h = Math.round(img.height * scale)
         const c = document.createElement('canvas')
-        c.width = w; c.height = h
-        c.getContext('2d').drawImage(img, 0, 0, w, h)
-        resolve(c.toDataURL('image/jpeg', 0.9))
+        const ctx = c.getContext('2d')
+        let out = null
+        for (const { dim, q } of STEPS) {
+          const scale = Math.min(1, dim / Math.max(img.width, img.height))
+          c.width = Math.round(img.width * scale)
+          c.height = Math.round(img.height * scale)
+          ctx.filter = 'grayscale(1) contrast(1.15)'
+          ctx.drawImage(img, 0, 0, c.width, c.height)
+          out = c.toDataURL('image/jpeg', q)
+          if (out.length <= MAX_B64) break
+        }
+        if (!out || out.length > MAX_B64) {
+          reject(new Error('That image is too large to process even after compression — try cropping to just the FIR page.'))
+          return
+        }
+        resolve(out)
       }
       img.src = reader.result
     }
@@ -99,9 +120,10 @@ function ConfidenceBar({ value, color = '#2CB67D' }) {
 }
 
 const FIELD_LABELS = {
-  fir_number: 'FIR / Crime No.', station: 'Police Station', district: 'District',
-  date_filed: 'Date', offence: 'Offence', complainant: 'Complainant',
-  accused: 'Accused', property: 'Property involved',
+  fir_number: 'FIR / Crime No.', year: 'Year', district: 'District', station: 'Police Station',
+  date_filed: 'Date of FIR', occurrence: 'Date of occurrence', acts: 'Acts', sections: 'Sections',
+  offence: 'Offence', complainant: 'Complainant / Informant', address: 'Address',
+  property: 'Property involved',
 }
 
 export default function VisualIntelligence() {
@@ -133,7 +155,7 @@ export default function VisualIntelligence() {
       }
       if (kind === 'face') {
         const r = await faceMatch(img.face)
-        if (r?.error) setErr('Face matching is unavailable right now. Please try again.')
+        if (r?.error) setErr(`Face matching failed: ${r.detail || 'the service is unavailable.'}`)
         else setFaceRes(r)
       }
       if (kind === 'evidence') {
@@ -209,7 +231,7 @@ export default function VisualIntelligence() {
                     ))}
                   </div>
                   <p className="text-[10px] text-ink-faint mt-4">
-                    {ocrRes.extractedCount}/8 fields recognised automatically · review before filing
+                    {ocrRes.extractedCount}/{ocrRes.fieldCount ?? Object.keys(FIELD_LABELS).length} fields recognised automatically · review before filing
                   </p>
                 </div>
 
@@ -255,7 +277,10 @@ export default function VisualIntelligence() {
               <div className="kv-card p-5 animate-fade-up">
                 <div className="flex items-center justify-between mb-4 flex-wrap gap-2">
                   <h2 className="kv-title">Ranked matches</h2>
-                  <span className="text-[10px] text-ink-faint">{faceRes.comparedCount} gallery photos compared</span>
+                  <span className="text-[10px] text-ink-faint">
+                    {faceRes.comparedCount} gallery photo{faceRes.comparedCount === 1 ? '' : 's'} compared
+                    {faceRes.gallerySource ? ` · ${faceRes.gallerySource === 'stratus' ? 'Stratus' : 'Data Store'}` : ''}
+                  </span>
                 </div>
                 {faceRes.matches?.length ? (
                   <div className="space-y-3">
@@ -289,7 +314,9 @@ export default function VisualIntelligence() {
                   <p className="text-ink-faint text-xs py-8 text-center leading-relaxed">
                     {faceRes.note === 'no_gallery_photos'
                       ? 'No accused photos in the gallery yet — add photos from the Criminal Profiler first.'
-                      : 'No face could be matched. Try a clearer, front-facing photo.'}
+                      : faceRes.note === 'no_face_in_probe'
+                        ? 'No face detected in the uploaded image. Use a clear, front-facing photo.'
+                        : 'No gallery photo matched this face.'}
                   </p>
                 )}
               </div>

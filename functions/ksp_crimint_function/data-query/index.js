@@ -17,6 +17,7 @@
 const catalyst = require('zcatalyst-sdk-node');
 const { escStr } = require('../_lib/sanitize');
 const { flat, flatAll, loadLookups, qAll, denormalizeCase, computeAccusedProfiles, ageBand, loadIntelCases } = require('../_lib/dataAccess');
+const { canSeeIdentities, maskRecords, maskPerson: maskPersonName } = require('../_lib/privacy');
 const { extractMO, timeBandOf, groupMOPatterns, monthlySeries, holtWinters, detectAnomalies, buildLiveAlerts, computeSpotlights } = require('../_lib/intel');
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -67,6 +68,9 @@ module.exports = async (context, basicIO) => {
 
   const body   = typeof basicIO.request.body === 'string' ? JSON.parse(basicIO.request.body) : basicIO.request.body;
   const action = body?.action;
+  // Identity data is released on a need-to-know basis (see _lib/privacy.js).
+  const viewerRole = String(body?.role || body?.user?.role || '').toLowerCase();
+  const showIds = canSeeIdentities(viewerRole);
   if (!action) return basicIO.response.status(400).json({ error: 'action required' });
 
   let app = null;
@@ -294,18 +298,40 @@ module.exports = async (context, basicIO) => {
         const text = String(ocr?.text || '').trim();
         if (!text) return basicIO.response.status(200).json({ error: 'no_text_found' });
 
-        // Structured field extraction — the OCR text is turned into the same
-        // shape the rest of the platform already understands.
-        const grab = (re) => { const m = text.match(re); return m ? m[1].trim().replace(/\s+/g, ' ') : ''; };
+        // Structured field extraction, validated against both a simple
+        // "Label: value" FIR and a real NCRB form. Real forms pack several
+        // labels onto ONE line ("District: X   P.S.: Y   Year: 2018") and carry
+        // bilingual brackets ("District (जिला):"), so each value is captured
+        // lazily and stopped at the next known label or a column gap.
+        const LBL = "(?:District|P\\.?\\s?S\\.?|Police\\s*Station|Year|FIR\\s*No|Date\\s*and\\s*Time|Date|Acts?|Sections?|Day|Address|Nationality|Father|Name|Complainant|Informant|Place|Direction|Beat|Type|Offence|Offense|Property|Stolen|Accused|UID|Passport|Occurrence)";
+        const STOP = `(?=\\s{2,}|\\s*${LBL}\\b\\s*[\\(:.]|$)`;
+        // OCR frequently emits runs of separators ("FIR No.:0019", "P.S:RAIBOGA"),
+        // so the label/value divider is a run rather than a single character.
+        const SEP = "[\\s:.\\-]*";
+        // valueClass must be ONE quantifier-free character class — the pattern
+        // appends its own quantifier.
+        const rx  = (label, vc = "[^\\n]") => new RegExp(`${label}\\s*(?:\\([^)]*\\))?${SEP}(${vc}+?)${STOP}`, 'i');
+        // A whitespace-free token needs no stop-lookahead: it ends at the space.
+        const tok = (label, vc) => new RegExp(`${label}\\s*(?:\\([^)]*\\))?${SEP}(${vc}+)`, 'i');
+        const grab = (re) => {
+          const m = text.match(re);
+          return m ? m[1].trim().replace(/\s+/g, ' ').replace(/^[:.\-]+/, '').replace(/[.,;:]+$/, '') : '';
+        };
+        const NAME = "[A-Za-z0-9 .,'\\-]";
         const fields = {
-          fir_number:  grab(/(?:FIR|Crime)\s*(?:No|Number|#)\s*[:.\-]?\s*([A-Za-z0-9/\-]+)/i),
-          station:     grab(/Police\s*Station\s*[:.\-]?\s*([^\n]+)/i),
-          district:    grab(/District\s*[:.\-]?\s*([^\n]+)/i),
-          date_filed:  grab(/Date\s*(?:of\s*[A-Za-z]+)?\s*[:.\-]?\s*([^\n]+)/i),
-          offence:     grab(/(?:Offence|Offense|Crime\s*Type)\s*[:.\-]?\s*([^\n]+)/i),
-          complainant: grab(/Complainant\s*[:.\-]?\s*([^\n]+)/i),
-          accused:     grab(/Accused\s*[:.\-]?\s*([^\n]+)/i),
-          property:    grab(/(?:Property|Stolen|Articles)\s*[:.\-]?\s*([^\n]+)/i),
+          fir_number:  grab(tok("FIR\\s*No", "[A-Za-z0-9/\\-]")),
+          year:        grab(rx("Year", "[0-9]")),
+          district:    grab(rx("District", NAME)),
+          station:     grab(rx("(?:P\\.?\\s?S\\.?|Police\\s*Station)", NAME)),
+          date_filed:  grab(new RegExp(`Date\\s*(?:and\\s*Time\\s*)?of\\s*FIR${SEP}([0-9]{1,2}[/\\-][0-9]{1,2}[/\\-][0-9]{2,4}(?:\\s+[0-9]{1,2}:[0-9]{2})?)`, 'i')) ||
+                       grab(new RegExp(`Date${SEP}([0-9]{1,2}\\s+[A-Za-z]{3,9}\\s+[0-9]{4}|[0-9]{1,2}[/\\-][0-9]{1,2}[/\\-][0-9]{2,4})`, 'i')),
+          occurrence:  grab(tok("Date\\s*From", "[0-9/\\-.]")),
+          acts:        grab(rx("Acts?", NAME)),
+          sections:    grab(rx("Sections?", "[0-9A-Za-z,\\- ]")),
+          offence:     grab(rx("(?<!of\\s)(?:Offence|Offense|Crime\\s*Type)")),
+          complainant: grab(rx("(?:Complainant\\s*/?\\s*Informant[\\s:.]*(?:\\([^)]*\\))?\\s*(?:\\(?[a-z]\\)?)?\\s*Name|Complainant|Informant)", NAME)),
+          address:     grab(rx("Present\\s*Address")) || grab(rx("Address")),
+          property:    grab(rx("(?:Property|Stolen|Articles)")),
         };
 
         // Zia NER on the same text so people/places/dates are tagged even when
@@ -319,6 +345,7 @@ module.exports = async (context, basicIO) => {
         return basicIO.response.status(200).json({
           text, confidence: ocr?.confidence ?? null, fields, entities,
           extractedCount: Object.values(fields).filter(Boolean).length,
+          fieldCount: Object.keys(fields).length,
         });
       } catch (e) {
         console.error('OCR_ERR:', e.message);
@@ -348,25 +375,71 @@ module.exports = async (context, basicIO) => {
       const limit = Math.min(Number(body.limit) || 40, 100);
       const tmps = [];
       try {
-        const listed = await photoBucket().listPagedObjects({ prefix: PHOTO_PREFIX, maxKeys: '500' });
-        const keys = (listed?.contents || [])
-          .map(o => String(o.key || o.key_name || ''))
-          .filter(k => k.startsWith(PHOTO_PREFIX) && k.length > PHOTO_PREFIX.length)
-          .slice(0, limit);
-        if (!keys.length) return basicIO.response.status(200).json({ matches: [], comparedCount: 0, note: 'no_gallery_photos' });
-
         const zia = adminApp().zia();
-        const results = await pool(keys, 5, async (key) => {
-          const accusedId = key.slice(PHOTO_PREFIX.length);
-          const signed = await photoBucket().generatePreSignedUrl(key, 'GET', { expiryIn: '600' });
-          if (!signed?.signature) return null;
-          const resp = await fetch(signed.signature);
-          if (!resp.ok) return null;
-          const p = _pathV.join(_osV.tmpdir(), `kv_gal_${accusedId}_${Date.now()}.png`);
-          _fsV.writeFileSync(p, Buffer.from(await resp.arrayBuffer()));
-          tmps.push(p);
-          const cmp = await zia.compareFace(_fsV.createReadStream(probe), _fsV.createReadStream(p));
-          return { accused_id: accusedId, confidence: faceScore(cmp), raw: cmp?.message || null };
+
+        // Confirm the probe actually contains a face before comparing against
+        // the whole gallery — otherwise every comparison fails identically and
+        // the officer gets no useful reason why.
+        try {
+          const fa = await zia.analyseFace(_fsV.createReadStream(probe));
+          const faces = fa?.faces ?? fa?.face_details ?? fa;
+          const n = Array.isArray(faces) ? faces.length : (faces && typeof faces === 'object' ? 1 : 0);
+          if (!n) return basicIO.response.status(200).json({ matches: [], comparedCount: 0, note: 'no_face_in_probe' });
+        } catch (e) { console.log('FACE_PROBE_SKIP:', e.message); }
+
+        // ── Build the gallery ────────────────────────────────────────────────
+        // Photos live in Stratus when a real session is available and in the
+        // chunked Data Store otherwise (the same fallback the upload path
+        // uses), so the gallery is assembled from whichever store has them.
+        const gallery = []; // { id, path }
+        let gallerySource = null;
+        try {
+          const listed = await photoBucket().listPagedObjects({ prefix: PHOTO_PREFIX, maxKeys: '500' });
+          const keys = (listed?.contents || [])
+            .map(o => String(o.key || o.key_name || ''))
+            .filter(k => k.startsWith(PHOTO_PREFIX) && k.length > PHOTO_PREFIX.length)
+            .slice(0, limit);
+          for (const key of keys) {
+            try {
+              const signed = await photoBucket().generatePreSignedUrl(key, 'GET', { expiryIn: '600' });
+              if (!signed?.signature) continue;
+              const resp = await fetch(signed.signature);
+              if (!resp.ok) continue;
+              const pth = _pathV.join(_osV.tmpdir(), `kv_gal_${Date.now()}_${Math.random().toString(36).slice(2, 8)}.png`);
+              _fsV.writeFileSync(pth, Buffer.from(await resp.arrayBuffer()));
+              tmps.push(pth);
+              gallery.push({ id: key.slice(PHOTO_PREFIX.length), path: pth });
+              gallerySource = 'stratus';
+            } catch (_) { /* skip this photo */ }
+          }
+        } catch (e) { console.log('STRATUS_GALLERY_SKIP:', e.message); }
+
+        if (!gallery.length) {
+          try {
+            const idRows = await qAll(app, q, 'SELECT accused_id FROM AccusedPhotoChunks');
+            const ids = [...new Set(flatAll(idRows, 'AccusedPhotoChunks').map(r => String(r.accused_id)).filter(Boolean))].slice(0, limit);
+            if (ids.length) {
+              const inList = ids.map(x => `'${escStr(x)}'`).join(',');
+              const rows = await qAll(app, q, `SELECT accused_id, chunk_index, chunk_data FROM AccusedPhotoChunks WHERE accused_id IN (${inList}) ORDER BY accused_id, chunk_index`);
+              const byAcc = {};
+              flatAll(rows, 'AccusedPhotoChunks').forEach(r => {
+                (byAcc[r.accused_id] ??= [])[Number(r.chunk_index)] = r.chunk_data || '';
+              });
+              for (const [id, chunks] of Object.entries(byAcc)) {
+                const pth = visionTmp(chunks.join(''), `gal_${id}`);
+                if (pth) { tmps.push(pth); gallery.push({ id, path: pth }); gallerySource = 'datastore'; }
+              }
+            }
+          } catch (e) { console.log('DS_GALLERY_SKIP:', e.message); }
+        }
+
+        if (!gallery.length) {
+          return basicIO.response.status(200).json({ matches: [], comparedCount: 0, note: 'no_gallery_photos' });
+        }
+
+        const results = await pool(gallery, 4, async (g) => {
+          const cmp = await zia.compareFace(_fsV.createReadStream(probe), _fsV.createReadStream(g.path));
+          return { accused_id: g.id, confidence: faceScore(cmp), raw: cmp?.message || null };
         });
 
         const matches = results
@@ -374,22 +447,31 @@ module.exports = async (context, basicIO) => {
           .sort((a, b) => b.confidence - a.confidence)
           .slice(0, 10);
 
-        // Enrich the top hits with the officer-facing profile details.
         if (matches.length) {
           try {
-            const inList = matches.map(m => `'${escStr(m.accused_id)}'`).join(',');
-            const rows = await qAll(app, q, `SELECT AccusedID, AccusedName, Age, Gender FROM Accused WHERE AccusedID IN (${inList})`);
+            // Gallery keys are the app-level ids ("ACC-42"); the table is keyed
+            // on the raw AccusedMasterID, so strip the prefix before looking up.
+            const rawIds = matches.map(m => String(m.accused_id).replace(/^ACC-/i, '')).filter(Boolean);
+            const inList = rawIds.map(x => `'${escStr(x)}'`).join(',');
+            const rows = await qAll(app, q, `SELECT AccusedMasterID, AccusedName, AgeYear, GenderID FROM Accused WHERE AccusedMasterID IN (${inList})`);
             const byId = {};
-            flatAll(rows, 'Accused').forEach(r => { byId[String(r.AccusedID)] = r; });
+            flatAll(rows, 'Accused').forEach(r => { byId[String(r.AccusedMasterID)] = r; });
             matches.forEach(m => {
-              const r = byId[m.accused_id];
-              if (r) { m.name = r.AccusedName; m.age = r.Age; m.gender = r.Gender; }
+              const r = byId[String(m.accused_id).replace(/^ACC-/i, '')];
+              if (r) {
+                m.name = showIds ? r.AccusedName : maskPersonName(r.AccusedName);
+                m.age = r.AgeYear;
+                m.gender = lookups.genderMap?.[r.GenderID] || undefined;
+              }
             });
           } catch (e) { console.log('FACE_ENRICH_SKIP:', e.message); }
         }
+
         return basicIO.response.status(200).json({
-          matches, comparedCount: keys.length,
-          noFace: results.every(r => !r || !Number.isFinite(r.confidence)),
+          matches,
+          comparedCount: gallery.length,
+          gallerySource,
+          noFace: !matches.length,
         });
       } catch (e) {
         console.error('FACE_ERR:', e.message);
@@ -712,9 +794,11 @@ module.exports = async (context, basicIO) => {
         })),
         links: rels.map(r => ({ source:`ACC-${r.from_id}`, target:`ACC-${r.to_id}`, type:r.rel_type, strength:r.strength })),
         financial: fin.map(f => ({
-          account: f.account_number, bank: f.bank, accused: `ACC-${f.linked_accused_id}`,
+          account: showIds ? f.account_number : '****' + String(f.account_number || '').slice(-4),
+          bank: f.bank, accused: `ACC-${f.linked_accused_id}`,
           txns: Number(f.suspicious_txn_count)||0, amount: Number(f.total_suspicious_amount)||0, notes: f.notes,
         })),
+        piiMasked: !showIds,
       });
     }
 
@@ -753,7 +837,10 @@ module.exports = async (context, basicIO) => {
         };
       });
 
-      return basicIO.response.status(200).json({ profiles: result });
+      return basicIO.response.status(200).json({
+        profiles: maskRecords(result, viewerRole, { person: ['name'] }),
+        piiMasked: !showIds,
+      });
     }
 
     // ── FORECAST ─────────────────────────────────────────────────────────────
@@ -1090,7 +1177,9 @@ module.exports = async (context, basicIO) => {
       const flaggedTotal = accounts.filter(a=>Number(a.flagged)===1).reduce((s,a)=>s+(Number(a.total_suspicious_amount)||0),0);
 
       return basicIO.response.status(200).json({
-        nodes, edges, sankey,
+        nodes: maskRecords(nodes, viewerRole, { person: ['label'] }),
+        edges, sankey,
+        piiMasked: !showIds,
         stats: {
           total_accounts: accounts.length, flagged_accounts: accounts.filter(a=>Number(a.flagged)===1).length,
           total_suspicious_amount: flaggedTotal,

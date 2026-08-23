@@ -26,10 +26,11 @@ export default function Profiler() {
   const [filterRisk,  setFilterRisk]  = useState('All')
   const [view,        setView]        = useState('profiles') // 'profiles' | 'mo'
   const [moData,      setMoData]      = useState(null)
+  const [piiMasked,   setPiiMasked]   = useState(false)
 
   useEffect(() => {
     dataQuery('profiler')
-      .then(d  => { setProfiles(d?.profiles || []); setLoading(false) })
+      .then(d  => { setProfiles(d?.profiles || []); setPiiMasked(!!d?.piiMasked); setLoading(false) })
       .catch(() => { setProfiles([]); setLoading(false) })
     dataQuery('mo_patterns')
       .then(d => { if (d?.patterns) setMoData(d) })
@@ -56,7 +57,7 @@ export default function Profiler() {
       <PageHeader
         eyebrow="Karnataka State Police · KAVACH"
         title="Offender Profiler"
-        subtitle={loading ? 'Loading profiles from Data Store…' : `${profiles.length} profiles · ${profiles.filter(p=>Number(p.is_repeat_offender)===1).length} repeat offenders`}
+        subtitle={loading ? 'Loading profiles from Data Store…' : `${profiles.length} profiles · ${profiles.filter(p=>Number(p.is_repeat_offender)===1).length} repeat offenders${piiMasked ? ' · identities masked for your role' : ''}`}
         right={
         <div className="flex gap-2 flex-wrap">
           <div className="flex bg-[#0A0A0A] border border-[#2E2E2E] rounded-lg overflow-hidden text-[11px]">
