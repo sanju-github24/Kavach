@@ -362,10 +362,49 @@ module.exports = async (context, basicIO) => {
       try {
         const res = await adminApp().zia().detectObject(_fsV.createReadStream(tmp));
         const objects = (res?.objects || []).map(o => ({
-          name: o.object_type || o.name || o.label || 'object',
+          name: String(o.object_type || o.name || o.label || '').toLowerCase(),
           confidence: Number(o.confidence ?? o.score ?? 0),
         })).filter(o => o.name);
-        return basicIO.response.status(200).json({ objects, count: objects.length });
+
+        // ── Turn tags into intelligence ──────────────────────────────────────
+        // A label on its own tells an officer nothing they cannot see. Each
+        // detected object is cross-referenced against the case corpus (crime
+        // type + MO narrative) so the answer becomes "this evidence type
+        // appears in N past cases, concentrated in these districts" — a lead,
+        // and a new dimension the analytics can slice on.
+        let corpus = [];
+        try {
+          const lookups = await loadLookups(app, q);
+          corpus = await loadIntelCases(app, q, lookups);
+        } catch (e) { console.log('EVIDENCE_CORPUS_SKIP:', e.message); }
+
+        const linked = objects.map(o => {
+          const term = o.name;
+          const hits = corpus.filter(c =>
+            String(c.crime_type || '').toLowerCase().includes(term) ||
+            String(c.narrative || '').toLowerCase().includes(term)
+          );
+          const byDistrict = {}, byCrime = {};
+          hits.forEach(h => {
+            byDistrict[h.district] = (byDistrict[h.district] || 0) + 1;
+            byCrime[h.crime_type]  = (byCrime[h.crime_type]  || 0) + 1;
+          });
+          const top = (obj) => Object.entries(obj).sort((a, b) => b[1] - a[1]).slice(0, 3)
+            .map(([name, count]) => ({ name, count }));
+          return {
+            ...o,
+            caseCount: hits.length,
+            topDistricts: top(byDistrict),
+            topCrimes: top(byCrime),
+            sampleCases: hits.slice(0, 4).map(h => ({
+              fir_number: h.fir_number, crime: h.crime_type, district: h.district, date: h.date_filed,
+            })),
+          };
+        });
+
+        return basicIO.response.status(200).json({
+          objects: linked, count: linked.length, corpusSize: corpus.length,
+        });
       } catch (e) {
         console.error('OBJ_ERR:', e.message);
         return basicIO.response.status(200).json({ error: 'object_detection_unavailable', detail: e.message });

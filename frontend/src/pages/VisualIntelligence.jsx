@@ -400,16 +400,57 @@ export default function VisualIntelligence() {
                   <span className="text-[10px] text-ink-faint">{evRes.count} found</span>
                 </div>
                 {evRes.objects?.length ? (
-                  <div className="space-y-3">
-                    {evRes.objects.map((o, i) => (
-                      <div key={i}>
-                        <div className="flex justify-between text-[11px] mb-1.5">
-                          <span className="text-white capitalize">{o.name}</span>
-                          <span className="text-ink-dim tabular">{Math.round(o.confidence > 1 ? o.confidence : o.confidence * 100)}%</span>
+                  <div className="space-y-4">
+                    {evRes.objects.map((o, i) => {
+                      const pct = Math.round(o.confidence > 1 ? o.confidence : o.confidence * 100)
+                      return (
+                        <div key={i} className="rounded-xl bg-base border border-base-border p-3.5">
+                          <div className="flex justify-between items-baseline mb-1.5">
+                            <span className="text-white text-sm font-bold capitalize">{o.name}</span>
+                            <span className="text-ink-dim text-[11px] tabular">{pct}% confidence</span>
+                          </div>
+                          <ConfidenceBar value={pct} color="#A78BFA" />
+
+                          {/* the tag turned into a lead */}
+                          <div className="mt-3 pt-3 border-t border-base-border/60">
+                            {o.caseCount > 0 ? (
+                              <>
+                                <p className="text-[11px] text-ink-dim leading-relaxed mb-2">
+                                  Appears in <span className="text-white font-bold">{o.caseCount}</span> past
+                                  case{o.caseCount === 1 ? '' : 's'} across the corpus.
+                                </p>
+                                {o.topDistricts?.length > 0 && (
+                                  <div className="flex flex-wrap gap-1.5 mb-2">
+                                    {o.topDistricts.map(d => (
+                                      <span key={d.name} className="text-[9px] px-1.5 py-1 rounded-lg bg-base-panel border border-base-border text-ink-dim">
+                                        {d.name} <span className="text-ink-faint">· {d.count}</span>
+                                      </span>
+                                    ))}
+                                  </div>
+                                )}
+                                {o.sampleCases?.length > 0 && (
+                                  <div className="space-y-1">
+                                    {o.sampleCases.map((c, ci) => (
+                                      <div key={ci} className="flex justify-between gap-2 text-[10px] bg-base-panel rounded-lg px-2 py-1.5">
+                                        <span className="text-ink font-bold flex-shrink-0">{c.fir_number}</span>
+                                        <span className="text-ink-dim truncate">{c.crime} · {c.district}</span>
+                                      </div>
+                                    ))}
+                                  </div>
+                                )}
+                              </>
+                            ) : (
+                              <p className="text-[10px] text-ink-faint">No past case in the corpus references this object type.</p>
+                            )}
+                          </div>
                         </div>
-                        <ConfidenceBar value={o.confidence > 1 ? o.confidence : o.confidence * 100} color="#A78BFA" />
-                      </div>
-                    ))}
+                      )
+                    })}
+                    {evRes.corpusSize > 0 && (
+                      <p className="text-[9px] text-ink-faint text-center">
+                        cross-referenced against {evRes.corpusSize} case narratives
+                      </p>
+                    )}
                   </div>
                 ) : (
                   <p className="text-ink-faint text-xs py-8 text-center">
