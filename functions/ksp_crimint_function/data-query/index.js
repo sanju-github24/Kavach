@@ -18,6 +18,7 @@ const catalyst = require('zcatalyst-sdk-node');
 const { escStr } = require('../_lib/sanitize');
 const { flat, flatAll, loadLookups, qAll, denormalizeCase, computeAccusedProfiles, ageBand, loadIntelCases } = require('../_lib/dataAccess');
 const { canSeeIdentities, maskRecords, maskPerson: maskPersonName } = require('../_lib/privacy');
+const { classifyObject, linkCases } = require('../_lib/evidence');
 const { extractMO, timeBandOf, groupMOPatterns, monthlySeries, holtWinters, detectAnomalies, buildLiveAlerts, computeSpotlights } = require('../_lib/intel');
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -379,20 +380,23 @@ module.exports = async (context, basicIO) => {
         } catch (e) { console.log('EVIDENCE_CORPUS_SKIP:', e.message); }
 
         const linked = objects.map(o => {
-          const term = o.name;
-          const hits = corpus.filter(c =>
-            String(c.crime_type || '').toLowerCase().includes(term) ||
-            String(c.narrative || '').toLowerCase().includes(term)
-          );
+          const cls = classifyObject(o.name);
+          if (!cls || !cls.probative) {
+            return { ...o, probative: false, caseCount: 0, topDistricts: [], topCrimes: [], sampleCases: [] };
+          }
+          const { hits, via } = linkCases(cls, corpus);
           const byDistrict = {}, byCrime = {};
           hits.forEach(h => {
-            byDistrict[h.district] = (byDistrict[h.district] || 0) + 1;
-            byCrime[h.crime_type]  = (byCrime[h.crime_type]  || 0) + 1;
+            byDistrict[h.district]   = (byDistrict[h.district] || 0) + 1;
+            byCrime[h.crime_type]    = (byCrime[h.crime_type] || 0) + 1;
           });
           const top = (obj) => Object.entries(obj).sort((a, b) => b[1] - a[1]).slice(0, 3)
             .map(([name, count]) => ({ name, count }));
           return {
             ...o,
+            probative: true,
+            evidenceClass: cls.label,
+            matchedVia: via,
             caseCount: hits.length,
             topDistricts: top(byDistrict),
             topCrimes: top(byCrime),

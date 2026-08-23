@@ -405,20 +405,41 @@ export default function VisualIntelligence() {
                       const pct = Math.round(o.confidence > 1 ? o.confidence : o.confidence * 100)
                       return (
                         <div key={i} className="rounded-xl bg-base border border-base-border p-3.5">
-                          <div className="flex justify-between items-baseline mb-1.5">
-                            <span className="text-white text-sm font-bold capitalize">{o.name}</span>
-                            <span className="text-ink-dim text-[11px] tabular">{pct}% confidence</span>
+                          <div className="flex justify-between items-baseline mb-1.5 gap-2">
+                            <span className="text-white text-sm font-bold capitalize">
+                              {o.name}
+                              {o.evidenceClass && o.evidenceClass !== o.name && (
+                                <span className="ml-2 text-[9px] font-normal uppercase tracking-wider text-[#C4B5FD]">
+                                  {o.evidenceClass}
+                                </span>
+                              )}
+                            </span>
+                            <span className="text-ink-dim text-[11px] tabular flex-shrink-0">{pct}% confidence</span>
                           </div>
                           <ConfidenceBar value={pct} color="#A78BFA" />
 
                           {/* the tag turned into a lead */}
                           <div className="mt-3 pt-3 border-t border-base-border/60">
-                            {o.caseCount > 0 ? (
+                            {o.probative === false ? (
+                              <p className="text-[10px] text-ink-faint leading-relaxed">
+                                Not forensically probative on its own — no case linkage attempted.
+                              </p>
+                            ) : o.caseCount > 0 ? (
                               <>
                                 <p className="text-[11px] text-ink-dim leading-relaxed mb-2">
-                                  Appears in <span className="text-white font-bold">{o.caseCount}</span> past
-                                  case{o.caseCount === 1 ? '' : 's'} across the corpus.
+                                  Linked to <span className="text-white font-bold">{o.caseCount}</span> past
+                                  case{o.caseCount === 1 ? '' : 's'}
+                                  {o.matchedVia ? <span className="text-ink-faint"> · matched via {o.matchedVia}</span> : null}
                                 </p>
+                                {o.topCrimes?.length > 0 && (
+                                  <div className="flex flex-wrap gap-1.5 mb-2">
+                                    {o.topCrimes.map(c => (
+                                      <span key={c.name} className="text-[9px] px-1.5 py-1 rounded-lg bg-[#A78BFA]/10 border border-[#A78BFA]/30 text-[#C4B5FD]">
+                                        {c.name} <span className="opacity-70">· {c.count}</span>
+                                      </span>
+                                    ))}
+                                  </div>
+                                )}
                                 {o.topDistricts?.length > 0 && (
                                   <div className="flex flex-wrap gap-1.5 mb-2">
                                     {o.topDistricts.map(d => (
@@ -440,7 +461,7 @@ export default function VisualIntelligence() {
                                 )}
                               </>
                             ) : (
-                              <p className="text-[10px] text-ink-faint">No past case in the corpus references this object type.</p>
+                              <p className="text-[10px] text-ink-faint">No case in the corpus matches this evidence class.</p>
                             )}
                           </div>
                         </div>
