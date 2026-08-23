@@ -286,25 +286,78 @@ export default function VisualIntelligence() {
                   <div className="space-y-3">
                     {faceRes.matches.map((m, i) => {
                       const c = m.confidence >= 80 ? '#F1493F' : m.confidence >= 60 ? '#F0A23D' : '#3291FF'
+                      const risk = Number(m.risk_score) >= 80 ? '#F1493F' : Number(m.risk_score) >= 60 ? '#F0A23D' : '#2CB67D'
                       return (
-                        <div key={m.accused_id} className="p-3.5 rounded-xl bg-base border border-base-border hover:border-white/25 transition">
-                          <div className="flex justify-between items-start gap-3 mb-2">
-                            <div className="min-w-0">
-                              <p className="text-white text-sm font-bold truncate">{m.name || m.accused_id}</p>
-                              <p className="text-ink-faint text-[10px]">
-                                {m.accused_id}{m.age ? ` · age ${m.age}` : ''}{m.gender ? ` · ${m.gender}` : ''}
-                              </p>
+                        <div key={m.accused_id}
+                          className={`rounded-xl bg-base border transition ${i === 0 ? 'border-white/25' : 'border-base-border hover:border-white/20'}`}>
+                          {/* identity + similarity */}
+                          <div className="p-3.5">
+                            <div className="flex justify-between items-start gap-3 mb-2">
+                              <div className="min-w-0">
+                                <p className="text-white text-sm font-bold truncate">{m.name || m.accused_id}</p>
+                                <p className="text-ink-faint text-[10px]">
+                                  {m.accused_id}{m.age ? ` · age ${m.age}` : ''}{m.gender ? ` · ${m.gender}` : ''}
+                                </p>
+                              </div>
+                              <div className="text-right flex-shrink-0">
+                                <span className="text-sm font-black tabular" style={{ color: c }}>{Math.round(m.confidence)}%</span>
+                                <p className="text-[8px] text-ink-faint uppercase tracking-wider">similarity</p>
+                              </div>
                             </div>
-                            <span className="text-sm font-black tabular flex-shrink-0" style={{ color: c }}>
-                              {Math.round(m.confidence)}%
-                            </span>
+                            <ConfidenceBar value={m.confidence} color={c} />
                           </div>
-                          <ConfidenceBar value={m.confidence} color={c} />
-                          {i === 0 && (
-                            <button onClick={() => navigate('/dashboard/profiler')}
-                              className="mt-2.5 text-[10px] text-ink-faint hover:text-white flex items-center gap-1 transition">
-                              Open in Criminal Profiler <IconArrowUpRight className="w-3 h-3" />
-                            </button>
+
+                          {/* full dossier — only worth the space for real hits */}
+                          {m.district && (
+                            <div className="px-3.5 pb-3.5 space-y-3">
+                              <div className="grid grid-cols-2 gap-x-4 gap-y-2 pt-3 border-t border-base-border/60">
+                                {[
+                                  ['District', m.district],
+                                  ['Primary crime', m.primary_crime],
+                                  ['Case status', m.status],
+                                  ['Linked FIRs', m.fir_count],
+                                ].map(([k, v]) => (
+                                  <div key={k}>
+                                    <p className="text-ink-faint text-[9px] uppercase tracking-wider">{k}</p>
+                                    <p className="text-ink text-[11px] font-bold truncate">{v ?? '—'}</p>
+                                  </div>
+                                ))}
+                              </div>
+
+                              <div className="flex items-center gap-2.5">
+                                <div className="flex-1">
+                                  <div className="flex justify-between text-[9px] text-ink-faint uppercase tracking-wider mb-1">
+                                    <span>Risk score</span><span className="tabular">{m.risk_score}/100</span>
+                                  </div>
+                                  <ConfidenceBar value={m.risk_score} color={risk} />
+                                </div>
+                                {Number(m.is_repeat_offender) === 1 && (
+                                  <span className="text-[8px] font-bold px-1.5 py-1 rounded border border-risk-critical/50 bg-risk-critical/10 text-risk-critical flex-shrink-0">
+                                    REPEAT ×{m.repeat_case_count}
+                                  </span>
+                                )}
+                              </div>
+
+                              {m.firs?.length > 0 && (
+                                <div>
+                                  <p className="text-ink-faint text-[9px] uppercase tracking-wider mb-1.5">Linked cases</p>
+                                  <div className="space-y-1">
+                                    {m.firs.map((f, fi) => (
+                                      <div key={fi} className="flex justify-between gap-2 text-[10px] bg-base-panel rounded-lg px-2 py-1.5">
+                                        <span className="text-ink font-bold flex-shrink-0">{f.fir_number}</span>
+                                        <span className="text-ink-dim truncate">{f.crime} · {f.district}</span>
+                                        <span className="text-ink-faint flex-shrink-0">{f.status}</span>
+                                      </div>
+                                    ))}
+                                  </div>
+                                </div>
+                              )}
+
+                              <button onClick={() => navigate('/dashboard/profiler')}
+                                className="text-[10px] text-ink-faint hover:text-white flex items-center gap-1 transition">
+                                Open full dossier in Criminal Profiler <IconArrowUpRight className="w-3 h-3" />
+                              </button>
+                            </div>
                           )}
                         </div>
                       )

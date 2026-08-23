@@ -259,12 +259,12 @@ export async function predictRisk(features) {
 
 // Scanned/photographed FIR -> { text, confidence, fields, entities }
 export async function ocrIntake(imageB64) {
-  return request(API.DATA_QUERY, { method: 'POST', body: JSON.stringify({ action: 'ocr_intake', imageB64 }) }, { useCache: false })
+  return request(API.DATA_QUERY, { method: 'POST', body: JSON.stringify({ action: 'ocr_intake', imageB64, role: currentRole() }) }, { useCache: false })
 }
 
 // Probe photo -> { matches: [{ accused_id, name, confidence }], comparedCount }
 export async function faceMatch(imageB64, limit = 40) {
-  return request(API.DATA_QUERY, { method: 'POST', body: JSON.stringify({ action: 'face_match', imageB64, limit }) }, { useCache: false })
+  return request(API.DATA_QUERY, { method: 'POST', body: JSON.stringify({ action: 'face_match', imageB64, limit, role: currentRole() }) }, { useCache: false })
 }
 
 // Scene/evidence photo -> { objects: [{ name, confidence }], count }

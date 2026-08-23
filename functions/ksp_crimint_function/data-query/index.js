@@ -68,9 +68,12 @@ module.exports = async (context, basicIO) => {
 
   const body   = typeof basicIO.request.body === 'string' ? JSON.parse(basicIO.request.body) : basicIO.request.body;
   const action = body?.action;
-  // Identity data is released on a need-to-know basis (see _lib/privacy.js).
+  // Identities are visible by default — masking them silently by role made the
+  // product look broken rather than careful. Protection is now an explicit,
+  // operator-controlled mode: pass maskPii:true (see _lib/privacy.js) to reduce
+  // personal identifiers to initials, e.g. when briefing or screen-sharing.
   const viewerRole = String(body?.role || body?.user?.role || '').toLowerCase();
-  const showIds = canSeeIdentities(viewerRole);
+  const showIds = body?.maskPii !== true;
   if (!action) return basicIO.response.status(400).json({ error: 'action required' });
 
   let app = null;
@@ -447,30 +450,64 @@ module.exports = async (context, basicIO) => {
           .sort((a, b) => b.confidence - a.confidence)
           .slice(0, 10);
 
+        let enrichError = null;
+        // ── Enrich the hits with the full offender dossier ──────────────────
+        // A ranked similarity score on its own is not actionable; an officer
+        // needs to know WHO matched. Each hit is joined to the same profile
+        // record the Criminal Profiler shows: identity, district, primary
+        // crime, deterministic risk score, repeat history and linked FIRs.
         if (matches.length) {
           try {
-            // Gallery keys are the app-level ids ("ACC-42"); the table is keyed
-            // on the raw AccusedMasterID, so strip the prefix before looking up.
-            const rawIds = matches.map(m => String(m.accused_id).replace(/^ACC-/i, '')).filter(Boolean);
-            const inList = rawIds.map(x => `'${escStr(x)}'`).join(',');
-            const rows = await qAll(app, q, `SELECT AccusedMasterID, AccusedName, AgeYear, GenderID FROM Accused WHERE AccusedMasterID IN (${inList})`);
+            // This action runs before the shared lookups are loaded further
+            // down the handler, so load them here rather than capturing an
+            // undefined binding.
+            const lookups = await loadLookups(app, q);
+            const cases = await loadIntelCases(app, q, lookups);
+            const firByCaseId = {}; const gravityByCaseId = {};
+            cases.forEach(c => { firByCaseId[c.fir_id] = c; gravityByCaseId[c.fir_id] = c.gravity; });
+            const accusedRows = await qAll(app, q, 'SELECT AccusedMasterID, CaseMasterID, AccusedName, AgeYear, GenderID FROM Accused');
+            const allAccused = flatAll(accusedRows, 'Accused');
+            const profiles = computeAccusedProfiles(allAccused, firByCaseId, gravityByCaseId);
+
             const byId = {};
-            flatAll(rows, 'Accused').forEach(r => { byId[String(r.AccusedMasterID)] = r; });
-            matches.forEach(m => {
-              const r = byId[String(m.accused_id).replace(/^ACC-/i, '')];
-              if (r) {
-                m.name = showIds ? r.AccusedName : maskPersonName(r.AccusedName);
-                m.age = r.AgeYear;
-                m.gender = lookups.genderMap?.[r.GenderID] || undefined;
-              }
+            profiles.forEach(pr => { byId[pr.accused_id] = pr; });
+            // Every FIR this person appears in, for the dossier timeline.
+            const casesByAccusedId = {};
+            allAccused.forEach(a => {
+              const id = `ACC-${a.AccusedMasterID}`;
+              const fir = firByCaseId[a.CaseMasterID];
+              if (fir) (casesByAccusedId[id] ??= []).push({
+                fir_number: fir.fir_number, crime: fir.crime_type,
+                district: fir.district, status: fir.status, date: fir.date_filed,
+              });
             });
-          } catch (e) { console.log('FACE_ENRICH_SKIP:', e.message); }
+
+            matches.forEach(m => {
+              const pr = byId[m.accused_id];
+              if (!pr) return;
+              const firs = casesByAccusedId[m.accused_id] || [];
+              Object.assign(m, {
+                name:               showIds ? pr.name : maskPersonName(pr.name),
+                age:                pr.age,
+                gender:             pr.gender,
+                district:           pr.district,
+                primary_crime:      pr.primary_crime,
+                risk_score:         pr.risk_score,
+                is_repeat_offender: pr.is_repeat_offender,
+                repeat_case_count:  pr.repeat_case_count,
+                status:             pr.status,
+                fir_number:         pr.fir_number,
+                fir_count:          firs.length,
+                firs:               firs.slice(0, 6),
+              });
+            });
+          } catch (e) { console.error('FACE_ENRICH_FAIL:', e.message); enrichError = e.message; }
         }
 
         return basicIO.response.status(200).json({
           matches,
           comparedCount: gallery.length,
-          gallerySource,
+          gallerySource, enrichError,
           noFace: !matches.length,
         });
       } catch (e) {
@@ -838,7 +875,7 @@ module.exports = async (context, basicIO) => {
       });
 
       return basicIO.response.status(200).json({
-        profiles: maskRecords(result, viewerRole, { person: ['name'] }),
+        profiles: showIds ? result : maskRecords(result, 'analyst', { person: ['name'] }),
         piiMasked: !showIds,
       });
     }
@@ -1177,7 +1214,7 @@ module.exports = async (context, basicIO) => {
       const flaggedTotal = accounts.filter(a=>Number(a.flagged)===1).reduce((s,a)=>s+(Number(a.total_suspicious_amount)||0),0);
 
       return basicIO.response.status(200).json({
-        nodes: maskRecords(nodes, viewerRole, { person: ['label'] }),
+        nodes: showIds ? nodes : maskRecords(nodes, 'analyst', { person: ['label'] }),
         edges, sankey,
         piiMasked: !showIds,
         stats: {
