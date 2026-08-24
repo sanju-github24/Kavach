@@ -42,7 +42,10 @@ export default function SpeakButton({ text, label = 'Listen', className = '' }) 
         setState({ busy: false, playing: false, err: null })
         play(src)
       } else {
-        setState({ busy: false, playing: false, err: 'Voice is unavailable right now.' })
+        // Surface the backend reason rather than a blanket message, so a
+        // failure is diagnosable instead of invisible.
+        setState({ busy: false, playing: false,
+          err: r?.detail ? `Voice failed: ${String(r.detail).slice(0, 90)}` : 'Voice is unavailable right now.' })
       }
     } catch {
       setState({ busy: false, playing: false, err: 'Voice request failed.' })

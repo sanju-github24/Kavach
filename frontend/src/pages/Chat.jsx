@@ -431,12 +431,7 @@ function AIMessage({ m, onSend, onSpeak, speaking, animate, onType, onDone }) {
               {new Date(m.timestamp).toLocaleTimeString('en-IN',{hour:'2-digit',minute:'2-digit'})}
             </span>
           )}
-          {onSpeak && done && (
-            <button onClick={() => onSpeak(m)} title={speaking ? 'Stop reading' : 'Read aloud'}
-              className={`transition ${speaking ? 'text-accent' : 'text-ink-faint hover:text-accent'}`}>
-              {speaking ? <IconSpeakerOff /> : <IconSpeaker />}
-            </button>
-          )}
+
         </div>
 
         <div className="text-ink">
@@ -756,7 +751,6 @@ export default function Chat() {
       };
       setMessages(prev => [...prev, aiMsg]);
       setAnimatingTs(aiMsg.timestamp);           // play the typing reveal for this reply
-      if (autoSpeakRef.current) speakMessage(aiMsg);
 
       // The server creates/persists the session — pick up its id, and if it
       // just rephrased a title (first turn), reflect that in the sidebar
@@ -892,15 +886,7 @@ export default function Chat() {
               </button>
             ))}
           </div>
-          <button onClick={toggleAutoSpeak} title={autoSpeak ? 'Voice replies: ON — click to mute' : 'Voice replies: OFF — click to enable'}
-            className={`px-3 py-1.5 rounded-lg text-xs transition border flex items-center gap-1.5 ${
-              autoSpeak
-                ? 'bg-accent text-base border-accent font-medium'
-                : 'bg-base-raised border-base-border text-ink-faint hover:text-white'
-            }`}>
-            {autoSpeak ? <IconSpeaker /> : <IconSpeakerOff />}
-            <span className="hidden sm:inline">{autoSpeak ? 'Voice on' : 'Voice off'}</span>
-          </button>
+
           <button onClick={exportPDF} disabled={messages.length<=1}
             className="bg-risk-low/15 hover:bg-risk-low/25 disabled:opacity-40 border border-risk-low/40 px-3 py-1.5 rounded-lg text-xs font-medium transition text-risk-low flex items-center gap-1.5">
             <IconDownload className="w-3 h-3" /> PDF
