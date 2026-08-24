@@ -104,6 +104,38 @@ async function qmlToken() {
   return _qmlTok;
 }
 
+// ── Catalyst-native speech synthesis (Zia TTS) ───────────────────────────────
+// Replaces the browser Web Speech API so voice output is a Catalyst service,
+// and so Kannada is spoken by a real Kannada voice rather than whatever the
+// officer's browser happens to ship.
+const TTS_VOICES = {
+  kn: { female: 'Anu',  male: 'Suresh' },
+  hi: { female: 'Divya', male: 'Rohit' },
+  en: { female: 'Mary', male: 'Thomas' },
+};
+const isKannada = (t) => /[\u0C80-\u0CFF]/.test(String(t || ''));
+const isDevanagari = (t) => /[\u0900-\u097F]/.test(String(t || ''));
+
+function httpsPostBinary(hostname, path, headers, payload, ms = 45000) {
+  const https = require('https');
+  return new Promise((resolve, reject) => {
+    const body = JSON.stringify(payload);
+    const req = https.request({ hostname, path, method: 'POST',
+      headers: { ...headers, 'Content-Length': Buffer.byteLength(body) } }, res => {
+      const chunks = [];
+      res.on('data', c => chunks.push(c));
+      res.on('end', () => resolve({
+        status: res.statusCode,
+        headers: res.headers,
+        buffer: Buffer.concat(chunks),
+      }));
+    });
+    req.on('error', reject);
+    req.setTimeout(ms, () => { req.destroy(new Error('tts timeout')); });
+    req.write(body); req.end();
+  });
+}
+
 // Catalyst-native translation (Zia NLP model served through QuickML). Replaces
 // any third-party translation path and covers the Indian languages KSP needs.
 const ZIA_LANGS = new Set(['en','hi','kn','ta','te','ml','mr','bn','gu','pa','or']);
@@ -780,6 +812,57 @@ module.exports = async (context, basicIO) => {
       } catch (e) {
         console.error('TRANSLATE_ERR:', e.message);
         return basicIO.response.status(200).json({ error: 'translate_unavailable', detail: e.message });
+      }
+    }
+
+    // ── TEXT TO SPEECH — Catalyst Zia voice synthesis. The language and voice
+    // are inferred from the text itself so an officer never has to pick them.
+    if (action === 'tts') {
+      const raw = String(body.text || '').trim();
+      if (!raw) return basicIO.response.status(400).json({ error: 'text required' });
+      // Strip markdown / directive noise so the voice reads clean sentences,
+      // and cap length — synthesis time scales with characters.
+      const text = raw
+        .replace(/```[\s\S]*?```/g, ' ')
+        .replace(/\[(?:CHART|NETWORK|MAP):[^\]]*\]/gi, ' ')
+        .replace(/[*#_`]/g, ' ')
+        .replace(/\s+/g, ' ')
+        .trim()
+        .slice(0, 900);
+      if (!text) return basicIO.response.status(400).json({ error: 'text required' });
+
+      const lang = body.language || (isKannada(text) ? 'kn' : isDevanagari(text) ? 'hi' : 'en');
+      const gender = body.gender === 'male' ? 'male' : 'female';
+      const speaker = body.speaker || (TTS_VOICES[lang] || TTS_VOICES.en)[gender];
+      try {
+        const token = await qmlToken();
+        const r = await httpsPostBinary('api.catalyst.zoho.in',
+          '/quickml/api/v1/models/zia/tts/synthesize',
+          {
+            'Content-Type': 'application/json',
+            'Authorization': `Zoho-oauthtoken ${token}`,
+            'CATALYST-ORG': QML_ORG,
+          },
+          { text, language: lang, speaker,
+            pitch: body.pitch || 'moderate',
+            speed: body.speed || 'moderate',
+            emotion: body.emotion || 'neutral' });
+
+        const ctype = String(r.headers['content-type'] || '');
+        if (r.status !== 200 || !ctype.includes('audio')) {
+          const msg = r.buffer.toString('utf8').slice(0, 200);
+          throw new Error(`tts ${r.status}: ${msg}`);
+        }
+        let info = null;
+        try { info = JSON.parse(r.headers['x-audio-info'] || 'null'); } catch (_) {}
+        return basicIO.response.status(200).json({
+          audio: r.buffer.toString('base64'),
+          mime: 'audio/wav',
+          language: lang, speaker, info,
+        });
+      } catch (e) {
+        console.error('TTS_ERR:', e.message);
+        return basicIO.response.status(200).json({ error: 'tts_unavailable', detail: e.message });
       }
     }
 

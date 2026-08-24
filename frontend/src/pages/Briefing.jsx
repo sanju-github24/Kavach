@@ -5,7 +5,7 @@ import { generateBriefing, fetchAnalytics, listBriefings, getBriefing, deleteBri
 import { useAuth } from '../contexts/AuthContext'
 import { IconSpeaker, IconSpeakerOff, IconTrash, IconTimeline, IconDownload } from '../components/ui/Icons'
 import { PageHeader } from '../components/ui/Panel'
-import TranslateToggle from '../components/ui/TranslateToggle'
+import SpeakButton from '../components/ui/SpeakButton'
 
 // One-click AI Intelligence Briefing: pulls together everything already
 // computed elsewhere (live alerts, anomalies, recurring MO, forecast, top
@@ -245,9 +245,9 @@ export default function Briefing() {
 
         {data && (
           <div className="flex gap-2 ml-auto">
-            <button onClick={speak} className="flex items-center gap-1.5 bg-[#000000] border border-[#2E2E2E] hover:border-[#FFFFFF]/40 px-3 py-1.5 rounded-lg text-xs text-gray-300 hover:text-white transition">
-              {speaking ? <IconSpeakerOff /> : <IconSpeaker />} {speaking ? 'Stop' : 'Read aloud'}
-            </button>
+            <div className="flex items-center bg-[#000000] border border-[#2E2E2E] px-3 py-1.5 rounded-lg">
+              <SpeakButton text={ttsClean(data.briefing)} label="Read aloud" />
+            </div>
             <button onClick={exportPDF} className="flex items-center gap-1.5 bg-emerald-950/40 hover:bg-emerald-950/60 border border-emerald-800/40 px-3 py-1.5 rounded-lg text-xs font-medium text-emerald-400 transition">
               <IconDownload className="w-3 h-3" /> Export PDF
             </button>
@@ -286,7 +286,7 @@ export default function Briefing() {
               </span>
             </div>
             <div>{renderMarkdown(data.briefing)}</div>
-            <TranslateToggle text={ttsClean(data.briefing)} className="mt-4 pt-3 border-t border-base-border" />
+            <SpeakButton text={ttsClean(data.briefing)} label="Listen to briefing (Catalyst Zia)" className="mt-4 pt-3 border-t border-base-border block" />
           </div>
 
           {/* Fact panel — same source data the narrative was grounded in */}
