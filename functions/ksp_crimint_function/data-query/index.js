@@ -140,11 +140,11 @@ function httpsPostBinary(hostname, path, headers, payload, ms = 45000) {
 // any third-party translation path and covers the Indian languages KSP needs.
 const ZIA_LANGS = new Set(['en','hi','kn','ta','te','ml','mr','bn','gu','pa','or']);
 
-// The translation endpoint validates input against a character pattern and
-// rejects % ( ) [ ] { } | * # + = with PATTERN_NOT_MATCHED. Briefings are full
-// of "94%", "(ACC-80)" and "z = 2.4", so those characters are rewritten into
-// words that carry the same meaning instead of being silently dropped.
-function translatableText(text) {
+// The Zia NLP endpoints (translate AND tts) validate input against a character
+// pattern and reject % ( ) [ ] { } | * # + = with PATTERN_NOT_MATCHED. Police
+// text is full of "94%", "(ACC-80)" and "z = 2.4", so those characters are
+// rewritten into words that carry the same meaning rather than dropped.
+function ziaSafeText(text) {
   return String(text || '')
     .replace(/%/g, ' percent')
     .replace(/[()\[\]{}]/g, ' ')
@@ -166,7 +166,7 @@ async function ziaTranslate(text, srcLang, tgtLang) {
       'Authorization': `Zoho-oauthtoken ${token}`,
       'CATALYST-ORG': QML_ORG,
     },
-    { text: translatableText(text), src_lang: srcLang, tgt_lang: tgtLang });
+    { text: ziaSafeText(text), src_lang: srcLang, tgt_lang: tgtLang });
 }
 
 async function quickmlPredict(endpointKey, data) {
@@ -831,7 +831,10 @@ module.exports = async (context, basicIO) => {
         .slice(0, 900);
       if (!text) return basicIO.response.status(400).json({ error: 'text required' });
 
-      const lang = body.language || (isKannada(text) ? 'kn' : isDevanagari(text) ? 'hi' : 'en');
+      // Same character rules apply here as to translation.
+      const safe = ziaSafeText(text);
+      if (!safe) return basicIO.response.status(400).json({ error: 'text required' });
+      const lang = body.language || (isKannada(safe) ? 'kn' : isDevanagari(safe) ? 'hi' : 'en');
       const gender = body.gender === 'male' ? 'male' : 'female';
       const speaker = body.speaker || (TTS_VOICES[lang] || TTS_VOICES.en)[gender];
       try {
@@ -843,20 +846,39 @@ module.exports = async (context, basicIO) => {
             'Authorization': `Zoho-oauthtoken ${token}`,
             'CATALYST-ORG': QML_ORG,
           },
-          { text, language: lang, speaker,
+          { text: safe, language: lang, speaker,
             pitch: body.pitch || 'moderate',
             speed: body.speed || 'moderate',
             emotion: body.emotion || 'neutral' });
 
-        const ctype = String(r.headers['content-type'] || '');
-        if (r.status !== 200 || !ctype.includes('audio')) {
-          const msg = r.buffer.toString('utf8').slice(0, 200);
-          throw new Error(`tts ${r.status}: ${msg}`);
+        let rr = r;
+        // The synthesis service intermittently returns 502 on a cold start;
+        // one retry turns a visible failure into a slightly slower success.
+        if (rr.status >= 500) {
+          console.warn('TTS_RETRY after', rr.status);
+          await new Promise(res => setTimeout(res, 1200));
+          rr = await httpsPostBinary('api.catalyst.zoho.in',
+            '/quickml/api/v1/models/zia/tts/synthesize',
+            {
+              'Content-Type': 'application/json',
+              'Authorization': `Zoho-oauthtoken ${token}`,
+              'CATALYST-ORG': QML_ORG,
+            },
+            { text: safe, language: lang, speaker,
+              pitch: body.pitch || 'moderate',
+              speed: body.speed || 'moderate',
+              emotion: body.emotion || 'neutral' });
         }
+        const ctype = String(rr.headers['content-type'] || '');
+        if (rr.status !== 200 || !ctype.includes('audio')) {
+          const msg = rr.buffer.toString('utf8').replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim().slice(0, 160);
+          throw new Error(`tts ${rr.status}: ${msg}`);
+        }
+        const r2 = rr;
         let info = null;
-        try { info = JSON.parse(r.headers['x-audio-info'] || 'null'); } catch (_) {}
+        try { info = JSON.parse(r2.headers['x-audio-info'] || 'null'); } catch (_) {}
         return basicIO.response.status(200).json({
-          audio: r.buffer.toString('base64'),
+          audio: r2.buffer.toString('base64'),
           mime: 'audio/wav',
           language: lang, speaker, info,
         });

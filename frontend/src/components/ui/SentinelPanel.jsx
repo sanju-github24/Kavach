@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { sentinelScan } from '../../api.js'
 import { IconAlert, IconCheck, IconBolt } from './Icons'
+import SpeakButton from './SpeakButton'
 
 // KAVACH Sentinel — the platform's 24/7 watch. The same alert engine that
 // powers Early Warning is re-run on a Catalyst Cron schedule and delivered as
@@ -74,6 +75,15 @@ export default function SentinelPanel() {
             )
           })}
         </div>
+      )}
+
+      {res?.alerts?.length > 0 && (
+        <SpeakButton
+          label="Listen to digest"
+          className="mb-3 inline-flex"
+          text={`Sentinel digest. ${res.priorityCount} priority alerts. ` +
+                res.alerts.slice(0, 5).map(a => `${a.type}. ${a.msg}`).join(' ')}
+        />
       )}
 
       <div className="flex gap-2 flex-wrap items-center">

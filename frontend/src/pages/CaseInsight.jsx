@@ -3,6 +3,7 @@ import { dataQuery, getAccusedPhotosBulk } from '../api.js'
 import AccusedAvatar from '../components/ui/AccusedAvatar'
 import ZiaTextPanel from '../components/ui/ZiaTextPanel'
 import { PageHeader } from '../components/ui/Panel'
+import SpeakButton from '../components/ui/SpeakButton'
 
 // Investigator decision support: look up a case, see its full investigation
 // timeline (FIR → arrests → chargesheet) and the most similar past cases,
@@ -151,6 +152,13 @@ export default function CaseInsight() {
               )}
             </div>
           </div>
+
+          <SpeakButton
+            className="inline-flex"
+            label="Listen to case summary"
+            text={`Case ${c.fir_number}. ${c.crime} at ${c.station}, ${c.district}. Status ${c.status}. ` +
+                  `Modus operandi: ${c.mo || 'not recorded'}.`}
+          />
 
           {/* Zia Text Intelligence — NER / keywords / tone on the narrative */}
           <ZiaTextPanel narrative={c.narrative || c.mo} />

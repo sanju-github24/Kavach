@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useSpotlight } from '../../contexts/SpotlightContext'
+import SpeakButton from './SpeakButton'
 
 // KAVACH Spotlight — a proactive, hard-to-miss notification. The moment the
 // officer lands on a page, KAVACH drops a prominent card DOWN from the top-
@@ -61,6 +62,7 @@ export default function Spotlight({ module }) {
               </div>
               <p className="text-white text-base font-bold leading-snug">{ins.title}</p>
               <p className="text-gray-400 text-[12.5px] leading-relaxed mt-1.5">{ins.detail}</p>
+              <SpeakButton text={`${ins.title}. ${ins.detail}`} label="Listen" className="mt-2.5 inline-flex" />
               <button onClick={() => { dismiss(ins); setOpen(false) }}
                 className="absolute top-4 right-4 w-6 h-6 rounded-lg flex items-center justify-center text-gray-600 hover:text-white hover:bg-white/5 transition text-sm" title="Dismiss">✕</button>
             </div>
