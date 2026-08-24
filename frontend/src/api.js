@@ -279,6 +279,13 @@ export async function sentinelScan({ notify = false, to = '' } = {}) {
   return request(API.DATA_QUERY, { method: 'POST', body: JSON.stringify({ action: 'sentinel_scan', notify, to }) }, { useCache: false })
 }
 
+// ── Catalyst Zia translation ─────────────────────────────────────────────────
+// Kannada (and 9 other Indian languages) served natively by Catalyst, so the
+// platform needs no third-party translation service.
+export async function translateText(text, src = 'en', tgt = 'kn') {
+  return request(API.DATA_QUERY, { method: 'POST', body: JSON.stringify({ action: 'translate', text, src, tgt }) }, { useCache: false })
+}
+
 // ── Convenience wrappers used by pages ────────────────────────────────────────
 export const fetchAnalytics = () => dataQuery('analytics')
 export const fetchNetwork   = () => dataQuery('networks')

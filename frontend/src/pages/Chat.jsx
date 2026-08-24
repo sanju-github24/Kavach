@@ -7,6 +7,7 @@ import InlineStatChart from '../components/ui/InlineStatChart';
 import InlineNetworkGraph from '../components/ui/InlineNetworkGraph';
 import InlineTable from '../components/ui/InlineTable';
 import ZiaTextPanel from '../components/ui/ZiaTextPanel';
+import TranslateToggle from '../components/ui/TranslateToggle';
 import { listChatSessions, getChatSessionMessages, deleteChatSession } from '../api.js';
 
 // Which intents get an inline visual confirmation alongside the text, and
@@ -450,6 +451,7 @@ function AIMessage({ m, onSend, onSpeak, speaking, animate, onType, onDone }) {
               {NETWORK_INTENTS.has(m.intent) && <InlineNetworkGraph text={m.text} />}
               <SuggestionChips suggestions={m.suggestions} onSend={onSend} />
               <ActionButton action={m.action} onSend={onSend} />
+              <TranslateToggle text={m.text} className="mt-2.5" />
             </>
           )}
         </div>

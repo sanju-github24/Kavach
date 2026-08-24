@@ -5,6 +5,7 @@ import { generateBriefing, fetchAnalytics, listBriefings, getBriefing, deleteBri
 import { useAuth } from '../contexts/AuthContext'
 import { IconSpeaker, IconSpeakerOff, IconTrash, IconTimeline, IconDownload } from '../components/ui/Icons'
 import { PageHeader } from '../components/ui/Panel'
+import TranslateToggle from '../components/ui/TranslateToggle'
 
 // One-click AI Intelligence Briefing: pulls together everything already
 // computed elsewhere (live alerts, anomalies, recurring MO, forecast, top
@@ -285,6 +286,7 @@ export default function Briefing() {
               </span>
             </div>
             <div>{renderMarkdown(data.briefing)}</div>
+            <TranslateToggle text={ttsClean(data.briefing)} className="mt-4 pt-3 border-t border-base-border" />
           </div>
 
           {/* Fact panel — same source data the narrative was grounded in */}

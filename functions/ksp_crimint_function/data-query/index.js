@@ -104,6 +104,39 @@ async function qmlToken() {
   return _qmlTok;
 }
 
+// Catalyst-native translation (Zia NLP model served through QuickML). Replaces
+// any third-party translation path and covers the Indian languages KSP needs.
+const ZIA_LANGS = new Set(['en','hi','kn','ta','te','ml','mr','bn','gu','pa','or']);
+
+// The translation endpoint validates input against a character pattern and
+// rejects % ( ) [ ] { } | * # + = with PATTERN_NOT_MATCHED. Briefings are full
+// of "94%", "(ACC-80)" and "z = 2.4", so those characters are rewritten into
+// words that carry the same meaning instead of being silently dropped.
+function translatableText(text) {
+  return String(text || '')
+    .replace(/%/g, ' percent')
+    .replace(/[()\[\]{}]/g, ' ')
+    .replace(/\|/g, ', ')
+    .replace(/\*/g, ' ')
+    .replace(/#/g, 'No. ')
+    .replace(/\+/g, ' plus ')
+    .replace(/=/g, ' is ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+async function ziaTranslate(text, srcLang, tgtLang) {
+  const token = await qmlToken();
+  return httpsPostJson('api.catalyst.zoho.in',
+    '/quickml/api/v1/models/zia/translate',
+    {
+      'Content-Type': 'application/json',
+      'Authorization': `Zoho-oauthtoken ${token}`,
+      'CATALYST-ORG': QML_ORG,
+    },
+    { text: translatableText(text), src_lang: srcLang, tgt_lang: tgtLang });
+}
+
 async function quickmlPredict(endpointKey, data) {
   const token = await qmlToken();
   return httpsPostJson('api.catalyst.zoho.in',
@@ -718,6 +751,38 @@ module.exports = async (context, basicIO) => {
     // to be trained in the Zia console and its id set in ZIA_AUTOML_MODEL_ID;
     // returns { error:'model_not_configured' } until then so the UI can show a
     // setup hint and fall back to the heuristic score.
+    // ── TRANSLATE — Catalyst Zia translation, used to render answers and
+    // briefings in Kannada without any third-party service.
+    if (action === 'translate') {
+      const text = String(body.text || '').trim();
+      const src  = String(body.src || 'en').toLowerCase();
+      const tgt  = String(body.tgt || 'kn').toLowerCase();
+      if (!text) return basicIO.response.status(400).json({ error: 'text required' });
+      if (!ZIA_LANGS.has(src) || !ZIA_LANGS.has(tgt)) {
+        return basicIO.response.status(400).json({ error: 'unsupported_language' });
+      }
+      if (src === tgt) return basicIO.response.status(200).json({ translated: text, src, tgt, unchanged: true });
+      try {
+        // The model handles a paragraph comfortably; long briefings are split
+        // so no single request is truncated, then rejoined in order.
+        const CHUNK = 1800;
+        const parts = [];
+        for (let i = 0; i < text.length; i += CHUNK) parts.push(text.slice(i, i + CHUNK));
+        const out = [];
+        for (const part of parts) {
+          const r = await ziaTranslate(part, src, tgt);
+          if (r?.status !== 'success' || !r?.translated_text) {
+            throw new Error(r?.message || r?.code || 'translation failed');
+          }
+          out.push(r.translated_text);
+        }
+        return basicIO.response.status(200).json({ translated: out.join(' '), src, tgt, chunks: parts.length });
+      } catch (e) {
+        console.error('TRANSLATE_ERR:', e.message);
+        return basicIO.response.status(200).json({ error: 'translate_unavailable', detail: e.message });
+      }
+    }
+
     if (action === 'predict_risk') {
       // Risk prediction is served by a QuickML pipeline (Datasets -> Pipeline ->
       // Model -> Endpoint), which is a different API from the older Zia AutoML
