@@ -32,17 +32,36 @@ export default function ZiaRiskPredict({ p }) {
     return () => { alive = false }
   }, [p.accused_id])
 
+  // QuickML returns { label, confidence, explanation:{ data:[[feature,value,contribution],…] } }.
+  // The older Zia AutoML shape (classification_result) is still handled so the
+  // panel keeps working if the project is pointed back at that model.
+  const label      = state.data?.label ?? null
+  const confidence = state.data?.confidence ?? null
   const classResult = state.data?.classification_result || null
-  const regression = state.data?.regression_result
-  const rawRanked = classResult
-    ? Object.entries(classResult).sort((a, b) => b[1] - a[1])
-    : []
-  // Zia AutoML returns confidences as percentages (0–100), but some models
-  // return 0–1 probabilities — normalise to a 0–100 % for display either way.
+  const regression  = state.data?.regression_result
+  const rawRanked = classResult ? Object.entries(classResult).sort((a, b) => b[1] - a[1]) : []
   const isPercent = rawRanked.length ? Math.max(...rawRanked.map(([, v]) => v)) > 1 : false
   const pct = (v) => Math.round(isPercent ? v : v * 100)
   const ranked = rawRanked.map(([cls, v]) => [cls, pct(v)])
   const top = ranked[0]
+
+  // Feature attribution: which inputs actually drove this prediction.
+  const contributions = (() => {
+    const rows = state.data?.explanation?.data
+    if (!Array.isArray(rows)) return []
+    const cleaned = rows
+      .map(r => ({ feature: String(r?.[0] ?? ''), contribution: Number(r?.[2] ?? 0) }))
+      .filter(r => r.feature && Number.isFinite(r.contribution) && r.contribution > 0.001)
+      .sort((a, b) => b.contribution - a.contribution)
+    const total = cleaned.reduce((s, r) => s + r.contribution, 0) || 1
+    return cleaned.slice(0, 5).map(r => ({ ...r, share: Math.round((r.contribution / total) * 100) }))
+  })()
+
+  const PRETTY = {
+    primary_crime: 'Primary crime', is_repeat_offender: 'Repeat offender',
+    repeat_case_count: 'Repeat case count', age: 'Age', gender: 'Gender', district: 'District',
+  }
+  const prettyFeature = (f) => PRETTY[f] || f.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase())
 
   return (
     <div className="bg-[#0A0A0A] border border-[#2E2E2E] rounded-xl p-5" style={{ borderLeft: '3px solid #A78BFA' }}>
@@ -96,7 +115,42 @@ export default function ZiaRiskPredict({ p }) {
           {regression != null && !ranked.length && (
             <p className="text-white text-lg font-bold">Predicted risk: {Math.round(regression)}<span className="text-gray-500 text-sm">/100</span></p>
           )}
-          <p className="text-gray-600 text-[10px] pt-1">Heuristic score: {p.risk_score}/100 · AutoML prediction is independent and model-driven.</p>
+
+          {/* QuickML classification + why the model said it */}
+          {label && !ranked.length && (
+            <>
+              <div className="flex items-baseline gap-2.5">
+                <span className="text-2xl font-black" style={{ color: CLASS_COLOR[label] || '#A78BFA' }}>{label}</span>
+                <span className="text-[10px] text-gray-500 uppercase tracking-widest">predicted risk class</span>
+                {confidence != null && (
+                  <span className="ml-auto text-[11px] tabular-nums text-gray-400">{Math.round(confidence)}% confidence</span>
+                )}
+              </div>
+
+              {contributions.length > 0 && (
+                <div className="pt-1">
+                  <p className="text-[9px] text-gray-500 uppercase tracking-widest mb-2">Why the model said this</p>
+                  <div className="space-y-2">
+                    {contributions.map(c => (
+                      <div key={c.feature}>
+                        <div className="flex justify-between text-[10px] mb-1">
+                          <span className="text-gray-400">{prettyFeature(c.feature)}</span>
+                          <span className="tabular-nums text-gray-400">{c.share}%</span>
+                        </div>
+                        <div className="w-full bg-[#000000] h-1.5 rounded-full overflow-hidden">
+                          <div className="h-full rounded-full transition-all duration-700"
+                            style={{ width: `${c.share}%`, background: '#A78BFA' }} />
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                  <p className="text-gray-600 text-[9px] mt-2">Feature attribution from the deployed QuickML pipeline.</p>
+                </div>
+              )}
+            </>
+          )}
+
+          <p className="text-gray-600 text-[10px] pt-1">Heuristic score: {p.risk_score}/100 · the ML prediction is independent and model-driven.</p>
         </div>
       )}
     </div>

@@ -60,6 +60,65 @@ function fallback(action) {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
+// QUICKML PREDICTION
+// The deployed risk pipeline is reached over REST rather than through the SDK,
+// which does not send the CATALYST-ORG / Environment headers the endpoint
+// requires. Token flow mirrors the QuickML RAG calls in chat-query.
+// ─────────────────────────────────────────────────────────────────────────────
+const QML_PROJECT_ID = '47756000000013047';
+const QML_ORG        = '60073493322';
+let _qmlTok = null, _qmlExp = 0;
+
+function httpsPostJson(hostname, path, headers, payload, ms = 15000) {
+  const https = require('https');
+  return new Promise((resolve, reject) => {
+    const body = typeof payload === 'string' ? payload : JSON.stringify(payload);
+    const req = https.request({ hostname, path, method: 'POST',
+      headers: { ...headers, 'Content-Length': Buffer.byteLength(body) } }, res => {
+      let data = '';
+      res.on('data', c => { data += c; });
+      res.on('end', () => {
+        try { resolve(JSON.parse(data)); }
+        catch { resolve({ _raw: data, _status: res.statusCode }); }
+      });
+    });
+    req.on('error', reject);
+    req.setTimeout(ms, () => { req.destroy(new Error('quickml timeout')); });
+    req.write(body); req.end();
+  });
+}
+
+async function qmlToken() {
+  if (_qmlTok && Date.now() < _qmlExp - 60000) return _qmlTok;
+  const p = new URLSearchParams({
+    grant_type: 'client_credentials',
+    client_id: process.env.ZOHO_CLIENT_ID,
+    client_secret: process.env.ZOHO_CLIENT_SECRET,
+    scope: 'QuickML.deployment.READ',
+  });
+  const r = await httpsPostJson('accounts.zoho.in', '/oauth/v2/token',
+    { 'Content-Type': 'application/x-www-form-urlencoded' }, p.toString());
+  if (!r.access_token) throw new Error('QuickML token failed: ' + JSON.stringify(r).slice(0, 200));
+  _qmlTok = r.access_token;
+  _qmlExp = Date.now() + ((r.expires_in || 3600) * 1000);
+  return _qmlTok;
+}
+
+async function quickmlPredict(endpointKey, data) {
+  const token = await qmlToken();
+  return httpsPostJson('api.catalyst.zoho.in',
+    `/quickml/v1/project/${QML_PROJECT_ID}/endpoints/predict?explainModel=true`,
+    {
+      'Content-Type': 'application/json',
+      'Authorization': `Zoho-oauthtoken ${token}`,
+      'X-QUICKML-ENDPOINT-KEY': endpointKey,
+      'CATALYST-ORG': QML_ORG,
+      'Environment': 'Development',
+    },
+    { data });
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
 // MAIN HANDLER
 // ─────────────────────────────────────────────────────────────────────────────
 module.exports = async (context, basicIO) => {
@@ -660,33 +719,45 @@ module.exports = async (context, basicIO) => {
     // returns { error:'model_not_configured' } until then so the UI can show a
     // setup hint and fall back to the heuristic score.
     if (action === 'predict_risk') {
-      const MODEL_ID = process.env.ZIA_AUTOML_MODEL_ID;
-      if (!MODEL_ID) return basicIO.response.status(200).json({ error: 'model_not_configured' });
+      // Risk prediction is served by a QuickML pipeline (Datasets -> Pipeline ->
+      // Model -> Endpoint), which is a different API from the older Zia AutoML
+      // model route: it is called with the endpoint KEY, not a model id.
+      const ENDPOINT_KEY = process.env.QUICKML_ENDPOINT_KEY;
+      if (!ENDPOINT_KEY) return basicIO.response.status(200).json({ error: 'model_not_configured' });
       const f = body.features || {};
+      // The pipeline was trained on these six columns; numerics stay numeric so
+      // the model sees the same types it was trained on.
       const features = {
-        age: String(f.age ?? ''),
-        gender: String(f.gender ?? 'Other'),
-        district: String(f.district ?? 'Unknown'),
-        primary_crime: String(f.primary_crime ?? 'Unknown'),
-        repeat_case_count: String(f.repeat_case_count ?? 1),
-        is_repeat_offender: String(f.is_repeat_offender ?? 0),
+        age:                Number(f.age) || 0,
+        gender:             String(f.gender ?? 'Other'),
+        district:           String(f.district ?? 'Unknown'),
+        primary_crime:      String(f.primary_crime ?? 'Unknown'),
+        repeat_case_count:  Number(f.repeat_case_count) || 1,
+        is_repeat_offender: Number(f.is_repeat_offender) || 0,
       };
       try {
-        // AutoML is an admin-credentialed Zia endpoint (same as OCR / face
-        // comparison), so the user-scoped client is rejected here.
-        const result = await adminApp().zia().automl(MODEL_ID, features);
-        return basicIO.response.status(200).json({ prediction: result });
+        // The SDK's quickML().predict() omits the CATALYST-ORG / Environment
+        // headers this endpoint requires (ORGID_HEADER_UNAVAILABLE), so call
+        // the REST endpoint directly using the same OAuth flow the RAG calls
+        // already use elsewhere in this project.
+        const res = await quickmlPredict(ENDPOINT_KEY, features);
+        // { result: ["High"], likelihood_score: [0.98], explanation: "..." }
+        const label = Array.isArray(res?.result) ? res.result[0] : (res?.result ?? null);
+        const score = Array.isArray(res?.likelihood_score) ? res.likelihood_score[0] : (res?.likelihood_score ?? null);
+        return basicIO.response.status(200).json({
+          prediction: {
+            label,
+            confidence: score == null ? null : (Number(score) > 1 ? Number(score) : Number(score) * 100),
+            explanation: res?.explanation ?? null,
+          },
+          raw: res,
+        });
       } catch (e) {
-        console.error('AUTOML_PREDICT_ERR:', e.message);
+        console.error('QUICKML_PREDICT_ERR:', e.message);
         return basicIO.response.status(200).json({ error: 'automl_unavailable', detail: e.message });
       }
     }
 
-    // ── TEXT ANALYSIS — Catalyst Zia Text Analytics on crime narratives
-    // (the free-text BriefFacts written by the investigating officer). Zia
-    // returns extracted keywords/phrases, named entities (people, places,
-    // orgs, dates, amounts), and the overall tone — turning unstructured
-    // narrative into structured intelligence for pattern/behavioural analysis.
     if (action === 'text_analysis') {
       const docs = (Array.isArray(body.documents) ? body.documents : [])
         .map(d => String(d || '').trim()).filter(Boolean).slice(0, 20);
