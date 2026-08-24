@@ -1,4 +1,5 @@
 import { useState, useRef } from 'react'
+import { createPortal } from 'react-dom'
 import { useAuth } from '../../contexts/AuthContext'
 import { setAccusedPhoto, deleteAccusedPhoto } from '../../api.js'
 
@@ -73,8 +74,13 @@ export default function PhotoUploadModal({ accusedId, name, currentPhoto, onClos
     setBusy(false)
   }
 
-  return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4" onClick={onClose}>
+  // Rendered through a portal to <body>. The cards this modal is launched from
+  // carry `animate-fade-up`, whose `both` fill-mode leaves a transform on the
+  // element after the animation ends — and a transformed ancestor becomes the
+  // containing block for `position: fixed`, which would trap this overlay
+  // inside the card instead of covering the viewport.
+  return createPortal(
+    <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/70 p-4 backdrop-blur-sm" onClick={onClose}>
       <div className="bg-[#0A0A0A] border border-[#2E2E2E] rounded-2xl p-6 w-full max-w-sm font-mono" onClick={e => e.stopPropagation()}>
         <p className="text-[10px] text-gray-500 uppercase tracking-widest mb-1">Update Photo</p>
         <h3 className="text-white font-bold text-sm mb-4">{name} <span className="text-gray-600 font-normal text-xs">({accusedId})</span></h3>
@@ -114,5 +120,5 @@ export default function PhotoUploadModal({ accusedId, name, currentPhoto, onClos
         </p>
       </div>
     </div>
-  )
+  , document.body)
 }

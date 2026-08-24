@@ -672,11 +672,13 @@ module.exports = async (context, basicIO) => {
         is_repeat_offender: String(f.is_repeat_offender ?? 0),
       };
       try {
-        const result = await app.zia().automl(MODEL_ID, features);
+        // AutoML is an admin-credentialed Zia endpoint (same as OCR / face
+        // comparison), so the user-scoped client is rejected here.
+        const result = await adminApp().zia().automl(MODEL_ID, features);
         return basicIO.response.status(200).json({ prediction: result });
       } catch (e) {
         console.error('AUTOML_PREDICT_ERR:', e.message);
-        return basicIO.response.status(200).json({ error: 'automl_unavailable' });
+        return basicIO.response.status(200).json({ error: 'automl_unavailable', detail: e.message });
       }
     }
 
